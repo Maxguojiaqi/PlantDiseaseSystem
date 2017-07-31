@@ -1,0 +1,146 @@
+
+
+<head>
+<link rel="icon" href = "../../data/1492526805_Flag_of_Canada.png">
+<meta charset="UTF-8">
+<title>Plant Diease Model</title>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+
+<!-- Openlayers Map Structure CDN -->
+<link rel="stylesheet" href="https://openlayers.org/en/v3.9.0/css/ol.css" type="text/css">
+<script src="../lib/ol/v3.19.1-dist/ol.js" type="text/javascript"></script>
+
+<!-- jQuery + sidebar CDN -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/css/simple-sidebar.css" rel="stylesheet"/>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Responsive Latest compiled and minified CSS CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Bootstrap Responsive Latest compiled and minified JavaScript CDN-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<!-- Semantics UI -->
+<script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../css/Semantic-UI-CSS-master/semantic.css" type="text/css">
+
+<!-- Plant Disease CSS -->
+<link rel="stylesheet" href="../css/plant-disease.css" type="text/css">
+</head>
+
+<body>
+
+<!-- <div class="container-fluid"> -->
+    
+    <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+    </div>
+
+
+    <div class="map pusher">
+<!--       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+      <p></p> -->   
+            <div id="map" class="map"></div>
+    </div>
+<!-- </div> -->
+
+</body>
+    
+<script>
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("map").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("map").style.marginLeft= "0";
+        }
+
+
+
+
+        /****************************  Define Map Layers and Map  *****************************/
+        console.log("5");
+       var view = new ol.View({
+          //change projection to geoserver's projection
+          projection: "EPSG:4326",
+          center: [-98.5284468774974,52.71391708013823],
+                zoom: 7
+        });
+        // creating a openlayer base map
+        var osm_map = new ol.layer.Tile({
+          source: new ol.source.OSM()
+        });
+        // creating a map layer from own server
+        var vector_source = new ol.source.Vector({
+              url: 'http://ulysses.gis.agr.gc.ca/geoserver/manitoba/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=manitoba:GeoBase_MUNI_MB_1_0_eng&maxFeatures=5000&outputFormat=application%2Fjson',
+              format: new ol.format.GeoJSON()
+          });
+
+        var vector_map = new ol.layer.Vector({
+          source: vector_source
+
+        });
+
+        var map = new ol.Map({
+
+        layers: [osm_map, vector_map],
+        target: 'map',
+        view: view
+        });
+
+
+
+        var button = document.createElement('button');
+        button.innerHTML = "⌨";
+
+        var handleRotateNorth = function(e) {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("map").style.marginLeft = "250px";
+        };
+
+        button.addEventListener('click', handleRotateNorth, false);
+
+        var element = document.createElement('div');
+        element.className = 'rotate-north ol-unselectable ol-control';
+        element.appendChild(button);
+
+        var RotateNorthControl = new ol.control.Control({
+            element: element
+        });
+        map.addControl(RotateNorthControl);
+
+       // select region from JSON vector data            
+        
+        var coords;
+        var select = new ol.interaction.Select();
+            map.addInteraction(select);
+
+        // var selectedFeature = select.getFeatures();
+        selectclick = select;
+        selectclick.on('select', function(e)
+        { 
+          if (e!== null)
+          {
+          console.log(e),
+          coords = e.selected[0].c.target.s;
+          console.log(coords);
+          }
+        });
+
+
+
+
+
+
+    </script>
