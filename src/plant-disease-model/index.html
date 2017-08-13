@@ -7,9 +7,9 @@
     <title>Plant Diease Model</title>
     
     <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
+    <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -393,6 +393,17 @@
         });
        // select region from JSON vector data            
         
+
+        console.log(vector_map);        
+        var testfeatures = vector_map.getSource().getFeatures();
+        console.log(testfeatures);
+
+        // var coordFeatures = testfeatures.getCoordinates();
+        // console.log(coordFeatures);
+
+
+
+
         var coords;
         var select = new ol.interaction.Select();
             map.addInteraction(select);
@@ -403,15 +414,14 @@
         { 
           if (e!== null)
           {
-          console.log(e),
-          coords = e.selected[0].c.target.s;
-          console.log(coords);
+          console.log(e);
+          console.log(e.selected[0].f.target.l);
           }
         });
 
         
 /****************************  Download data locally     *****************************/
-        console.log(coords);
+        // console.log(coords);
         $("#AoiData").click(function()
           {
           $.post("../lib/php/riskDownload.php", 
