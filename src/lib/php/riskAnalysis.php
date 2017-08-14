@@ -44,11 +44,11 @@ function runPython()
 
     // echo $temp;
     $result = shell_exec('python3 ../py/riskcalc.py ' ."'".$temp."'");
-    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../php/temp/data-download.tif -B ../php/temp/cropping_history.tif --outfile=../php/temp/riskmap1.tif --calc="A+B"');
-    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../php/temp/CropDensity.tif  -B ../php/temp/riskmap1.tif --outfile=../php/temp/riskmap.tif --calc="A+B"');
+    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../../../data/data-download.tif -B ../../../data/cropping_history.tif --outfile=../../../data/riskmap1.tif --calc="A+B"');
+    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../../../data/CropDensity.tif  -B ../../../data/riskmap1.tif --outfile=../../../data/riskmap.tif --calc="A+B"');
     FB::info($result);
     $riskmap_save = "../php/temp/riskmap.tif";
-    $riskmap_path = "../lib/php/temp/riskmap.tif";
+    $riskmap_path = "../../data/riskmap.tif";
     return ($riskmap_path);
 }
 

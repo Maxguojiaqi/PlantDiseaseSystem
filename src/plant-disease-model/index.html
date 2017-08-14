@@ -5,14 +5,14 @@
     <link rel="icon" href = "../../data/1492526805_Flag_of_Canada.png">
     <meta charset="UTF-8">
     <title>Plant Diease Model</title>
-    
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
     <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <script src="https://openlayers.org/en/v4.0.1/build/ol.js" type="text/javascript"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,7 +21,6 @@
 
     <!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script> -->
     <script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="../lib/ol/v3.19.1-dist/ol.css" type="text/css">
     <link rel="stylesheet" href="../css/Semantic-UI-CSS-master/semantic.css" type="text/css">
     <link rel="stylesheet" href="../css/plant-disease.css" type="text/css">
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.3/proj4.js" type="text/javascript"></script> -->
@@ -383,6 +382,14 @@
 
         });
 
+            // Get the array of features
+        var features = vector_map.getSource().getFeatures();
+
+        // Go through this array and get coordinates of their geometry.
+        features.forEach(function(feature) {
+           console.log(feature.getGeometry().getCoordinates());
+        });
+
         
         var map = new ol.Map({
 
@@ -393,17 +400,6 @@
         });
        // select region from JSON vector data            
         
-
-        console.log(vector_map);        
-        var testfeatures = vector_map.getSource().getFeatures();
-        console.log(testfeatures);
-
-        // var coordFeatures = testfeatures.getCoordinates();
-        // console.log(coordFeatures);
-
-
-
-
         var coords;
         var select = new ol.interaction.Select();
             map.addInteraction(select);
@@ -412,18 +408,20 @@
         selectclick = select;
         selectclick.on('select', function(e)
         { 
+          console.log(e);
           if (e!== null)
           {
-          console.log(e);
-          console.log(e.selected[0].f.target.l);
+          console.log(e),
+          coords = e.selected[0].f.target.l;
+          console.log(coords);
           }
         });
 
         
 /****************************  Download data locally     *****************************/
-        // console.log(coords);
+        
         $("#AoiData").click(function()
-          {
+          { console.log(coords);
           $.post("../lib/php/riskDownload.php", 
           { 
                minX: String(coords[0]),

@@ -40,7 +40,7 @@ FB::info($maxY);
 
 
 
-$url_cropping_history = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:manitoba_crop_risk&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+$url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=manitoba:crop_risk&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 
 // Setup the headers and post options, then execute curlPOST  &subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')     &subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')
 $ch_soil = curl_init($url_cropping_history);    
@@ -53,10 +53,10 @@ $contentType = curl_getinfo($ch_soil, CURLINFO_CONTENT_TYPE);
 // FB::info($contentType);
 curl_close($ch_soil);
 
-$filesave_cropping_history = "../php/temp/cropping_history.tif";
+$filesave_cropping_history = "../../../data/cropping_history.tif";
 file_put_contents($filesave_cropping_history, $ch_result_cropping_history);
 
-$cropping_path = "http://localhost/soil-apps/src/lib/php/temp/cropping_history.tif";
+$cropping_path = "../../data/cropping_history.tif";
 
 
 // function PostGeoServer_soil($minX,$minY,$maxX,$maxY)
@@ -66,7 +66,7 @@ $cropping_path = "http://localhost/soil-apps/src/lib/php/temp/cropping_history.t
 	
 	// getting WCS data from geoserver usinng url
 	
-$url_soil = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:Canada_soil&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+$url_soil = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=Canada:AWCh2_M_sl5_250m_ll&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 FB::info($url_soil);
 
 
@@ -92,9 +92,9 @@ FB::trace("function worked");
 
 // else
 // {
-$filesave = "../php/temp/data-download.tif";
+$filesave = "../../../data/data-download.tif";
 file_put_contents($filesave, $ch_result_soil);
-$download_path = "http://localhost/soil-apps/src/lib/php/temp/data-download.tif";
+$download_path = "../../data/data-download.tif";
 	// return ($download_path);
 	// }
 
