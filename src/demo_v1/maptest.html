@@ -16,7 +16,7 @@
 <!-- jQuery + sidebar CDN -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<link href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/css/simple-sidebar.css" rel="stylesheet"/>
+<link href="../css/sidebar.css" rel="stylesheet"/>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,27 +41,137 @@
     
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">Background</a>
-          <a href="#">Services</a>
-          <a href="#">CropType</a>
-          <a href="#">Reference</a>
+          <div> </div>
+          <button class="accordion">Canola Risk Assessment</button>
+          <div class="panel">
+    <div style="margin-top:10px;">
+                               
+        <h3>  1.Select an Area of Interest </h3>                    
+        <div class="ui segment">  
+        <span class="title-main"class="ui header">Click submit when finished</span>
+        <div>
+        <br>
+        <button id ="AoiData" class="ui primary basic button">Submit</button>
+        </div> 
+        </div>
+
+
+        <h3>  2.Enter required Information </h3>             
+
+
+    <div class="ui segment">  
+        <div class="ui right labeled input">
+            <input placeholder ="Enter rainfall.." type ="text">
+            <div class="ui basic label">
+                mm
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="ui right labeled input">
+            <input id ="temperature" placeholder ="Enter temperature.." type ="text">
+            <div class="ui basic label">
+                °C
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="ui selection dropdown">
+              <input id="Cropdst" type="hidden">
+              <i class="dropdown icon"></i>
+              <div class="default text">Crop Density </div>
+              <div class="menu">
+                <div class="item" data-value="0">Low</div>
+                <div class="item" data-value="1">Medium</div>
+                <div class="item" data-value="2">High</div>
+              </div>
+        </div>
+        <br>
+        <br>
+        <div class="ui selection dropdown">
+              <input name="RegionRisk" type="hidden">
+              <i class="dropdown icon"></i>
+              <div class="default text">Regional Risk of Apothecial development </div>
+              <div class="menu" id="RegionRisk">
+                <div class="item" data-value="0">Low</div>
+                <div class="item" data-value="1">Medium</div>
+                <div class="item" data-value="2">High</div>
+              </div>
+        </div>  
+        <br>
+        <br>
+
+        <span class="title-main"class="ui header">Click submit when finished</span>
+        <div>
+        <br>
+        <button id ="ProcessData" class="ui primary basic button">Submit</button>
+        </div> 
+
+        </div>
+
+        <div class="ui segment">  
+        <h3>  3.Download Datasets </h3> 
+
+        <div id="tifResponse1"></div>
+        <div id="button1" class=""></div>
+        <br>
+        <div id="tifResponse2"></div>
+        <div id="button2" class=""></div>
+        <br>
+        <div id="tifResponse3"></div>
+        <div id="button3" class=""></div> 
+        <br>
+                
+        </div>
+
+    </div>
+          </div>
+
+          <button class="accordion">Section 2</button>
+          <div class="panel">
+            <p style = "color:white;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+
+          <button class="accordion" >Section 3</button>
+          <div class="panel">
+            <p style = "color:white;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
     </div>
 
 
-    <div class="map pusher">
-<!--       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-      <p></p> -->   
+    <div class="map pusher">  
             <div id="map" class="map"></div>
     </div>
-<!-- </div> -->
 
 </body>
     
 <script>
 
+        $(' .menu .item')
+            .tab();
+        $('.ui.dropdown')
+            .dropdown();
+            
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+        }
+      }
+
         function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("map").style.marginLeft = "250px";
+            document.getElementById("mySidenav").style.width = "350px";
+            document.getElementById("map").style.marginLeft = "350px";
         }
 
         function closeNav() {
@@ -107,15 +217,15 @@
         var button = document.createElement('button');
         button.innerHTML = "⌨";
 
-        var handleRotateNorth = function(e) {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("map").style.marginLeft = "250px";
+        var handleSidebar = function(e) {
+            document.getElementById("mySidenav").style.width = "350px";
+            document.getElementById("map").style.marginLeft = "350px";
         };
 
-        button.addEventListener('click', handleRotateNorth, false);
+        button.addEventListener('click', handleSidebar, false);
 
         var element = document.createElement('div');
-        element.className = 'rotate-north ol-unselectable ol-control';
+        element.className = 'open-sidebar ol-unselectable ol-control';
         element.appendChild(button);
 
         var RotateNorthControl = new ol.control.Control({

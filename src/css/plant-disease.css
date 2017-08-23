@@ -81,7 +81,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: white;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -103,9 +103,10 @@ body {
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    right: 10px;
+    font-size: 25px;
+    margin-left: 20px;
+    color: #003300;
 }
 
 #map {
@@ -119,7 +120,44 @@ body {
 }
 
 
-.rotate-north{
+.open-sidebar{
   top: 70px;
-  left: .5em;
+  left: 0.5em;
 }
+
+button.accordion {
+    color: #000099;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+    background-color: white;
+
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ccffff;
+}
+
+button.accordion:after {
+    content: '\002B';
+    color: black;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2212";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
