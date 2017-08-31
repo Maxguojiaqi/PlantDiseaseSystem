@@ -15,20 +15,26 @@ require('../../lib/fb/fb.php');
 // FB::info(simplexml_load_file("info.xml"));
 
 
-if (empty($_REQUEST["minX"]) || empty($_REQUEST["minY"]) || empty($_REQUEST["maxX"]) || empty($_REQUEST["maxY"]) || !is_numeric($_REQUEST["minX"]) || !is_numeric($_REQUEST["minY"]) || !is_numeric($_REQUEST["maxX"]) || !is_numeric($_REQUEST["maxY"]))
-{
+// if (empty($_REQUEST["minX"]) || empty($_REQUEST["minY"]) || empty($_REQUEST["maxX"]) || empty($_REQUEST["maxY"]) || !is_numeric($_REQUEST["minX"]) || !is_numeric($_REQUEST["minY"]) || !is_numeric($_REQUEST["maxX"]) || !is_numeric($_REQUEST["maxY"]))
+// {
     
-    // Throws error if inputs aren't entered or numeric. 
-    $errMsg = "*Oops, all fields are required and must be WGS84 coordinates.";
+//     // Throws error if inputs aren't entered or numeric. 
+//     $errMsg = "*Oops, all fields are required and must be WGS84 coordinates.";
     
-} else
+// } else
 
-{
+// {
 	$minX = $_REQUEST['minX'];
 	$minY = $_REQUEST['minY'];
 	$maxX = $_REQUEST['maxX'];
-	$maxY = $_REQUEST['maxY'];        
-}
+	$maxY = $_REQUEST['maxY'];   
+	
+	// $minX = "-98.4149594";
+	// $minY = "49.4432939";
+	// $maxX = "-97.7307754";
+	// $maxY = "49.6209537";        
+// }     
+// }
 
 
 
@@ -40,7 +46,7 @@ FB::info($maxY);
 
 
 
-$url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=manitoba:crop_risk&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+$url_cropping_history = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:crophistor_geo&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 
 // Setup the headers and post options, then execute curlPOST  &subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')     &subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')
 $ch_soil = curl_init($url_cropping_history);    
@@ -66,7 +72,7 @@ $cropping_path = "../../data/cropping_history.tif";
 	
 	// getting WCS data from geoserver usinng url
 	
-$url_soil = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=Canada:AWCh2_M_sl5_250m_ll&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+$url_soil = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:rain_geos&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 FB::info($url_soil);
 
 

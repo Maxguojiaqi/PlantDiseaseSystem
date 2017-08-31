@@ -60,24 +60,19 @@
 
 
     <div class="ui segment">  
-        <div class="ui right labeled input">
-            <input placeholder ="Enter rainfall.." type ="text">
-            <div class="ui basic label">
-                mm
-            </div>
+
+        <div class="ui selection dropdown">
+              <input id="HistoryDisease" type="hidden">
+              <i class="dropdown icon"></i>
+              <div class="default text">History of Disease in Field</div>
+              <div class="menu">
+                <div class="item" data-value="0">Low(1-10%)</div>
+                <div class="item" data-value="1">Medium(11-30%)</div>
+                <div class="item" data-value="2">High(31-100%)</div>
+              </div>
         </div>
         <br>
         <br>
-
-        <div class="ui right labeled input">
-            <input id ="temperature" placeholder ="Enter temperature.." type ="text">
-            <div class="ui basic label">
-                °C
-            </div>
-        </div>
-        <br>
-        <br>
-
         <div class="ui selection dropdown">
               <input id="Cropdst" type="hidden">
               <i class="dropdown icon"></i>
@@ -95,9 +90,9 @@
               <i class="dropdown icon"></i>
               <div class="default text">Regional Risk of Apothecial development </div>
               <div class="menu" id="RegionRisk">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
+                <div class="item" data-value="0">none</div>
+                <div class="item" data-value="1">Low numbers</div>
+                <div class="item" data-value="2">High numbers</div>
               </div>
         </div>  
         <br>
@@ -239,7 +234,8 @@
         var select = new ol.interaction.Select();
             map.addInteraction(select);
 
-        // var selectedFeature = select.getFeatures();
+        // var selectedFeature = select.getFeatures();           
+
         selectclick = select;
         selectclick.on('select', function(e)
         { 
@@ -252,6 +248,76 @@
         });
 
 
+       // select region from JSON vector data            
+        
+        var coords;
+        var select = new ol.interaction.Select();
+            map.addInteraction(select);
+
+        // var selectedFeature = select.getFeatures();
+        selectclick = select;
+        selectclick.on('select', function(e)
+        { 
+          console.log(e);
+          if (e!== null)
+          {
+          console.log(e),
+          coords = e.selected[0].f.target.l;
+          console.log(coords);
+          }
+        });
+
+        
+/****************************  Download data locally     *****************************/
+        // console.log(coords);
+        $("#AoiData").click(function()
+          {
+          $.post("../lib/php/riskDownload.php", 
+          { 
+               minX: String(coords[0]),
+               minY: String(coords[1]),
+               maxX: String(coords[2]),
+               maxY: String(coords[3]),
+          })
+          .done(function(data, status)
+          {
+              $("#status").html("done");
+              data = jQuery.parseJSON(data);
+              console.log(data);
+//&& data[1]
+              if (data[0]&&data[1])
+              { console.log(data[0]);
+                $("#tifResponse1").html('<a href="' + data[0] + '" class="button" download=>Download Soil Data</a>').appendTo('#button1');
+                $("#tifResponse2").html('<a href="' + data[1] + '" class="button" download=>Download Cropping History Data</a>').appendTo('#button2');
+              }
+          })
+          });
+      // changeInteraction();
+/****************************  Process data using model     *****************************/
+        $("#ProcessData").click(function()
+          {
+          // var floweringDate = document.getElementById("floweringDate").value;
+          // console.log(floweringDate);
+        var CropDensity = document.getElementById("Cropdst").value;
+        var DiseaseHistory = document.getElementById("DiseaseHistory").value;
+        var RegionRisk = document.getElementById("RegionRisk").value;
+          $.post("../lib/php/riskAnalysis.php", 
+          {    
+               CropDensity:CropDensity
+          })
+          .done(function(data, status)
+          {
+              $("#status").html("done");
+              data = jQuery.parseJSON(data);
+              // console.log(data);
+//&& data[1]
+              if (data)
+              {
+                $("#tifResponse3").html('<a href="' + data + '" class="button" download=>Download risk Data</a>').appendTo('#button3');
+              }
+          })
+          });
+        
 
 
 
