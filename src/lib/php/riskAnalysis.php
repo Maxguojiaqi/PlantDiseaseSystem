@@ -12,35 +12,69 @@
 require('../../lib/fb/fb.php');
 
 
-// FB::info(simplexml_load_file("info.xml"));
+// FB::info(simplexml_load_file("info.xml"));          $_REQUEST['CropDensity'];   
 
 
 function runPython()
 {
-    $CropDensity = $_REQUEST['CropDensity'];        
-    FB::info($CropDensity);
+    $CropDensity = $_REQUEST['CropDensity'];
+    $DiseaseHistory = $_REQUEST['DiseaseHistory'];   
+    $RegionRisk = $_REQUEST['RegionRisk'];    
+    // FB::info($CropDensity);
 
-    if ($CropDensity=='low')
+    if ($CropDensity=='Low')
     {
-    	$CropDensity = 10;
+    	$CropDensity = 0;
     }
-    else if ($CropDensity =='normal')
+    else if ($CropDensity =='Medium')
     {
-    	$CropDensity = 20;
+    	$CropDensity = 5;
     }
     else 
     {
-    	$CropDensity = 30;
+    	$CropDensity = 10;
+    }
+
+
+    if ($DiseaseHistory=='Low(1-10%)')
+    {
+        $DiseaseHistory = 5;
+    }
+    else if ($DiseaseHistory =='Medium(11-30%)')
+    {
+        $DiseaseHistory = 10;
+    }
+    else 
+    {
+        $DiseaseHistory = 15;
+    }
+
+
+    if ($RegionRisk=='none')
+    {
+        $RegionRisk = 10;
+    }
+    else if ($RegionRisk =='Low numbers')
+    {
+        $RegionRisk = 20;
+    }
+    else 
+    {
+        $RegionRisk = 30;
     }
 
     FB::info($CropDensity);
 
-    FB::info(gettype($CropDensity));
+    // FB::info(gettype($CropDensity));
     $CropDensity = (int)$CropDensity;
-    FB::info(gettype($CropDensity));
-    FB::info($CropDensity);
+    $DiseaseHistory = (int)$DiseaseHistory;
+    $RegionRisk = (int)$RegionRisk;
+    // FB::info(gettype($CropDensity));
+    // FB::info($CropDensity);
 
-    $temp = json_encode($CropDensity);
+    $temp_cd = json_encode($CropDensity);
+    $temp_dh = json_encode($DiseaseHistory);
+    $temp_rr = json_encode($RegionRisk);
 
     // echo $temp;
     $result = shell_exec('python3 ../py/riskcalc.py ' ."'".$temp."'");

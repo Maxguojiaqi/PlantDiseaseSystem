@@ -304,6 +304,8 @@
           $.post("../lib/php/riskAnalysis.php", 
           {    
                CropDensity:CropDensity
+               DiseaseHistory:DiseaseHistory
+               RegionRisk:RegionRisk
           })
           .done(function(data, status)
           {
