@@ -90,7 +90,7 @@
               <i class="dropdown icon"></i>
               <div class="default text">Regional Risk of Apothecial development </div>
               <div class="menu" id="RegionRisk">
-                <div class="item" data-value="0">none</div>
+                <div class="item" data-value="0"> </div>
                 <div class="item" data-value="1">Low numbers</div>
                 <div class="item" data-value="2">High numbers</div>
               </div>
@@ -106,7 +106,7 @@
 
         </div>
 
-        <div class="ui segment">  
+        <div class="ui segment" style="margin-bottom:10px;">  
         <h3>  3.Download Datasets </h3> 
 
         <div id="tifResponse1"></div>
@@ -118,11 +118,16 @@
         <div id="tifResponse3"></div>
         <div id="button3" class=""></div> 
         <br>
-                
+          
+        <br>
+        <br>
+        <br>
+        <br>
+
         </div>
 
-    </div>
-          </div>
+      </div>
+      </div>
 
           <button class="accordion">Section 2</button>
           <div class="panel">
@@ -298,14 +303,14 @@
           {
           // var floweringDate = document.getElementById("floweringDate").value;
           // console.log(floweringDate);
-        var CropDensity = document.getElementById("Cropdst").value;
-        var DiseaseHistory = document.getElementById("DiseaseHistory").value;
-        var RegionRisk = document.getElementById("RegionRisk").value;
+          var CropDensity = document.getElementById("Cropdst").value;
+        // var DiseaseHistory = document.getElementById("DiseaseHistory").value;
+        // var RegionRisk = document.getElementById("RegionRisk").value;
           $.post("../lib/php/riskAnalysis.php", 
           {    
                CropDensity:CropDensity
-               DiseaseHistory:DiseaseHistory
-               RegionRisk:RegionRisk
+               // DiseaseHistory:DiseaseHistory
+               // RegionRisk:RegionRisk
           })
           .done(function(data, status)
           {
