@@ -29,10 +29,10 @@ require('../../lib/fb/fb.php');
 	$maxX = $_REQUEST['maxX'];
 	$maxY = $_REQUEST['maxY'];   
 	
-	// $minX = "-98.4149594";
-	// $minY = "49.4432939";
-	// $maxX = "-97.7307754";
-	// $maxY = "49.6209537";        
+//	$minX = "-98.4149594";
+//	$minY = "49.4432939";
+//	$maxX = "-97.7307754";
+//	$maxY = "49.6209537";        
 // }     
 // }
 
@@ -46,7 +46,7 @@ FB::info($maxY);
 
 
 
-$url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:crophistor_geo&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+$url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:crophistor_geo&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 
 // Setup the headers and post options, then execute curlPOST  &subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')     &subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')
 $ch_soil = curl_init($url_cropping_history);    
@@ -72,7 +72,7 @@ $cropping_path = "../../data/cropping_history.tif";
 	
 	// getting WCS data from geoserver usinng url
 	
-$url_soil = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:rain_geos&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+$url_soil = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:rain&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 FB::info($url_soil);
 
 
@@ -98,9 +98,9 @@ FB::trace("function worked");
 
 // else
 // {
-$filesave = "../../../data/data-download.tif";
+$filesave = "../../../data/rain-data.tif";
 file_put_contents($filesave, $ch_result_soil);
-$download_path = "../../data/data-download.tif";
+$download_path = "../../data/rain-data.tif";
 	// return ($download_path);
 	// }
 
