@@ -62,7 +62,7 @@
     <div class="ui segment">  
 
         <div class="ui selection dropdown">
-              <input id="HistoryDisease" type="hidden">
+              <input id="DiseaseHistory" type="hidden">
               <i class="dropdown icon"></i>
               <div class="default text">History of Disease in Field</div>
               <div class="menu">
@@ -76,7 +76,7 @@
         <div class="ui selection dropdown">
               <input id="Cropdst" type="hidden">
               <i class="dropdown icon"></i>
-              <div class="default text">Crop Density </div>
+              <div class="default text">Crop Density</div>
               <div class="menu">
                 <div class="item" data-value="0">Low</div>
                 <div class="item" data-value="1">Medium</div>
@@ -86,13 +86,13 @@
         <br>
         <br>
         <div class="ui selection dropdown">
-              <input name="RegionRisk" type="hidden">
+              <input id="RegionR" type="hidden">
               <i class="dropdown icon"></i>
-              <div class="default text">Regional Risk of Apothecial development </div>
-              <div class="menu" id="RegionRisk">
-                <div class="item" data-value="0"> </div>
-                <div class="item" data-value="1">Low numbers</div>
-                <div class="item" data-value="2">High numbers</div>
+              <div class="default text">Regional Risk of Apothecial development</div>
+              <div class="menu">
+                <div class="item" data-value="0">None</div>
+                <div class="item" data-value="1">Low-numbers</div>
+                <div class="item" data-value="2">High-numbers</div>
               </div>
         </div>  
         <br>
@@ -304,21 +304,23 @@
           // var floweringDate = document.getElementById("floweringDate").value;
           // console.log(floweringDate);
           var CropDensity = document.getElementById("Cropdst").value;
-        // var DiseaseHistory = document.getElementById("DiseaseHistory").value;
-        // var RegionRisk = document.getElementById("RegionRisk").value;
+          var DiseaseHistory = document.getElementById("DiseaseHistory").value;
+          var RegionRisk = document.getElementById("RegionR").value;
           $.post("../lib/php/riskAnalysis.php", 
           {    
-               CropDensity:CropDensity
-               // DiseaseHistory:DiseaseHistory
-               // RegionRisk:RegionRisk
+               CropDensity:CropDensity,
+               DiseaseHistory:DiseaseHistory,
+               RegionRisk:RegionRisk,
           })
-          .done(function(data, status)
+          .done(function(databack, status)
           {
               $("#status").html("done");
-              data = jQuery.parseJSON(data);
-              // console.log(data);
+              // data = databack;
+              data = jQuery.parseJSON(databack);
+              // data = databack;
+              console.log(data);
 //&& data[1]
-              if (data)
+              if (data[0])
               {
                 $("#tifResponse3").html('<a href="' + data + '" class="positive ui button" download=>Download risk Data</a>').appendTo('#button3');
               }
