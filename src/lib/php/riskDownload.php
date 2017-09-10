@@ -11,6 +11,9 @@
 
 require('../../lib/fb/fb.php');
 
+// unlink("../php/temp/rain-data.tif");
+// unlink("../php/temp/cropping_history.tif");
+
 
 // FB::info(simplexml_load_file("info.xml"));
 
