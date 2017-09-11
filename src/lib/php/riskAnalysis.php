@@ -47,9 +47,6 @@ function runPython()
     FB::info($riskValue);
 
 
-
-
-
     FB::info(gettype($riskValue[1]));
 
     $temp_cd = json_encode($riskValue[0]);

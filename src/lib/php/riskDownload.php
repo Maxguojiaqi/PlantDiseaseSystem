@@ -18,15 +18,16 @@ require('../../lib/fb/fb.php');
 // FB::info(simplexml_load_file("info.xml"));
 
 
-// if (empty($_REQUEST["minX"]) || empty($_REQUEST["minY"]) || empty($_REQUEST["maxX"]) || empty($_REQUEST["maxY"]) || !is_numeric($_REQUEST["minX"]) || !is_numeric($_REQUEST["minY"]) || !is_numeric($_REQUEST["maxX"]) || !is_numeric($_REQUEST["maxY"]))
-// {
+if (empty($_REQUEST["minX"]) || empty($_REQUEST["minY"]) || empty($_REQUEST["maxX"]) || empty($_REQUEST["maxY"]) || !is_numeric($_REQUEST["minX"]) || !is_numeric($_REQUEST["minY"]) || !is_numeric($_REQUEST["maxX"]) || !is_numeric($_REQUEST["maxY"]))
+{
     
-//     // Throws error if inputs aren't entered or numeric. 
-//     $errMsg = "*Oops, all fields are required and must be WGS84 coordinates.";
+    // Throws error if inputs aren't entered or numeric. 
+    $errMsg = "*Oops, all fields are required and must be WGS84 coordinates.";
     
-// } else
+} 
+else
 
-// {
+{
 	$minX = $_REQUEST['minX'];
 	$minY = $_REQUEST['minY'];
 	$maxX = $_REQUEST['maxX'];
@@ -36,7 +37,7 @@ require('../../lib/fb/fb.php');
 	// $minY = "49.4432939";
 	// $maxX = "-97.7307754";
 	// $maxY = "49.6209537";        
-// }     
+}     
 // }
 
 

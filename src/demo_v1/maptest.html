@@ -4,33 +4,23 @@
 <link rel="icon" href = "../../data/1492526805_Flag_of_Canada.png">
 <meta charset="UTF-8">
 <title>Plant Diease Model</title>
-<!-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script> -->
 
 <!-- Openlayers Map Structure CDN -->
-<!-- <link rel="stylesheet" href="https://openlayers.org/en/v3.9.0/css/ol.css" type="text/css"> -->
-<!-- <script src="../lib/ol/v3.19.1-dist/ol.js" type="text/javascript"></script> -->
 <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
 <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
 <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
 <!-- jQuery + sidebar CDN -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href="../css/sidebar.css" rel="stylesheet"/>
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap Responsive Latest compiled and minified CSS CDN-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 <!-- Bootstrap Responsive Latest compiled and minified JavaScript CDN-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
 <!-- Semantics UI -->
 <script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>
 <link rel="stylesheet" href="../css/Semantic-UI-CSS-master/semantic.css" type="text/css">
-
 <!-- Plant Disease CSS -->
 <link rel="stylesheet" href="../css/plant-disease.css" type="text/css">
 </head>
@@ -55,58 +45,55 @@
         </div> 
         </div>
 
-
         <h3>  2.Enter required Information </h3>             
+            <div class="ui segment">  
 
+                <div class="ui selection dropdown">
+                      <input id="DiseaseHistory" type="hidden">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">History of Disease in Field</div>
+                      <div class="menu">
+                        <div class="item" data-value="0">Low(1-10%)</div>
+                        <div class="item" data-value="1">Medium(11-30%)</div>
+                        <div class="item" data-value="2">High(31-100%)</div>
+                      </div>
+                </div>
+                <br>
+                <br>
+                <div class="ui selection dropdown">
+                      <input id="Cropdst" type="hidden">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Crop Density</div>
+                      <div class="menu">
+                        <div class="item" data-value="0">Low</div>
+                        <div class="item" data-value="1">Medium</div>
+                        <div class="item" data-value="2">High</div>
+                      </div>
+                </div>
+                <br>
+                <br>
+                <div class="ui selection dropdown">
+                      <input id="RegionR" type="hidden">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Regional Risk of Apothecial development</div>
+                      <div class="menu">
+                        <div class="item" data-value="0">None</div>
+                        <div class="item" data-value="1">Low-numbers</div>
+                        <div class="item" data-value="2">High-numbers</div>
+                      </div>
+                </div>  
+                <br>
+                <br>
 
-    <div class="ui segment">  
+                <span class="title-main"class="ui header">Click submit when finished</span>
+                <div>
+                <br>
+                <button id ="ProcessData" class="ui primary basic button">Submit</button>
+                </div> 
 
-        <div class="ui selection dropdown">
-              <input id="DiseaseHistory" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">History of Disease in Field</div>
-              <div class="menu">
-                <div class="item" data-value="0">Low(1-10%)</div>
-                <div class="item" data-value="1">Medium(11-30%)</div>
-                <div class="item" data-value="2">High(31-100%)</div>
-              </div>
-        </div>
-        <br>
-        <br>
-        <div class="ui selection dropdown">
-              <input id="Cropdst" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Crop Density</div>
-              <div class="menu">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>
-        <br>
-        <br>
-        <div class="ui selection dropdown">
-              <input id="RegionR" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Regional Risk of Apothecial development</div>
-              <div class="menu">
-                <div class="item" data-value="0">None</div>
-                <div class="item" data-value="1">Low-numbers</div>
-                <div class="item" data-value="2">High-numbers</div>
-              </div>
-        </div>  
-        <br>
-        <br>
+                </div>
 
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="ProcessData" class="ui primary basic button">Submit</button>
-        </div> 
-
-        </div>
-
-        <div class="ui segment" style="margin-bottom:10px;">  
+                <div class="ui segment" style="margin-bottom:10px;">  
         <h3>  3.Download Datasets </h3> 
 
         <div id="tifResponse1"></div>
@@ -146,189 +133,17 @@
     </div>
 
 </body>
-    
 <script>
 
-        $(' .menu .item')
-            .tab();
-        $('.ui.dropdown')
-            .dropdown();
-            
-      var acc = document.getElementsByClassName("accordion");
-      var i;
+// initiate Semantic-UI
 
-      for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function() {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight){
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          } 
-        }
-      }
+$(' .menu .item')
+    .tab();
+$('.ui.dropdown')
+    .dropdown();
 
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "350px";
-            document.getElementById("map").style.marginLeft = "350px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("map").style.marginLeft= "0";
-        }
-
-
-
-
-        /****************************  Define Map Layers and Map  *****************************/
-      console.log("5");
-       var view = new ol.View({
-          //change projection to geoserver's projection
-          projection: "EPSG:4326",
-          center: [-98.5284468774974,52.71391708013823],
-                zoom: 7
-        });
-        // creating a openlayer base map
-        var osm_map = new ol.layer.Tile({
-          source: new ol.source.OSM()
-        });
-        // creating a map layer from own server
-        var vector_source = new ol.source.Vector({
-              url: 'http://ulysses.gis.agr.gc.ca/geoserver/manitoba/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=manitoba:GeoBase_MUNI_MB_1_0_eng&maxFeatures=5000&outputFormat=application%2Fjson',
-              format: new ol.format.GeoJSON()
-          });
-
-        var vector_map = new ol.layer.Vector({
-          source: vector_source
-
-        });
-
-        var map = new ol.Map({
-
-        layers: [osm_map, vector_map],
-        target: 'map',
-        view: view
-        });
-
-
-
-        var button = document.createElement('button');
-        button.innerHTML = "⌨";
-
-        var handleSidebar = function(e) {
-            document.getElementById("mySidenav").style.width = "350px";
-            document.getElementById("map").style.marginLeft = "350px";
-        };
-
-        button.addEventListener('click', handleSidebar, false);
-
-        var element = document.createElement('div');
-        element.className = 'open-sidebar ol-unselectable ol-control';
-        element.appendChild(button);
-
-        var RotateNorthControl = new ol.control.Control({
-            element: element
-        });
-        map.addControl(RotateNorthControl);
-
-       // select region from JSON vector data            
-        
-        var coords;
-        var select = new ol.interaction.Select();
-            map.addInteraction(select);
-
-        // var selectedFeature = select.getFeatures();           
-
-        selectclick = select;
-        selectclick.on('select', function(e)
-        { 
-          if (e!== null)
-          {
-          console.log(e),
-          coords = e.selected[0].c.target.s;
-          console.log(coords);
-          }
-        });
-
-
-       // select region from JSON vector data            
-        
-        var coords;
-        var select = new ol.interaction.Select();
-            map.addInteraction(select);
-
-        // var selectedFeature = select.getFeatures();
-        selectclick = select;
-        selectclick.on('select', function(e)
-        { 
-          console.log(e);
-          if (e!== null)
-          {
-          console.log(e),
-          coords = e.selected[0].f.target.l;
-          console.log(coords);
-          }
-        });
-
-        
-/****************************  Download data locally     *****************************/
-        // console.log(coords);
-        $("#AoiData").click(function()
-          {
-          $.post("../lib/php/riskDownload.php", 
-          { 
-               minX: String(coords[0]),
-               minY: String(coords[1]),
-               maxX: String(coords[2]),
-               maxY: String(coords[3]),
-          })
-          .done(function(data, status)
-          {
-              $("#status").html("done");
-              data = jQuery.parseJSON(data);
-              console.log(data);
-//&& data[1]
-              if (data[0]&&data[1])
-              { console.log(data[0]);
-                $("#tifResponse1").html('<a href="' + data[0] + '" class="positive ui button" download=>Download Rain Data</a>').appendTo('#button1');
-                $("#tifResponse2").html('<a href="' + data[1] + '" class="positive ui button" download=>Download Cropping History Data</a>').appendTo('#button2');
-              }
-          })
-          });
-      // changeInteraction();
-/****************************  Process data using model     *****************************/
-        $("#ProcessData").click(function()
-          {
-          // var floweringDate = document.getElementById("floweringDate").value;
-          // console.log(floweringDate);
-          var CropDensity = document.getElementById("Cropdst").value;
-          var DiseaseHistory = document.getElementById("DiseaseHistory").value;
-          var RegionRisk = document.getElementById("RegionR").value;
-          $.post("../lib/php/riskAnalysis.php", 
-          {    
-               CropDensity:CropDensity,
-               DiseaseHistory:DiseaseHistory,
-               RegionRisk:RegionRisk,
-          })
-          .done(function(databack, status)
-          {
-              $("#status").html("done");
-              // data = databack;
-              data = jQuery.parseJSON(databack);
-              // data = databack;
-              console.log(data);
-//&& data[1]
-              if (data[0])
-              {
-                $("#tifResponse3").html('<a href="' + data + '" class="positive ui button" download=>Download risk Data</a>').appendTo('#button3');
-              }
-          })
-          });
-        
-
-
-
-
-    </script>
+</script>
+<script src="../js/Map.js" type="text/javascript"></script>    
+<script src="../js/sidebar.js" type="text/javascript"></script>
+<script src="../js/DataDownload.js" type="text/javascript"></script>
+<script src="../js/DataProcess.js" type="text/javascript"></script>
