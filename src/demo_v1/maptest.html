@@ -26,113 +26,128 @@
 </head>
 
 <body>
-
-<!-- <div class="container-fluid"> -->
     
     <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <div> </div>
-          <button class="accordion">Canola Risk Assessment</button>
-          <div class="panel">
-    <div style="margin-top:10px;">
-                               
-        <h3>  1.Select an Area of Interest </h3>                    
-        <div class="ui segment">  
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="AoiData" class="ui primary basic button">Submit</button>
-        </div> 
-        </div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-        <h3>  2.Enter required Information </h3>             
+      <!-- Canola Risk Assessment Section -->
+
+      <button class="accordion">Canola Risk Assessment</button>
+      <div class="panel">
+        <div style="margin-top:10px;">               
+          <h3>  1.Select an Area of Interest </h3> 
+
+          <!-- Area of Interest Selection-->
+
+          <div class="ui segment">  
+            <span class="title-main"class="ui header">Click submit when finished</span>
+            <div>
+              <br>
+              <button id ="AoiData" class="ui primary basic button">Submit</button>
+            </div> 
+          </div>
+
+          <h3>  2.Enter required Information </h3>  
+
+            <!-- Create Input fields for the Model required information-->
+
             <div class="ui segment">  
-
-                <div class="ui selection dropdown">
-                      <input id="DiseaseHistory" type="hidden">
-                      <i class="dropdown icon"></i>
-                      <div class="default text">History of Disease in Field</div>
-                      <div class="menu">
-                        <div class="item" data-value="0">Low(1-10%)</div>
-                        <div class="item" data-value="1">Medium(11-30%)</div>
-                        <div class="item" data-value="2">High(31-100%)</div>
-                      </div>
+              <div class="ui selection dropdown">
+                <input id="DiseaseHistory" type="hidden">
+                <i class="dropdown icon"></i>
+                <div class="default text">History of Disease in Field</div>
+                <div class="menu">
+                  <div class="item" data-value="0">Low(1-10%)</div>
+                  <div class="item" data-value="1">Medium(11-30%)</div>
+                  <div class="item" data-value="2">High(31-100%)</div>
                 </div>
-                <br>
-                <br>
-                <div class="ui selection dropdown">
-                      <input id="Cropdst" type="hidden">
-                      <i class="dropdown icon"></i>
-                      <div class="default text">Crop Density</div>
-                      <div class="menu">
-                        <div class="item" data-value="0">Low</div>
-                        <div class="item" data-value="1">Medium</div>
-                        <div class="item" data-value="2">High</div>
-                      </div>
+              </div>
+              <br>
+              <br>
+              <div class="ui selection dropdown">
+                <input id="Cropdst" type="hidden">
+                <i class="dropdown icon"></i>
+                <div class="default text">Crop Density</div>
+                <div class="menu">
+                  <div class="item" data-value="0">Low</div>
+                  <div class="item" data-value="1">Medium</div>
+                  <div class="item" data-value="2">High</div>
                 </div>
-                <br>
-                <br>
-                <div class="ui selection dropdown">
-                      <input id="RegionR" type="hidden">
-                      <i class="dropdown icon"></i>
-                      <div class="default text">Regional Risk of Apothecial development</div>
-                      <div class="menu">
-                        <div class="item" data-value="0">None</div>
-                        <div class="item" data-value="1">Low-numbers</div>
-                        <div class="item" data-value="2">High-numbers</div>
-                      </div>
-                </div>  
-                <br>
-                <br>
-
-                <span class="title-main"class="ui header">Click submit when finished</span>
-                <div>
+              </div>
+              <br>
+              <br>
+              <div class="ui selection dropdown">
+                <input id="RegionR" type="hidden">
+                <i class="dropdown icon"></i>
+                <div class="default text">Regional Risk of Apothecial development</div>
+                <div class="menu">
+                  <div class="item" data-value="0">None</div>
+                  <div class="item" data-value="1">Low-numbers</div>
+                  <div class="item" data-value="2">High-numbers</div>
+                </div>
+              </div>  
+              <br>
+              <br>
+              <span class="title-main"class="ui header">Click submit when finished</span>
+              <div>
                 <br>
                 <button id ="ProcessData" class="ui primary basic button">Submit</button>
-                </div> 
+              </div> 
+            </div>
 
-                </div>
+             <h3>  3.Download Datasets </h3>  
 
-                <div class="ui segment" style="margin-bottom:10px;">  
-        <h3>  3.Download Datasets </h3> 
+            <!-- Create buttons associates to the file locations in the server-->
 
-        <div id="tifResponse1"></div>
-        <div id="button1" class=""></div>
-        <br>
-        <div id="tifResponse2"></div>
-        <div id="button2" class=""></div>
-        <br>
-        <div id="tifResponse3"></div>
-        <div id="button3" class=""></div> 
-        <br>
-          
-        <br>
-        <br>
-        <br>
-        <br>
-
+            <div class="ui segment" style="margin-bottom:10px;">   
+              <a style="visibility: hidden" 
+                 class="positive ui button" 
+                 id="buttonDownload1" 
+                 href="../../data/rain-data.tif">
+                Download Rain Data
+              </a>
+              <br>
+              <br>
+              <a style="visibility: hidden" 
+                 class="positive ui button" 
+                 id="buttonDownload2" 
+                 href="../../data/cropping_history.tif">
+                Download Cropping Histroy Data
+              </a>
+              <br>
+              <br>
+              <a style="visibility: hidden" 
+                 class="positive ui button" 
+                 id="buttonDownload3" 
+                 href="../../data/riskmap.tif">
+                Canola Disease Risk
+              </a>
+            </div>
+          </div>
         </div>
 
-      </div>
-      </div>
+        <!-- Crop B Risk Assessment Section -->
 
-          <button class="accordion">Section 2</button>
-          <div class="panel">
-            <p >Contents to be developed </p>
-          </div>
+      <button class="accordion">Crop B Risk Assessment</button>
+        <div class="panel">
+          <p >Contents to be developed </p>
+        </div>
+        <!-- Crop C Risk Assessment Section -->
 
-          <button class="accordion" >Section 3</button>
-          <div class="panel">
-            <p >Contents to be developed </p>
-          </div>
-    </div>
+      <button class="accordion">Crop C Risk Assessment</button>
+        <div class="panel">
+          <p >Contents to be developed </p>
+        </div>
+  </div>
 
+  <!-- Initiate Base Map  -->
 
-    <div class="map pusher">  
-            <div id="map" class="map"></div>
-    </div>
+  <div class="map pusher">  
+    <div id="map" class="map"></div>
+  </div>
 
 </body>
+
 <script>
 
 // initiate Semantic-UI
@@ -141,7 +156,6 @@ $(' .menu .item')
     .tab();
 $('.ui.dropdown')
     .dropdown();
-
 </script>
 <script src="../js/Map.js" type="text/javascript"></script>    
 <script src="../js/sidebar.js" type="text/javascript"></script>

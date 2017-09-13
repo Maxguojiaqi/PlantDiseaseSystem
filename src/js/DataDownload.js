@@ -1,16 +1,17 @@
-/* 
+/**********************************************************************
 This code generate the data download functionality of the system
 
-Created Data:2017-09-06
 Created By: Jiaqi Guo(Max) 
+Last Modified: 2017-09-18
+***********************************************************************/
 
-*/
+
+// Getting Polygon coordinates from DOM on click
 
 var coords;
 var select = new ol.interaction.Select();
     map.addInteraction(select);
 
-// var selectedFeature = select.getFeatures();
 selectclick = select;
 selectclick.on('select', function(e)
 { 
@@ -24,27 +25,26 @@ selectclick.on('select', function(e)
 });
 
 
-/****************************  Download data locally     *****************************/
-// console.log(coords);
+// Download data from data server to process server
+
 $("#AoiData").click(function()
   {
-  $.post("../lib/php/riskDownload.php", 
-  { 
+    // Make sure button is hidden before data is succsessfully downloaded
+    document.getElementById("buttonDownload1").style.visibility="hidden";
+    document.getElementById("buttonDownload2").style.visibility="hidden";
+    $.post("../lib/php/riskDownload.php", 
+      { 
        minX: String(coords[0]),
        minY: String(coords[1]),
        maxX: String(coords[2]),
        maxY: String(coords[3]),
-  })
-  .done(function(data, status)
-  {
-      $("#status").html("done");
-      data = jQuery.parseJSON(data);
-      console.log(data);
-//&& data[1]
-      if (data[0]&&data[1])
-      { console.log(data[0]);
-        $("#tifResponse1").html('<a href="' + data[0] + '" class="positive ui button" download=>Download Rain Data</a>').appendTo('#button1');
-        $("#tifResponse2").html('<a href="' + data[1] + '" class="positive ui button" download=>Download Cropping History Data</a>').appendTo('#button2');
-      }
-  })
+      })
+      .done(function(data, status)
+      {
+        $("#status").html("done");
+          console.log(data[0]);
+          //Show button when data is succsessfully downloaded
+          document.getElementById("buttonDownload1").style.visibility="visible";
+          document.getElementById("buttonDownload2").style.visibility="visible";
+      })
   });
