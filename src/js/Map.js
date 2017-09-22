@@ -37,13 +37,29 @@ var vector_source = new ol.source.Vector
 
 var vector_map = new ol.layer.Vector
 ({
-  source: vector_source
+  source: vector_source 
 
 });
 
+
+
+var raster_source = new ol.source.TileWMS
+({
+  url:'http://localhost:8080/geoserver/Canola/ows?',
+  params:{'LAYERS': 'Canola:Riskmap'},
+  serverType: 'geoserver',
+  crossOrigin:'anonymous'
+});
+
+var wms_layer = new ol.layer.Tile({
+
+  source:raster_source
+});
+
+
 var map = new ol.Map({
 
-layers: [osm_map, vector_map],
+layers: [osm_map, vector_map,wms_layer],
 target: 'map',
 view: view
 });

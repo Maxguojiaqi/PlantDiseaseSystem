@@ -33,14 +33,14 @@ FB::info($maxY);
 $url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:crophistor_geo&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 
 // Setup the headers and post options, then execute curlPOST  
-$ch_soil = curl_init($url_cropping_history);    
+$ch_rain = curl_init($url_cropping_history);    
 
-curl_setopt($ch_soil, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch_rain, CURLOPT_RETURNTRANSFER, 1);
 
-$ch_result_cropping_history = curl_exec($ch_soil);
-$contentType = curl_getinfo($ch_soil, CURLINFO_CONTENT_TYPE);
+$ch_result_cropping_history = curl_exec($ch_rain);
+$contentType = curl_getinfo($ch_rain, CURLINFO_CONTENT_TYPE);
 
-curl_close($ch_soil);
+curl_close($ch_rain);
 
 $filesave_cropping_history = "../../../data/cropping_history.tif";
 file_put_contents($filesave_cropping_history, $ch_result_cropping_history);
@@ -49,12 +49,12 @@ $cropping_path = "../../data/cropping_history.tif";
 
 // getting WCS data from geoserver using url
 
-$url_soil = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:rain&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-FB::info($url_soil);
+$url_rain = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:rain&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+FB::info($url_rain);
 
 // Setup the headers and post options, then execute curlPOST 
 
-$ch = curl_init($url_soil);    
+$ch = curl_init($url_rain);    
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 FB::trace("function working");
 $ch_result_soil = curl_exec($ch);
