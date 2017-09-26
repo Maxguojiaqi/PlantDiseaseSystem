@@ -49,6 +49,7 @@ var handleSidebar = function(e)
     document.getElementById("mySidenav").style.width = "350px";
     document.getElementById("map").style.marginLeft = "350px";
 };
+
 button.addEventListener('click', handleSidebar, false);
 var element = document.createElement('div');
 element.className = 'open-sidebar ol-unselectable ol-control';
@@ -59,21 +60,21 @@ var RotateNorthControl = new ol.control.Control
 });
 map.addControl(RotateNorthControl);
 
-// select region from JSON vector data            
+//select region from JSON vector data            
 
 var coords;
 var select = new ol.interaction.Select();
     map.addInteraction(select);
 
-// var selectedFeature = select.getFeatures();           
+// // var selectedFeature = select.getFeatures();           
 
-selectclick = select;
-selectclick.on('select', function(e)
-{ 
-  if (e!== null)
-  {
-  console.log(e),
-  coords = e.selected[0].c.target.s;
-  console.log(coords);
-  }
-});
+// selectclick = select;
+// selectclick.on('select', function(e)
+// { 
+//   if (e!== null)
+//   {
+//   console.log(e),
+//   coords = e.selected[0].c.target.s;
+//   console.log(coords);
+//   }
+// });

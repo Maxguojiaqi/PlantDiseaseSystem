@@ -57,17 +57,6 @@ $riskmap_save = "../php/temp/riskmap.tif";
 $riskResult = runPython();
 
 
-$path = realpath($riskmap_save);
-FB::info($path);
-
-chmod($path, 666);
-if (is_writable($path))
-{
-    unlink("../php/temp/riskmap.tif");
-}
-
-else 
-    FB::info("file is not writable()");
 
 echo json_encode(array($riskResult));
 

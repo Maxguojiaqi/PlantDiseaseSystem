@@ -12,6 +12,9 @@ $("#ProcessData").click(function()
   {
     // Make sure button is hidden before data is succsessfully processed
     document.getElementById("buttonDownload3").style.visibility="hidden";
+    document.getElementById("buttonAddLayer").style.visibility="hidden";
+
+
     var CropDensity = document.getElementById("Cropdst").value;
     var DiseaseHistory = document.getElementById("DiseaseHistory").value;
     var RegionRisk = document.getElementById("RegionR").value;
@@ -22,11 +25,15 @@ $("#ProcessData").click(function()
          DiseaseHistory:DiseaseHistory,
          RegionRisk:RegionRisk,
     })
-    .done(function(databack, status)
+    .done(function(data,status)
     {
+        console.log(data[0]);
         $("#status").html("done");
         document.getElementById("buttonDownload3").style.visibility="visible"; 
+        document.getElementById("buttonAddLayer").style.visibility="visible"; 
+
     })
+
   });
         
 
