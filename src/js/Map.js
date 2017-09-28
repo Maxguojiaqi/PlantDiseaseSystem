@@ -43,18 +43,6 @@ Last Modified: 2017-09-18
 
   });
 
-  // var raster_source = await new ol.source.TileWMS
-  // ({
-  //   url:'http://localhost:8080/geoserver/Canola/ows?',
-  //   params:{'LAYERS': 'Canola:Riskmap'},
-  //   serverType: 'geoserver',
-  //   crossOrigin:'anonymous'
-  // });
-
-  // var wms_map = await new ol.layer.Tile({
-
-  //   source:raster_source
-  // });
 
   var map =  new ol.Map({
 
@@ -62,61 +50,7 @@ Last Modified: 2017-09-18
     target: 'map',
     view: view
     });
-
-
-  // var button = document.createElement('button');
-  // button.innerHTML = "⌨";
-
-  // button.addEventListener('click', handleSidebar, false);
-  // var element = document.createElement('div');
-  // element.className = 'open-sidebar ol-unselectable ol-control';
-  // element.appendChild(button);
-  // var RotateNorthControl = new ol.control.Control
-  // ({
-  //     element: element
-  // });
-  // map.addControl(RotateNorthControl);
-  // return map;
-
-
-// var coords;
-// var select = new ol.interaction.Select();
-//     map.addInteraction(select);
-
-// // var selectedFeature = select.getFeatures();           
-
-// selectclick = select;
-// selectclick.on('select', function(e)
-// { 
-//   if (e!== null)
-//   {
-//   console.log(e),
-//   coords = e.selected[0].c.target.s;
-//   console.log(coords);
-//   }
-// });
-
-
-
-//   var select = new ol.interaction.Select();
-//       map.addInteraction(select);
-
-//   selectclick = select;
-//   selectclick.on('select', function(e)
-//   { 
-//     console.log(e);
-//     if (e!== null)
-//     {
-//     console.log(e),
-//     coords = e.selected[0].f.target.l;
-//     console.log(coords);
-//     }
-//   });
-
-
-// }
-
-// MapUI();
+ 
 
 
 
