@@ -13,7 +13,7 @@ $("#ProcessData").click(function()
     // Make sure button is hidden before data is succsessfully processed
     document.getElementById("buttonDownload3").style.visibility="hidden";
     document.getElementById("buttonAddLayer").style.visibility="hidden";
-    document.getElementById("buttonExportPDF").style.visibility="hidden";
+    document.getElementById("buttonExportMap").style.visibility="hidden";
 
 
     var CropDensity = document.getElementById("Cropdst").value;
@@ -32,7 +32,7 @@ $("#ProcessData").click(function()
         $("#status").html("done");
         document.getElementById("buttonDownload3").style.visibility="visible"; 
         document.getElementById("buttonAddLayer").style.visibility="visible"; 
-        document.getElementById("buttonExportPDF").style.visibility="visible"; 
+        document.getElementById("buttonExportMap").style.visibility="visible"; 
 
     })
 

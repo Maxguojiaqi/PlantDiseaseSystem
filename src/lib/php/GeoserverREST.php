@@ -11,6 +11,11 @@ function runGeoRest()
 {
   // FB::info("start working Rest");
 
+  session_start();
+
+  $timeStamp = $_SESSION['Tstamp'];
+  // FB::info($timeStamp);
+
   // Creating URL and xmlString 
   $urlStore="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all";
   $urlLayer="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap/coverages";

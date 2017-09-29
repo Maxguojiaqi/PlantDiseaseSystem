@@ -7,14 +7,27 @@ Last Modified: 2017-09-18
 
 <?php
 require('../../lib/fb/fb.php');
+
+session_start();
+
+$timeStamp = $_SESSION['Tstamp'];
+FB::info($timeStamp);
+
+
+
+
+
 function runPython()
 {
     $CropDensity = $_REQUEST['CropDensity'];
-    FB::info($CropDensity);
+    // FB::info($CropDensity);
     $DiseaseHistory = $_REQUEST['DiseaseHistory'];
-    FB::info($DiseaseHistory); 
+    // FB::info($DiseaseHistory); 
     $RegionRisk = $_REQUEST['RegionRisk'];
-    FB::info($RegionRisk);  
+
+
+
+    // FB::info($RegionRisk);  
     $riskArray = array($CropDensity, $DiseaseHistory,$RegionRisk);
     $riskValue = array();
 

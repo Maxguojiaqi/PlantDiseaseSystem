@@ -24,6 +24,14 @@ else
 	$maxY = $_REQUEST['maxY'];   	     
 }     
 
+
+session_start();
+$date = new DateTime();
+$timeStamp = (string)$date->format('U');
+$_SESSION['Tstamp'] = $timeStamp;
+
+FB::info($timeStamp);
+
 // Testing to see if data pass in fine from FirePHP
 FB::info($minX);
 FB::info($minY);

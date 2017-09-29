@@ -6,11 +6,6 @@ Created By: Jiaqi Guo(Max)
 Last Modified: 2017-09-18
 *******************************************************************/
 
-// var coords;
-
-// async function MapUI()
-// {
-
 // Create Base Map and Layer using OpenLayers
 
   var view = new ol.View

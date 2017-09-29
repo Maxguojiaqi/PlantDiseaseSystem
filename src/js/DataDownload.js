@@ -21,8 +21,11 @@ selectclick.on('select', function(e)
   console.log(e),
   coords = e.selected[0].f.target.l;
   console.log(coords);
+  console.log(typeof(coords[0]));
   }
 });
+
+
 
 
 // Download data from data server to process server
