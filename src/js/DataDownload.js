@@ -45,7 +45,15 @@ $("#AoiData").click(function()
       .done(function(data, status)
       {
         $("#status").html("done");
+          data = jQuery.parseJSON(data);
           console.log(data[0]);
+
+          $("#buttonDownload1").attr("href",data[0]);
+          $("#buttonDownload2").attr("href",data[1]);
+
+
+          // var link = "../../data/rain-data.tif";
+          
           //Show button when data is succsessfully downloaded
           document.getElementById("buttonDownload1").style.visibility="visible";
           document.getElementById("buttonDownload2").style.visibility="visible";

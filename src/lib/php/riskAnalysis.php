@@ -1,24 +1,38 @@
-<!--************************************************************** 
-This code generate the model process functionality of the system
-
-Created By: Jiaqi Guo(Max)  
-Last Modified: 2017-09-18
-***************************************************************-->
-
 <?php
+
+// ************************************************************** 
+// This code generate the model process functionality of the system
+
+// Created By: Jiaqi Guo(Max)  
+// Last Modified: 2017-09-18
+// ***************************************************************
+
+
+
+
 require('../../lib/fb/fb.php');
 
 session_start();
 
 $timeStamp = $_SESSION['Tstamp'];
-FB::info($timeStamp);
+FB::info("TimeStampNumber: ".$timeStamp);
 
 
+// $croppingHistory = "croppingHistory".$timeStamp.".tif";
+// $rainData = "rainData".$timeStamp.".tif";
+// $Riskmap1 = "riskmap1".$timeStamp.".tif";
+// $Riskmap = "riskmap".$timeStamp.".tif";
+// $CropDensity = "CropDensity".$timeStamp.".tif";
 
-
-
-function runPython()
+function runPython($timeStamp)
 {
+
+    $croppingHistory = "croppingHistory".$timeStamp.".tif";
+    $rainData = "rainData".$timeStamp.".tif";
+    $Riskmap1 = "risk".$timeStamp.".tif";
+    $Riskmap = "riskmap".$timeStamp.".tif";
+    $CropMap = "CropDensity".$timeStamp.".tif";
+
     $CropDensity = $_REQUEST['CropDensity'];
     // FB::info($CropDensity);
     $DiseaseHistory = $_REQUEST['DiseaseHistory'];
@@ -28,7 +42,7 @@ function runPython()
 
 
     // FB::info($RegionRisk);  
-    $riskArray = array($CropDensity, $DiseaseHistory,$RegionRisk);
+    $riskArray = array($CropDensity,$DiseaseHistory,$RegionRisk);
     $riskValue = array();
 
     foreach($riskArray as $riskFactor)
@@ -47,7 +61,9 @@ function runPython()
             $riskValue[] = 10;
         }
     }
-
+    $timeStamp = (int)$timeStamp;
+    FB::info("TimeStampNumber: ".$timeStamp);
+    array_push($riskValue,$timeStamp);
     FB::info($riskValue);
     FB::info(gettype($riskValue[1]));
     $temp_cd = json_encode($riskValue[0]);
@@ -57,21 +73,20 @@ function runPython()
     $temp_array = json_encode($riskValue);
     FB::info($temp_array);
     FB::info(gettype($temp_array));
+
     $result = shell_exec('python3 ../py/riskcalc.py ' ."'".$temp_array."'");
-    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../../../data/rain-data.tif -B ../../../data/cropping_history.tif --outfile=../../../data/riskmap1.tif --calc="A+B"');
-    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../../../data/CropDensity.tif  -B ../../../data/riskmap1.tif --outfile=../../../data/riskmap.tif --calc="A+B"');
-    $riskmap_path = "../../data/riskmap.tif";
-    return ($riskmap_path);
+    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../../../data/'.$rainData.' -B ../../../data/'.$croppingHistory.' --outfile=../../../data/'.$Riskmap1.' --calc="A+B"');
+    $result = shell_exec('python3 ../py/raster_calc.py '.'-A ../../../data/'.$CropMap.' -B ../../../data/'.$Riskmap1.' --outfile=../../../data/'.$Riskmap.' --calc="A+B"');
 }
 
 
 
-$riskmap_save = "../php/temp/riskmap.tif";
-$riskResult = runPython();
+$riskmap_path = "../../data/"."riskmap".$timeStamp.".tif";
+$riskResult = runPython($timeStamp);
 
+FB::info($riskmap_path);
 
-
-echo json_encode(array($riskResult));
+echo json_encode(array($riskmap_path));
 
 
 

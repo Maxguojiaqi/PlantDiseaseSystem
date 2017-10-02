@@ -28,8 +28,13 @@ $("#ProcessData").click(function()
     })
     .done(function(data,status)
     {
-        console.log(data[0]);
         $("#status").html("done");
+        data = jQuery.parseJSON(data);
+        console.log(data[0]);
+        
+        $("#buttonDownload3").attr("href",data[0]);
+
+        
         document.getElementById("buttonDownload3").style.visibility="visible"; 
         document.getElementById("buttonAddLayer").style.visibility="visible"; 
         document.getElementById("buttonExportMap").style.visibility="visible"; 

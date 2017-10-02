@@ -1,11 +1,11 @@
-<!--*************************************************************
-This code generate the data download functionality of the system
-
-Created By: Jiaqi Guo(Max)  
-Last Modified: 2017-09-18
-**************************************************************-->
-
 <?php
+// *************************************************************
+// This code generate the data download functionality of the system
+// Created By: Jiaqi Guo(Max)  
+// Last Modified: 2017-09-18
+// **************************************************************
+
+
 require('../../lib/fb/fb.php');
 
 // Request data from JavaScript
@@ -30,7 +30,12 @@ $date = new DateTime();
 $timeStamp = (string)$date->format('U');
 $_SESSION['Tstamp'] = $timeStamp;
 
-FB::info($timeStamp);
+FB::info("TimeStampNumber: ".$timeStamp);
+
+
+// adding TimeStamp to data name
+$croppingHistory = "croppingHistory".$timeStamp.".tif";
+$rainData = "rainData".$timeStamp.".tif";
 
 // Testing to see if data pass in fine from FirePHP
 FB::info($minX);
@@ -50,10 +55,10 @@ $contentType = curl_getinfo($ch_rain, CURLINFO_CONTENT_TYPE);
 
 curl_close($ch_rain);
 
-$filesave_cropping_history = "../../../data/cropping_history.tif";
+$filesave_cropping_history = "../../../data/".$croppingHistory;
 file_put_contents($filesave_cropping_history, $ch_result_cropping_history);
 
-$cropping_path = "../../data/cropping_history.tif";
+$cropping_path = "../../data/".$croppingHistory;
 
 // getting WCS data from geoserver using url
 
@@ -72,25 +77,11 @@ FB::info($contentType);
 curl_close($ch);
 FB::trace("function worked");
 
-// Check if the file is correct .tif format
+$filesave = "../../../data/".$rainData;
+file_put_contents($filesave, $ch_result_soil);
+$download_path = "../../data/".$rainData;
 
-$reader = new XMLReader();
-$reader->xml(ch_result_soil);
-if ($reader->read())
-	{
-		$errMsg = "\n\n" . date("Y-m-d H:i:s") . " ERROR " . $_SERVER["REQUEST_TIME"] . "\n\t " . __FILE__ . "\n\t Request XML error: POST request returned without a valid GeoTIFF.\n\t Refer to XML for info:\n\t XML Response:\n\t url: {$url}\n\t xml:\n\t {$ch_result} ";
-		file_put_contents("error/errorlog.txt", $errMsg, FILE_APPEND);
-		return("this is an error save tiff file");
-	}
-else
-	{
-		$filesave = "../../../data/rain-data.tif";
-		file_put_contents($filesave, $ch_result_soil);
-		$download_path = "../../data/rain-data.tif";
-		return ($download_path);
-	}
-
-echo json_encode(array($download_path,$cropping_path));
+echo json_encode(array($download_path,$cropping_path ));
 
 
 

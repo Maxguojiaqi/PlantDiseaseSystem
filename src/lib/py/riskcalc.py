@@ -18,16 +18,18 @@ print (sys.argv[1]);
 inputList = ast.literal_eval(sys.argv[1]);
 print (type(inputList));
 print (inputList);
-print (inputList[1]);
-print (type(inputList[1]));
+print (inputList[3]);
+print (type(inputList[3]));
 
-my_file = "../../../data/riskmap.tif"
-if (os.path.exists(my_file)==True):
+# my_file = "../../../data/riskmap"+inputList[3]+".tif"
+# if (os.path.exists(my_file)==True):
 
-	os.remove("../../../data/riskmap.tif")
-	os.remove("../../../data/riskmap1.tif")
+# 	os.remove("../../../data/riskmap.tif")
+# 	os.remove("../../../data/riskmap1.tif")
 
-file1 = "../../../data/rain-data.tif"
+timeStamp = str(inputList[3])
+
+file1 = "../../../data/rainData"+ timeStamp +".tif"
 
 #Open dataset
 bandNum = 1
@@ -48,7 +50,7 @@ dataCD.fill(inputList[0])
 
 # Write to the out file
 driver = gdal.GetDriverByName("GTiff")
-disOut = driver.Create("../../../data/CropDensity.tif", dis1.RasterXSize, dis1.RasterYSize, 1, band1.DataType)
+disOut = driver.Create("../../../data/CropDensity"+timeStamp+".tif", dis1.RasterXSize, dis1.RasterYSize, 1, band1.DataType)
 disOut.SetGeoTransform(dis1.GetGeoTransform())
  #set up the cell size and projection
 disOut.SetProjection(dis1.GetProjection())               
