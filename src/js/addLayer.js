@@ -8,13 +8,21 @@ Name: Jiaqi Guo(Max)
 $("#buttonAddLayer").click(function()
   {
 
-    $.post("../lib/php/GeoserverREST.php",{},function(status)
-    {
+    $.post("../lib/php/GeoserverREST.php",
+      {
+
+      }).done(function(data,status)
+        {
         $("#status").html("done");
+        data = jQuery.parseJSON(data);
+        console.log(data[0]);
+
+        // var layerName = 'Canola:Riskmap'+
+
         var raster_source = new ol.source.TileWMS
         ({
           url:'http://localhost:8080/geoserver/Canola/ows?',
-          params:{'LAYERS': 'Canola:Riskmap'},
+          params:{'LAYERS': 'Canola:Riskmap'+data[0]},
           serverType: 'geoserver',
           crossOrigin:'anonymous'
         });
@@ -35,12 +43,8 @@ $("#buttonAddLayer").click(function()
           zoom: 12,
           duration: 2000
         });
-
-
+      })  
     });
-
-
-  });
       
 document.getElementById('buttonExportMap').addEventListener('click', function() {
   map.once('postcompose', function(event) {

@@ -1,37 +1,44 @@
-<!--************************************************************** 
-This code use cURL command to create,style a new layer on Geoserver 
-through Geoserver REST API
-Created By: Jiaqi Guo(Max)  
-Last Modified: 2017-09-22
-***************************************************************-->
-<?php
-// require('../../lib/fb/fb.php');
 
-function runGeoRest()
+<?php
+
+// ************************************************************** 
+// This code use cURL command to create,style a new layer on Geoserver 
+// through Geoserver REST API
+// Created By: Jiaqi Guo(Max)  
+// Last Modified: 2017-09-22
+// ***************************************************************
+
+
+require('../../lib/fb/fb.php');
+
+session_start();
+
+$timeStamp = $_SESSION['Tstamp'];
+
+
+function runGeoRest($timeStamp)
 {
   // FB::info("start working Rest");
 
-  session_start();
 
-  $timeStamp = $_SESSION['Tstamp'];
   // FB::info($timeStamp);
 
   // Creating URL and xmlString 
   $urlStore="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all";
-  $urlLayer="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap/coverages";
-  $urlStyle = "http://localhost:8080/geoserver/rest/layers/Canola:Riskmap";
+  $urlLayer="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap".$timeStamp."/coverages";
+  $urlStyle = "http://localhost:8080/geoserver/rest/layers/Canola:Riskmap".$timeStamp;
 
   $xmlStrStore = "<coverageStore>
-   <name>Riskmap</name>
+   <name>Riskmap".$timeStamp."</name>
    <workspace>Canola</workspace>
    <enabled>true</enabled>
    <type>GeoTIFF</type>
-   <url>/var/www/html/PlantDiseaseSys/data/riskmap.tif</url>
+   <url>/var/www/html/PlantDiseaseSys/data/riskmap".$timeStamp.".tif</url>
    </coverageStore>";
 
    $xmlLayer = "<coverage>
-    <name>Riskmap</name>
-    <title>Riskmap</title>
+    <name>Riskmap".$timeStamp."</name>
+    <title>Riskmap".$timeStamp."</title>
     <srs>EPSG:4326</srs>
     </coverage>";
 
@@ -177,7 +184,9 @@ function runGeoRest()
   // FB::info("style added");
 }
 
-// FB::info("run function");
-runGeoRest();
+FB::info($timeStamp);
+runGeoRest($timeStamp);
 
+// echo json_encode(array($timeStamp));
+echo json_encode(array($timeStamp));
 ?>

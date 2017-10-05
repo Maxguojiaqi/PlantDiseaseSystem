@@ -81,7 +81,7 @@ $filesave = "../../../data/".$rainData;
 file_put_contents($filesave, $ch_result_soil);
 $download_path = "../../data/".$rainData;
 
-echo json_encode(array($download_path,$cropping_path ));
+echo json_encode(array($download_path,$cropping_path));
 
 
 
