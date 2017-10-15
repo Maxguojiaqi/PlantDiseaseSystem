@@ -27,6 +27,8 @@ $("#buttonAddLayer").click(function()
           crossOrigin:'anonymous'
         });
 
+        console.log(raster_source);
+
         var wms_map = new ol.layer.Tile({
 
           source:raster_source
@@ -35,7 +37,7 @@ $("#buttonAddLayer").click(function()
         map.addLayer(wms_map);
         map.removeInteraction(select); // deselect the polygon, better present the riskmap on the ol.map
 
-
+        console.log(coords);
         zoomX = (coords[0] + coords[2])/2 ;
         zoomY = (coords[1] + coords[3])/2;
         view.animate({
