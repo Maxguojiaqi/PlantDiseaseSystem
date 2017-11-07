@@ -4433,7 +4433,7 @@
  
  .ui.container {
      display: block;
-     max-width: 40% !important;
+     max-width: 100% !important;
  }
  /* Mobile */
  
@@ -30263,7 +30263,7 @@ Floated Menu / Item
 ---------------*/
  
  .ui.wide.popup {
-     max-width: 250px;
+     max-width: 350px;
  }
  
  .ui[class*="very wide"].popup {

@@ -2,473 +2,496 @@
 <html>
 
 <head>
-    <link rel="icon" href = "../../data/1492526805_Flag_of_Canada.png">
     <meta charset="UTF-8">
-    <title>Plant Diease Model</title>
+    <meta name="description" content="Agrilculture Canada - Soil Data Portal">
+    <meta name="author" content="Andrew Roberts">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Plant Disease System</title>
+    <link rel="icon" href = "../lib/icons/canada.png"/>
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
-    <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <script src="https://openlayers.org/en/v4.0.1/build/ol.js" type="text/javascript"></script>-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-    <!-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script> -->
-    <script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>
+    <script src="../lib/ol/v3.19.1-dist/ol.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    
+    <script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>   
+    <link rel="stylesheet" href="../lib/ol/v3.19.1-dist/ol.css" type="text/css">
     <link rel="stylesheet" href="../css/Semantic-UI-CSS-master/semantic.css" type="text/css">
-    <link rel="stylesheet" href="../css/plant-disease.css" type="text/css">
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.3/proj4.js" type="text/javascript"></script> -->
+    <link rel="stylesheet" href="../css/PlantDisease.css" type="text/css">
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.3/proj4.js" type="text/javascript"></script> 
+    
     <script src="../lib/proj4js/proj4.js"></script>
-   <!-- below is error handleing -->
-   <!-- <script>window.onerror = function(e){alert("an error occured" + e);}</script> -->
     <script src="../lib/shp2geo/jszip.js" type="text/javascript"></script>
     <script src="../lib/shp2geo/jszip-utils.js" type="text/javascript"></script>    
     <script src="../lib/shp2geo/preprocess.js" type="text/javascript"></script>
-    <script src="../lib/shp2geo/preview.js" type="text/javascript"></script>
+    <script src="../lib/shp2geo/preview.js" type="text/javascript"></script> -->
 
 
 </head>
 
 <body>
 
+     <div id="sidebar" class="ui very wide right sidebar">        
+             
+        <div class="sidemenu-top ui fixed large black vertical icon buttons">
+            <button id="layer-options" class="open-panel ui button" data-content="Layer options" data-variation="mini inverted" data-position="left center"><i class="list layout icon"></i></button>
+            <button id="drawing-tools" class="open-panel ui button" data-content="Drawing tools" data-variation="mini inverted" data-position="left center"><i class="edit icon"></i></button>
+<!--             <button id="upload-shapefile" class="open-panel ui button" data-content="Upload shapefile" data-variation="mini inverted" data-position="left center"><i class="upload icon"></i></button> -->
+<!--            <button id="download-data" class="open-panel ui button" data-content="Download data" data-variation="mini inverted" data-position="left center"><i class="download icon"></i></button>-->
+<!--             <button id="help" class="open-panel ui button" data-content="Help" data-variation="mini inverted" data-position="left center"><i class="help circle icon"></i></button> -->
+        </div>
+        <div class="sidemenu-bottom ui fixed large black vertical icon buttons">
+            <button id="zoom-in" class="ui button"><i class="plus icon"></i></button>
+            <button id="zoom-out" class="ui button"><i class="minus icon"></i></button>
+        </div>
+        <div class="sidebar-panel ui container"> 
+            
+            <!-- Layer selection -->
+            <div id="layer-options-panel" class="info-panel">
+                <div class="sidebar-panel-heading">
+                    <h4 class="sidebar-panel-title">
+                        <span>Layers</span>
+                    </h4>
+                    <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
+                </div>
+                <div class="sidebar-panel-body">                    
+                    <span class="title-main">Available Data Layers</span>                       
+                    <div id="layer-group-acc" class="top-margin ui styled accordion">
+                    </div>
+                    <span class="title-sub">Selected Layers</span>
+                    <div class="top-margin ui styled accordion">
+                        <div class="title">
+                            <i class="dropdown icon"></i>
+                            Current Selection
+                        </div>
+                        <div class="content">
+                            <div id="selected-layer-list" class="selected-layers-list ui list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Drawing Tools --> 
+            <div id="drawing-tools-panel" class="drawing-tools-panel info-panel">
+                <div class="sidebar-panel-heading">
+                    <h4 class="sidebar-panel-title">
+                        <span>Drawing Tools</span>
+                    </h4>
+                    <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
+                </div>
+                <div class="sidebar-panel-body">
+                    <span class="title-main">Select area with drawing tools</span>
+                    <div class="ui segment">                                            
+                        <div id="drawing-dropdown" class="drawing-dropdown ui fluid selection dropdown">
+                            <input name="tools" value="None" type="hidden">
+                            <i class="dropdown icon"></i>
+                            <div class="default text" >None</div>
+                            <div class="menu">                                
+                                <div id="draw-box" class="draw-tool item" data-value="Box">
+                                    <i class="object ungroup icon"></i>
+                                    Box
+                                </div>                            
+                                <div id="draw-square" class="draw-tool item" data-value="Square">
+                                    <i class="square icon"></i>
+                                    Square
+                                </div>
+                                <div id="draw-polygon" class="draw-tool item" data-value="Point">
+                                    <i class="radio icon"></i>
+                                    Point
+                                </div>
+                                <div id="draw-polygon" class="draw-tool item" data-value="Polygon">
+                                    <i class="industry icon"></i>
+                                    Polygon
+                                </div>
+                                <div id="draw-none" class="draw-tool item" data-value="None">
+                                    - none -
+                                </div>
+                            </div>
+                        </div>
+                        <div id="feature-extent" class="hidden text-align top-margin"></div>
+                    </div>
+                    <h2 class="ui header">OR</h2>
+                    <span class="title-main">Select area with Coordinates</span>
+                    <div class="ui segment">
+                        <form class="bbox-form ui form">
+                            <div class="two fields">
+                                <div class="field">
+                                    <div class="ui labeled input">
+                                        <div class="ui label">
+                                            min-x
+                                        </div>
+                                        <input id="minX" class="bbox" placeholder="lower left x-axis" type="text">                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui labeled input">
+                                        <div class="ui label">
+                                            min-y
+                                        </div>
+                                        <input id="minY" class="bbox" placeholder="lower left y-axis" type="text">
+                                    </div>
+                                </div>                              
+                            </div>
+                            <div class="two fields">
+                                <div class="field">
+                                    <div class="ui labeled input">
+                                        <div class="ui label">
+                                            max-x
+                                        </div>
+                                        <input id="maxX" class="bbox" placeholder="top right x-axis" type="text">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui labeled input">
+                                        <div class="ui label">
+                                            max-y
+                                        </div>
+                                        <input id="maxY" class="bbox" placeholder="top right y-axis" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui labeled action input">
+                                    <div class="ui label">
+                                        <i class="info circle icon link"></i>
+                                        EPSG:
+                                    </div>
+                                    <div class="ui fluid epsg popup transition hidden">
+                                        <h4>EPSG Codes</h4>
+                                        <p>EPSG Codes are a "collection of definitions of coordinate reference systems and coordinate transformations". Every coordinate system has an EPSG code.</p>
+                                        <p>To find your code, enter the name of the coordinate system you are using into the search bar on the right. Ensure the coordinate system you are using matches the coordinates entered for the bounding box.</p>
+                                        <p>For a more detailed search, please visit <a href="https://epsg.io" target="_blank">epsg.io</a>.</p>
+                                        <p id="epsg-text"></p>
+                                    </div>
+                                    <input id="epsg" class="bbox" placeholder="Enter code, or search by projection" type="text">
+                                    <button type="button" class="epsg-search ui icon button">
+                                        <i class="search icon"></i>
+                                    </button>
+                                </div>                                
+                            </div>
+                            <div class="ui warning tiny message">
+                                <i class="close icon"></i>
+                                <div class="header">Could you check your EPSG code!</div>
+                                <ui class="list">
+                                    <li>The EPSG code did not work with those coordinates. Double check the code, and your coordinate units. For more help, try <a href="https://epsg.io" target="_blank">here</a>.</li>
+                                </ui>                                    
+                            </div>                    
+                            <div class="form-buttons two fields">
+                                <div class="field">
+                                    <div class="preview-bbox ui basic fluid labeled icon button">
+                                        Preview
+                                        <i class="add icon"></i>
+                                    </div>
+                                </div>
+                                <div class="field"></div>
+                            </div>
 
-<div id="tab-container">
-    <div class="ui top attached pointing menu">
-        <div class="active item" data-tab="first" style="cursor:pointer">
-          <!-- <i class ="mouse pointer icon"></i> -->
-            <h style ="font-style:courier; font-size:170%;" > Canola </h>  
-          </div>
+                        </form>
+                    </div> 
+                    <div class="ui container">
+                         <div class="draw-point-warning ui warning tiny message hidden">
+                                <i class="close icon"></i>
+                                <div class="header">Single points are not accepted!</div>
+                                <ui class="list">
+                                    <li>Please draw another shape to select your area of interest.</li>
+                                </ui>                                    
+                        </div>
+                        <div class="row">
+                            <div id="download-draw" class="download-draw ui labeled button disabled" tabindex="0">
+                                <div class="ui black button">
+                                    <i class="download icon"></i> Download
+                                </div>
+                                <a class="content ui basic black left pointing label">
+                                    0 layers
+                                </a>
+                            </div>
+                        </div>
+                        <div id="data-ready" class="hidden row">  
+                            <a id="data-link" href="" target="_blank">
+                                <button class="data-ready large ui icon orange button" href="">
+                                    <i class="arrow circle outline down icon"></i>Ready
+                                </button>
+                            </a>
+                        </div>
+                    </div>    
+                </div>                
+            </div>    
+            
+            <!-- Shapefile Upload 
+            <div id="upload-shapefile-panel" class="info-panel">
+                <div class="sidebar-panel-heading">
+                    <h4 class="sidebar-panel-title">
+                        <span>Upload Shapefile</span>
+                    </h4>
+                    <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
+                </div>
+                <div class="sidebar-panel-body">
+                    <span class="title-main">Select an area from your shapefile</span>
+                    <div class="ui segment">
+                        <p>Upload your own zipped shapefile and select an area based off the full extent, or from selected points or polygons in your file. <b>Zip must contain .shp and .dbf files.</b></p>
+                        <p>Select an individual feature with single click, or hold ctrl and drag to select multiple features at once.<b> Single Point features are not accepted</b></p>
+                    </div>
+                    <div class="shapefile-form ui form warning segment">
+                        <div class="field">
+                            <div id="zipfile" class="ui pink fluid labeled icon button upload" data-content="Mandatory files: SHP, DBF" data-variation="inverted small">
+                                Upload zip file
+                                <i class="file archive outline icon"></i>
+                                <input id="file" accept=".zip" type="file">
+                            </div>
+                        </div>
+                        <div id="dataInfo" class="text-align"></div>
+                        <div id="options">
+                            <div class="field">
+                                <div id="options-epsg-field" class="field ui labeled input">
+                                    <div class="ui label">EPSG</div>
+                                        <input id="options-epsg" placeholder="Enter code, or search by projection" onfocus='this.value="";' type="text">
+                                </div>
+                            </div>    
+                            <div class="field">
+                                <div id="options-encoding-field" class="ui labeled input">
+                                    <div class="ui label">Encoding</div>
+                                        <input id="options-encoding" placeholder="set your encoding UTF-8, Big5..." onfocus='this.value="";' type="text">
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="shape-warning ui warning tiny message hidden">
+                                <i class="close icon"></i>
+                                <div class="header">There are no features on this layer!</div>
+                                <ui class="list">
+                                    <li>Please reload your shapefile with preview, or check that it includes features.</li>
+                                </ui>                                    
+                        </div>
+                        <div class="point-warning ui warning tiny message hidden">
+                                <i class="close icon"></i>
+                                <div class="header">Single points are not accepted!</div>
+                                <ui class="list">
+                                    <li>Please use crtl + drag to select multiple points.</li>
+                                </ui>                                    
+                        </div>
+                        <div class="form-buttons two fields">
+                            <div class="field">
+                                <div id="download-shapefile" class="download-shapefile ui blue fluid labeled icon disabled button">
+                                    Download Data
+                                    <i class="download icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="preview-shapefile ui teal fluid labeled icon button disabled">
+                                    Preview
+                                    <i class="add icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="shape-data-ready" class="hidden field">
+                            <a id="shape-data-link" href="" target="_blank">
+                                <button class="data-ready large ui icon orange button" href="">
+                                    <i class="arrow circle outline down icon"></i>Ready
+                                </button>
+                            </a>                          
+                        </div>
+                    </div>
+                </div>
+            </div>-->
 
-        <div class="item" data-tab="second" style="cursor:pointer">
-          <!-- <i class ="configure icon"></i> -->
-           <h style ="font-style:courier; font-size:170%;" > Corn </h>  
-          </div>
+            <!-- Help and Support -->
+            <div id="help-panel" class="info-panel">
+                <div class="sidebar-panel-heading">
+                    <h4 class="sidebar-panel-title">
+                        <span>Help</span>
+                    </h4>
+                    <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
+                </div>
+                <div class="sidebar-panel-body">
+                    <p>This project was developed for the 2017 winter co-op term. If bugs or errors are found, or if you have ideas for added functionality, please don't histate to be in contact with the team. We may be reached at xiaoyuan.geng@agr.gc.ca</p>
+                    <p>All support documation can be found at <a href="http://ulysses.agr.gc.ca/docs" target="_blank">ulysses.agr.gc.ca/docs</a>.</p>
+                </div>
+            </div>
+        </div>
 
-        <div class="item" data-tab="third" style="cursor:pointer">
-          <!-- <i class ="database icon"></i> -->
-            <h style ="font-style:courier; font-size:170%;" > Wheat </h> 
-          </div>
-
-          <div class="item" data-tab="fourth" style="cursor:pointer">
-          <!-- <i class ="database icon"></i> -->
-            <h style ="font-style:courier; font-size:170%;" > Information </h> 
-          </div>
+    
+        
     </div>
 
-
-    <div data-tab= "first" class="ui bottom attached active tab segment">
-                               
-        <h3>  1.Select an Area of Interest for Canola by Clicking </h3>                    
-        <div class="ui segment">  
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="AoiData" class="positive ui button">Submit</button>
-        </div> 
-        </div>
-
-
-        <h3>  2.Enter required Data </h3>             
-
-
-    <div class="ui segment">  
-        <div class="ui right labeled input">
-            <input placeholder ="Enter rainfall.." type ="text">
-            <div class="ui basic label">
-                mm
+    <div class="map pusher">
+        
+        <div class="page-intro ui modal">            
+            <div class="header">
+                AAFC Plant Disease System
+            </div>
+            <div class="content">
+                <!-- <p>Select and download Canada wide AAFC soil data</p> -->
+                <div class="ui steps">
+                    <div class="step">
+                        <i class="database icon"></i> 
+                        <div class="content">
+                            <div class="title">Layers</div>
+                            <div class="description">Choose your layers</div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <i class="crop icon"></i> 
+                        <div class="content">
+                            <div class="title">AOI</div>
+                            <div class="description">Select your Area of Interest</div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <i class="cloud download icon"></i> 
+                        <div class="content">
+                            <div class="title">Download</div>
+                            <div class="description">Download your processed data</div>
+                        </div>
+                    </div>
+                </div>
+<!--                 <p>Data sourced from <a href="https://www.soilgrids.org/" target="_blank">SoilGrids.org</a>. For more information on this project or the data, please contact xiaoyuan.geng@agr.gc.ca</p>
+                <p>Also, you can find this us on github, <a href="https://github.com/AgCan-Coop/soil-apps" target="_blank">here</a>.</p>     -->            
             </div>
         </div>
-        <br>
-        <br>
-
-        <div class="ui right labeled input">
-            <input id ="temperature" placeholder ="Enter temperature.." type ="text">
-            <div class="ui basic label">
-                °C
+        
+        <div class="count-many ui basic modal">
+            <div class="ui icon header">                
             </div>
-        </div>
-        <br>
-        <br>
-
-        <div class="ui selection dropdown">
-              <input id="Cropdst" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Crop Density </div>
-              <div class="menu">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>
-        <br>
-        <br>
-        <div class="ui selection dropdown">
-              <input name="RegionRisk" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Regional Risk of Apothecial development </div>
-              <div class="menu" id="RegionRisk">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>  
-        <br>
-        <br>
-
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="ProcessData" class="positive ui button">Submit</button>
-        </div> 
-
-        </div>
-
-        <div class="ui segment">  
-        <h3>  3.Download Datasets </h3> 
-
-        <div id="tifResponse1"></div>
-        <div id="button1" class=""></div>
-        <br>
-        <div id="tifResponse2"></div>
-        <div id="button2" class=""></div>
-        <br>
-        <div id="tifResponse3"></div>
-        <div id="button3" class=""></div> 
-        <br>
-                
-        </div>
-
-    </div>
-
-   <div data-tab= "second" class="ui bottom attached tab segment">
-            <h3>  1.Select an Area of Interest for Corn by Clicking </h3>                    
-        <div class="ui segment">  
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="AoiData" class="positive ui button">Submit</button>
-        </div> 
-        </div>
-
-
-        <h3>  2.Enter required Data </h3>             
-
-
-    <div class="ui segment">  
-        <div class="ui right labeled input">
-            <input placeholder ="Enter rainfall.." type ="text">
-            <div class="ui basic label">
-                mm
+            <div class="content">
+                <p>Selecting this many layers to subset can result in long processing times, particularly when cutting large areas. Are you sure you want to proceed?</p>
             </div>
-        </div>
-        <br>
-        <br>
-
-        <div class="ui right labeled input">
-            <input id ="temperature" placeholder ="Enter temperature.." type ="text">
-            <div class="ui basic label">
-                °C
+            <div class="actions">
+                <div class="ui red basic cancel inverted button">
+                    <i class="remove icon"></i>
+                    No
+                </div>
+                <div class="ui green ok inverted button">
+                    <i class="checkmark icon"></i>
+                    Yes
+                </div>                
             </div>
-        </div>
-        <br>
-        <br>
-
-        <div class="ui selection dropdown">
-              <input id="Cropdst" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Crop Density </div>
-              <div class="menu">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>
-        <br>
-        <br>
-        <div class="ui selection dropdown">
-              <input name="RegionRisk" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Regional Risk of Apothecial development </div>
-              <div class="menu" id="RegionRisk">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>  
-        <br>
-        <br>
-
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="ProcessData" class="positive ui button">Submit</button>
-        </div> 
-
-        </div>
-
-        <div class="ui segment">  
-        <h3>  3.Download Datasets </h3> 
-
-        <div id="tifResponse1"></div>
-        <div id="button1" class=""></div>
-        <br>
-        <div id="tifResponse2"></div>
-        <div id="button2" class=""></div>
-        <br>
-        <div id="tifResponse3"></div>
-        <div id="button3" class=""></div> 
-        <br>
-                
-        </div>                           
-
-    </div>
-
-   <div data-tab= "third"  class="ui bottom attached tab segment">
-        <h3>  1.Select an Area of Interest for Wheat by Clicking </h3>                    
-        <div class="ui segment">  
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="AoiData" class="positive ui button">Submit</button>
-        </div> 
-        </div>
-
-
-        <h3>  2.Enter required Data </h3>             
-
-
-    <div class="ui segment">  
-        <div class="ui right labeled input">
-            <input placeholder ="Enter rainfall.." type ="text">
-            <div class="ui basic label">
-                mm
+        </div>   
+        
+        <div class="count-zero ui basic modal">
+            <div class="ui icon header">
+                <i class="warning sign icon"></i> You Must Select Some Layers To Proceed
             </div>
-        </div>
-        <br>
-        <br>
-
-        <div class="ui right labeled input">
-            <input id ="temperature" placeholder ="Enter temperature.." type ="text">
-            <div class="ui basic label">
-                °C
+            <div class="content">                
             </div>
-        </div>
-        <br>
-        <br>
-
-        <div class="ui selection dropdown">
-              <input id="Cropdst" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Crop Density </div>
-              <div class="menu">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>
-        <br>
-        <br>
-        <div class="ui selection dropdown">
-              <input name="RegionRisk" type="hidden">
-              <i class="dropdown icon"></i>
-              <div class="default text">Regional Risk of Apothecial development </div>
-              <div class="menu" id="RegionRisk">
-                <div class="item" data-value="0">Low</div>
-                <div class="item" data-value="1">Medium</div>
-                <div class="item" data-value="2">High</div>
-              </div>
-        </div>  
-        <br>
-        <br>
-
-        <span class="title-main"class="ui header">Click submit when finished</span>
-        <div>
-        <br>
-        <button id ="ProcessData" class="positive ui button">Submit</button>
+            <div class="actions">
+                <div class="ui green ok inverted button">                    
+                    Roger That
+                </div>                
+            </div>
+        </div>       
+        
+        <div class="data-loader ui inverted dimmer">
+            <div class="ui large text loader">Preparing files, this can take a few moments</div>
         </div> 
-
-
-        </div>
-
-
-        <div class="ui segment">  
-        <h3>  3.Download Datasets </h3> 
-
-        <div id="tifResponse1"></div>
-        <div id="button1" class=""></div>
-        <br>
-        <div id="tifResponse2"></div>
-        <div id="button2" class=""></div>
-        <br>
-        <div id="tifResponse3"></div>
-        <div id="button3" class=""></div> 
-        <br>
-                
-        </div>
-    </div>     
-
-
-   <div data-tab= "fourth"  class="ui bottom attached tab segment">               
-        <div class="ui segment" id="text-block" >  
-            <img src="../../data/aafc.png" style="width:200px;height:100px">
-              <h1> About Plant Disease Network </h1> 
-            <p>
-            A plant disease is usually defined as abnormal growth and/or dysfunction of a plant. Diseases are
-            the result of some disturbance in the normal life process of the plant. Diseases may be the result of
-            living and/or non-living causes. Biotic diseases are caused by living organisms (e.g., fungi, bacteria,
-            and viruses). Manage and predict plant disease has long been a challenge for farmers.
-            </p>
-            <p>
-            AAFC(Agriculture and Agri-food Canada) is keen to develope a live Web-GIS system to help indicate
-            potential risk for certain areas based on a spatial model.
-            </p> 
-        </div>
-    </div> 
-
-
-
-</div>
-
-<div id="map-container">
-      <div class="map pusher">
+        
         <div id="map" class="map"></div>
-      </div>
-
-</div>
-
-
-
-
-    <script>
-        /****************************  Semantic-UI jQuery support *****************************/
-        /* 
-         
-        Semantic UI dependency code works in conjunction with class definitions
-        to generate animation and user interaction with classes
-         
-        */
-        // initialize the tabs for data process
-        $(' .menu .item')
-            .tab();
-        $('.ui.dropdown')
-            .dropdown();
+    </div>
+    
+    <script> 
         
         /****************************  Define Map Layers and Map  *****************************/
-        console.log("5");
-       var view = new ol.View({
-          //change projection to geoserver's projection
-          projection: "EPSG:4326",
-          center: [-98.5284468774974,52.71391708013823],
-                zoom: 7
+
+
+        // Basemap layer, OSM source
+        //
+        var OSM_layer = new ol.layer.Tile({
+            source: new ol.source.OSM()
         });
-        // creating a openlayer base map
-        var osm_map = new ol.layer.Tile({
-          source: new ol.source.OSM()
-        });
-        // creating a map layer from own server
-        var vector_source = new ol.source.Vector({
-              url: 'http://ulysses.gis.agr.gc.ca/geoserver/manitoba/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=manitoba:GeoBase_MUNI_MB_1_0_eng&maxFeatures=5000&outputFormat=application%2Fjson',
-              format: new ol.format.GeoJSON()
-          });
-
-        var vector_map = new ol.layer.Vector({
-          source: vector_source
-
-        });
-
-            // Get the array of features
-        var features = vector_map.getSource().getFeatures();
-
-        // Go through this array and get coordinates of their geometry.
-        features.forEach(function(feature) {
-           console.log(feature.getGeometry().getCoordinates());
-        });
-
         
+        // Set view and zoom, set for Canada
+        //
+        var view = new ol.View({
+            center: [-10997148, 9319099],
+            zoom: 4
+        });
+        
+        // Create scaleline control
+        //
+        var scaleline = new ol.control.ScaleLine();
+//        var attr = new ol.control.Attribution();
+        
+        // Create custom style 
+        //
+        var myStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255,100,50,.2)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: 'rgba(255,100,50,1)'
+            }),
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({
+                    color: 'rgba(255,100,50,.2)'
+                })
+            })
+        });        
+        
+        // Define source for multiple use
+        //      
+        var source = new ol.source.Vector({                
+            wrapX: false
+        });
+        
+        // Vector layer for drawings
+        //
+        var vectorDraw = new ol.layer.Vector({
+            name: 'vectorDraw',
+            source: source,
+            style: myStyle
+        });
+        
+        // Create map, point to target div
+        //
         var map = new ol.Map({
-
-            layers: [osm_map, vector_map],
+            controls: [scaleline],  //, attr
+            interactions: ol.interaction.defaults({
+                doubleClickZoom: false
+            }),
+            layers: [OSM_layer, vectorDraw],
             target: 'map',
             view: view
-        
         });
-       // select region from JSON vector data            
+                           
+   
         
-        var coords;
-        var select = new ol.interaction.Select();
-            map.addInteraction(select);
-
-        // var selectedFeature = select.getFeatures();
-        selectclick = select;
-        selectclick.on('select', function(e)
-        { 
-          console.log(e);
-          if (e!== null)
-          {
-          console.log(e),
-          coords = e.selected[0].f.target.l;
-          console.log(coords);
-          }
-        });
-
+       
         
-/****************************  Download data locally     *****************************/
-        
-        $("#AoiData").click(function()
-          { console.log(coords);
-          $.post("../lib/php/riskDownload.php", 
-          { 
-               minX: String(coords[0]),
-               minY: String(coords[1]),
-               maxX: String(coords[2]),
-               maxY: String(coords[3]),
-          })
-          .done(function(data, status)
-          {
-              $("#status").html("done");
-              data = jQuery.parseJSON(data);
-              console.log(data);
-//&& data[1]
-              if (data[0]&&data[1])
-              { console.log(data[0]);
-                $("#tifResponse1").html('<a href="' + data[0] + '" class="button" download=>Download Soil Data</a>').appendTo('#button1');
-                $("#tifResponse2").html('<a href="' + data[1] + '" class="button" download=>Download Cropping History Data</a>').appendTo('#button2');
-              }
-          })
-          });
-      // changeInteraction();
-/****************************  Process data using model     *****************************/
-        $("#ProcessData").click(function()
-          {
-          // var floweringDate = document.getElementById("floweringDate").value;
-          // console.log(floweringDate);
-          var CropDensity = document.getElementById("Cropdst").value;
-          $.post("../lib/php/riskAnalysis.php", 
-          {    
-               CropDensity:CropDensity
-          })
-          .done(function(data, status)
-          {
-              $("#status").html("done");
-              data = jQuery.parseJSON(data);
-              // console.log(data);
-//&& data[1]
-              if (data)
-              {
-                $("#tifResponse3").html('<a href="' + data + '" class="button" download=>Download risk Data</a>').appendTo('#button3');
-              }
-          })
-          });
-        
-
-
     </script>
+    <script src="../js/semanticBasics.js" type="text/javascript"></script>
+    <script src="../js/restLayer.js" type="text/javascript"></script>
+   
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
