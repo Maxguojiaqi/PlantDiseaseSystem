@@ -9,10 +9,11 @@
  elements in the application.
 
  Created for inclusion with the Data Portal prototype. 
- Author: Andrew Roberts 
- Modified: 2017-04-27
+
 
 */
+
+
 
 
 // Gives us tooltips on buttons and info popups

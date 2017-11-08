@@ -35,6 +35,8 @@ $("#AoiData").click(function()
     // Make sure button is hidden before data is succsessfully downloaded
     document.getElementById("buttonDownload1").style.visibility="hidden";
     document.getElementById("buttonDownload2").style.visibility="hidden";
+    // document.getElementById("buttonDisplayRain").style.visibility="hidden";
+    // map.removeLayer(wms_map);
     $.post("../lib/php/riskDownload.php", 
       { 
        minX: String(coords[0]),
@@ -57,5 +59,6 @@ $("#AoiData").click(function()
           //Show button when data is succsessfully downloaded
           document.getElementById("buttonDownload1").style.visibility="visible";
           document.getElementById("buttonDownload2").style.visibility="visible";
+          // document.getElementById("buttonDisplayRain").style.visibility="visible";
       })
   });
