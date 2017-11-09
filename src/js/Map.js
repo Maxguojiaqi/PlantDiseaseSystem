@@ -9,7 +9,6 @@ Last Modified: 2017-09-18
 // Create Base Map and Layer using OpenLayers
 
 
-
 // Basemap layer, OSM source
 //
 var OSM_layer = new ol.layer.Tile({

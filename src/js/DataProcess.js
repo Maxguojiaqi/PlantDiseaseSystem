@@ -8,6 +8,8 @@ Last Modified: 2017-09-18
 
 // Process data from process server
 
+var timeStampRisk;
+var risk_map = new ol.layer.Tile({ });
 $("#ProcessData").click(function()
   {
     // Make sure button is hidden before data is succsessfully processed
@@ -41,6 +43,35 @@ $("#ProcessData").click(function()
 
     })
 
-  });
+
+    $.post("../lib/php/GeoserverREST.php",
+      {
+
+      }).done(function(data,status)
+        {
+        $("#status").html("done");
+        data = jQuery.parseJSON(data);
+        timeStampRisk = data[0];
+        console.log("timeStamp:"+timeStampRisk);
+
+    var riskmap_source = new ol.source.TileWMS
+    ({
+      url:'http://localhost:8080/geoserver/Canola/ows?',
+      params:{'LAYERS': 'Canola:Riskmap'+ timeStampRisk},
+      serverType: 'geoserver',
+      crossOrigin:'anonymous'
+    });
+
+    console.log(riskmap_source);
+
+    risk_map.setSource(riskmap_source);
+    risk_map.setVisible(false);
+    
+    map.addLayer(risk_map);
+
+    })
+
+
+});
         
 

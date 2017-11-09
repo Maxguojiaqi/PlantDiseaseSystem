@@ -9,8 +9,10 @@ Last Modified: 2017-09-18
 // Getting Polygon coordinates from DOM on click
 
 var coords;
+var timeStamp;
+var rain_map = new ol.layer.Tile({ });
 var select = new ol.interaction.Select();
-    map.addInteraction(select);
+map.addInteraction(select);
 
 selectclick = select;
 selectclick.on('select', function(e)
@@ -61,4 +63,38 @@ $("#AoiData").click(function()
           document.getElementById("buttonDownload2").style.visibility="visible";
           // document.getElementById("buttonDisplayRain").style.visibility="visible";
       })
-  });
+
+
+    $.post("../lib/php/GeoserverRainREST.php",
+      {
+
+      }).done(function(data,status)
+        {
+        $("#status").html("done");
+        data = jQuery.parseJSON(data);
+        console.log(data[0]);
+
+        timeStamp = data[0];
+        
+
+        var rain_source = new ol.source.TileWMS
+                ({
+                  url:'http://localhost:8080/geoserver/Canola/ows?',
+                  params:{'LAYERS': 'Canola:Rain'+ timeStamp},
+                  serverType: 'geoserver',
+                  crossOrigin:'anonymous'
+                });
+
+        console.log(rain_source);
+        console.log("the timestamp:"+timeStamp);
+
+        rain_map.setSource(rain_source);
+        rain_map.setVisible(false);
+
+        map.addLayer(rain_map);
+  }) 
+
+
+
+});
+

@@ -16,7 +16,7 @@ session_start();
 $timeStamp = $_SESSION['Tstamp'];
 
 
-function runGeoRest($timeStamp)
+function runGeoRestRisk($timeStamp)
 {
   // FB::info("start working Rest");
 
@@ -184,8 +184,9 @@ function runGeoRest($timeStamp)
   // FB::info("style added");
 }
 
+
 FB::info($timeStamp);
-runGeoRest($timeStamp);
+runGeoRestRisk($timeStamp);
 
 // echo json_encode(array($timeStamp));
 echo json_encode(array($timeStamp));
