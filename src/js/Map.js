@@ -70,6 +70,9 @@ var map = new ol.Map({
   view: view
 });
 
+test1 = new ol.control.MousePosition;
+map.addControl(test1);
+
 $(".page-intro").modal('show');
 
 

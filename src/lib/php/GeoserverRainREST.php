@@ -42,7 +42,7 @@ function runGeoRest($timeStamp)
     <srs>EPSG:4326</srs>
     </coverage>";
 
-  $xmlStrStyle = "<layer><defaultStyle><name>riskmap</name></defaultStyle><enabled>true</enabled></layer>";
+  $xmlStrStyle = "<layer><defaultStyle><name>rain</name></defaultStyle><enabled>true</enabled></layer>";
 
   //########################################################################################################################
   // Creating a new Store on Geoserver, using generated Rain.tif

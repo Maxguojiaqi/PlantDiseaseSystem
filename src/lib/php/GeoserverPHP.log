@@ -13029,3 +13029,1716 @@ Content-Length: 87
 * Connection #0 to host localhost left intact
 # Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510203705
 
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 00:13:04
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 05:13:04 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510204384
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 00:13:04
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510204384/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 05:13:04 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510204384/coverages/Rain1510204384
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510204384/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510204384 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 05:13:04 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510204384
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 00:13:11
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 05:13:11 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510204384
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 00:13:11
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510204384/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 05:13:11 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510204384/coverages/Riskmap1510204384
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510204384/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510204384 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 05:13:11 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510204384
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 17:57:28
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 22:57:28 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510268246
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 17:57:28
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510268246/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 22:57:28 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510268246/coverages/Rain1510268246
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510268246/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510268246 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 22:57:28 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510268246
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 17:57:31
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 22:57:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268246
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 17:57:31
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268246/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 22:57:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268246/coverages/Riskmap1510268246
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268246/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510268246 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 22:57:31 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510268246
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 18:01:00
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 23:01:00 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510268460
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 18:01:00
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510268460/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 23:01:00 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510268460/coverages/Rain1510268460
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510268460/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510268460 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 23:01:00 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510268460
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 18:01:08
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 23:01:08 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268460
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 18:01:08
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268460/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 23:01:08 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268460/coverages/Riskmap1510268460
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510268460/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510268460 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 23:01:08 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510268460
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 18:33:05
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 23:33:05 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510270385
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 18:33:05
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510270385/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Thu, 09 Nov 2017 23:33:05 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510270385/coverages/Rain1510270385
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510270385/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510270385 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Thu, 09 Nov 2017 23:33:05 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510270385
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:05:40
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:05:40 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510272340
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:05:40
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510272340/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:05:40 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510272340/coverages/Rain1510272340
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510272340/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510272340 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:05:40 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510272340
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:05:51
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:05:51 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272340
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:05:51
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272340/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:05:51 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272340/coverages/Riskmap1510272340
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272340/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510272340 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:05:51 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510272340
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:12:31
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:12:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510272751
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:12:31
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510272751/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:12:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510272751/coverages/Rain1510272751
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510272751/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510272751 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:12:31 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510272751
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:12:38
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:12:38 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272751
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:12:38
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272751/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:12:38 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272751/coverages/Riskmap1510272751
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510272751/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510272751 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:12:38 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510272751
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:33:40
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:33:40 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274020
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:33:40
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510274020/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:33:40 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274020/coverages/Rain1510274020
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274020/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510274020 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:33:40 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510274020
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:33:46
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:33:46 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274020
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:33:46
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274020/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:33:46 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274020/coverages/Riskmap1510274020
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274020/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510274020 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:33:46 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510274020
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:43:08
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:43:08 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274588
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:43:08
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510274588/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:43:08 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274588/coverages/Rain1510274588
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274588/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510274588 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:43:08 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510274588
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:46:11
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:46:11 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274771
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:46:11
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510274771/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:46:11 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274771/coverages/Rain1510274771
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274771/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510274771 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:46:11 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510274771
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:47:22
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:47:22 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274842
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:47:22
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510274842/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:47:22 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274842/coverages/Rain1510274842
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274842/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510274842 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:47:22 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510274842
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:47:59
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:47:59 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274879
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:47:59
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510274879/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:47:59 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274879/coverages/Rain1510274879
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274879/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510274879 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:47:59 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510274879
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:48:31
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:48:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274911
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:48:31
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510274911/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:48:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274911/coverages/Rain1510274911
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510274911/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510274911 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:48:31 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510274911
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:48:50
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:48:51 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274911
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 19:48:51
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274911/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 00:48:51 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274911/coverages/Riskmap1510274911
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510274911/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510274911 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 00:48:51 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510274911
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:14:32
+* Hostname in DNS cache was stale, zapped
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:14:32 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276472
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:14:32
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510276472/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:14:32 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276472/coverages/Rain1510276472
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276472/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510276472 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 01:14:32 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510276472
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:26
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:26 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276526
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:26
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510276526/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:26 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276526/coverages/Rain1510276526
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276526/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510276526 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 01:15:26 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510276526
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:31
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276531
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:31
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510276531/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:31 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276531/coverages/Rain1510276531
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276531/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510276531 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 01:15:31 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510276531
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:49
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:49 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276531
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:49
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276531/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:49 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276531/coverages/Riskmap1510276531
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276531/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510276531 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 01:15:49 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510276531
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:58
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 222
+
+* upload completely sent off: 222 out of 222 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:58 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276558
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:15:58
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Rain1510276558/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 117
+
+* upload completely sent off: 117 out of 117 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:15:59 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276558/coverages/Rain1510276558
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain1510276558/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Rain1510276558 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 84
+
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 01:15:59 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Rain1510276558
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:16:01
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores?configure=all HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 224
+
+* upload completely sent off: 224 out of 224 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:16:01 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276558
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all
+
+-----------------------------------------------------------------------------------
+TimeZone: America/New_York
+2017-11-09 20:16:01
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276558/coverages HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 123
+
+* upload completely sent off: 123 out of 123 bytes
+< HTTP/1.1 201 
+< Date: Fri, 10 Nov 2017 01:16:01 GMT
+< Location: http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276558/coverages/Riskmap1510276558
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Riskmap1510276558/coverages
+
+-----------------------------------------------------------------------------------
+* Hostname localhost was found in DNS cache
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Server auth using Basic with user 'admin'
+> PUT /geoserver/rest/layers/Canola:Riskmap1510276558 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic YWRtaW46Z2Vvc2VydmVy
+Accept: */*
+Content-type: application/xml
+Content-Length: 87
+
+* upload completely sent off: 87 out of 87 bytes
+< HTTP/1.1 200 
+< Date: Fri, 10 Nov 2017 01:16:01 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://localhost:8080/geoserver/rest/layers/Canola:Riskmap1510276558
+

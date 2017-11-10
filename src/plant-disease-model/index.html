@@ -54,7 +54,7 @@
                   <h3>  Select an Area of Interest </h3> 
                   <!-- Area of Interest Selection-->
                   <div class="ui segment">  
-                    <span class="title-main"class="ui header">Click submit when finished</span>
+                    <span class="title-main"class="ui header">Click on Map to Select</span>
                     <div>
                       <br>
                       <button id ="AoiData" class="ui button">Submit</button>
@@ -64,24 +64,54 @@
                  <h3>  Display Layer </h3> 
                   <!-- Area of Interest Selection-->
                   <div class="ui segment">  
-                    <span class="title-main"class="ui header">Select Layer to Display on Map</span>
+                    <span class="title-main"class="ui header">Display Rainfall Layer on Map</span>
                     <div>
                       <div class="ui selection dropdown">
-                        <input id="LayerType" type="hidden">
+                        <input id="RainType" type="hidden">
                         <i class="dropdown icon"></i>
                         <div class="default text">Select Layer</div>
                         <div class="menu">
-                          <div class="item" data-value="0">RainFall</div>
-                          <div class="item" data-value="1">Temperature</div>
-                          <div class="item" data-value="2">Soil Moisture</div>
-                          <div class="item" data-value="3">Wetness</div>
-                          <div class="item" data-value="4">Weather Forecast</div>
+                          <div class="item" data-value="0">Accumulated Precipitation past 6 hours</div>
+                          <div class="item" data-value="1">Accumulated Precipitation past 2 weeks</div>
                         </div>
                       </div> 
-                      <div>
-                      <br>
-                      <button id ="LayerDisplay" class="ui button">Display</button>
-                      </div>
+                      <button id ="RainDisplay" class="ui button">Display</button>
+                    </div> 
+                    <br>
+                    <span class="title-main"class="ui header">Display Average Soil Moisture Layer on Map</span>
+                    <div>
+                      <div class="ui selection dropdown">
+                        <input id="A_SoilMoistureType" type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Select Layer</div>
+                        <div class="menu">
+                          <div class="item" data-value="0">Average soil moisture at 0-5 cm past 6 hours</div>
+                          <div class="item" data-value="1">Average saturation index past 6 hours*</div>
+                        </div>
+                      </div> 
+                      <button id ="A_SoilMoistureDisplay" class="ui button">Display</button>
+                    </div>
+                    <br>
+                    <span class="title-main"class="ui header">Display Accumulated Soil Moisture Layer on Map</span>
+                    <div>
+                      <div class="ui selection dropdown">
+                        <input id="B_SoilMoistureType" type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Select Layer</div>
+                        <div class="menu">
+                          <div class="item" data-value="0">Accumulated saturation index in the past 2 weeks</div>
+                          <div class="item" data-value="1">Soil moisture presistence in the past 2 weeks*</div>
+                        </div>
+                      </div> 
+                      <button id ="B_SoilMoistureDisplay" class="ui button">Display</button>
+                    </div>
+                    <br>
+                    <div>
+                      <button id ="TemperatureDisplay" class="ui button">Display Average Temperature in Past 6 Hours</button>
+                    </div> 
+                    <br>
+                    <div>
+                      <button id ="CroppingDisplay" class="ui button">Display Cropping History Map</button>
                     </div> 
                   </div>
                 </div>                
@@ -98,11 +128,14 @@
                 </div>
                 <div class="sidebar-panel-body">                    
 
-                  <h3>  Enter Crop Information </h3>  
+                  <h3>  Choose Risk Analysis Model and Generate Resultes </h3>  
 
                     <!-- Create Input fields for the Model required information-->
 
-                    <div class="ui segment">  
+                    <div class="ui segment"> 
+                      <span class="title-main"class="ui header">Select Required Information Before Generate Result</span> 
+                      <br>
+                      <br>
                       <div class="ui selection dropdown">
                         <input id="DiseaseHistory" type="hidden">
                         <i class="dropdown icon"></i>
@@ -136,16 +169,28 @@
                           <div class="item" data-value="1">Low-numbers</div>
                           <div class="item" data-value="2">High-numbers</div>
                         </div>
-                      </div>  
+                      </div>
                       <br>
                       <br>
-                      <span class="title-main"class="ui header">Click submit when finished</span>
+                      <div class="ui selection dropdown">
+                        <input id="WeatherForecast" type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Weather Forecast</div>
+                        <div class="menu">
+                          <div class="item" data-value="0">High-pressure</div>
+                          <div class="item" data-value="1">Variable</div>
+                          <div class="item" data-value="2">Low-pressure</div>
+                        </div>
+                      </div> 
                       <div>
                         <br>
-                        <button id ="ProcessData" class="ui button">Submit</button>
+                        <button id ="ProcessData" class="ui button">Generate Result Using Orignal Canola Council Model</button>
+                        <br>
+                        <br>
+                        <button id ="ProcessData" class="ui button">Generate Result Using AAFC Adapted Canola Council Model</button>
                       </div> 
                     </div>
-                        </div>
+                    </div>
                     </div>
 
             <!-- Shapefile Upload -->

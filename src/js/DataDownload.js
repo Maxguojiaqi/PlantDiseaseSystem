@@ -78,12 +78,12 @@ $("#AoiData").click(function()
         
 
         var rain_source = new ol.source.TileWMS
-                ({
-                  url:'http://localhost:8080/geoserver/Canola/ows?',
-                  params:{'LAYERS': 'Canola:Rain'+ timeStamp},
-                  serverType: 'geoserver',
-                  crossOrigin:'anonymous'
-                });
+          ({
+            url:'http://localhost:8080/geoserver/Canola/ows?',
+            params:{'LAYERS': 'Canola:Rain'+ timeStamp},
+            serverType: 'geoserver',
+            crossOrigin:'anonymous'
+          });
 
         console.log(rain_source);
         console.log("the timestamp:"+timeStamp);

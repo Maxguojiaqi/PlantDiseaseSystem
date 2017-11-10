@@ -8,23 +8,23 @@ Name: Jiaqi Guo(Max)
 
 
 
-$("#LayerDisplay").click(function()
+$("#RainDisplay").click(function()
   {
-    var LayerType = document.getElementById("LayerType").value;
+    var RainType = document.getElementById("RainType").value;
 
     console.log(rain_map.getVisible());
     console.log(risk_map.getVisible());
-    console.log(LayerType);
-    console.log(typeof(LayerType));
+    console.log(RainType);
+    console.log(typeof(RainType));
 
-    if (LayerType == 0)
+    if (RainType == 0)
       {
         risk_map.setVisible(false);
         rain_map.setVisible(true);
         // map.addLayer(rain_map);
         // map.removeLayer(risk_map);
         console.log(map.getTarget());
-        map.removeInteraction(select); // deselect the polygon, better present the riskmap on the ol.map
+        // map.removeInteraction(select); // deselect the polygon, better present the riskmap on the ol.map
         console.log(rain_map.getVisible())
 
       }
@@ -38,7 +38,7 @@ $("#LayerDisplay").click(function()
       // rain_map.setVisible = false;
       console.log(map.getTarget());
       console.log(risk_map.getVisible())
-      map.removeInteraction(select); // deselect the polygon, better present the riskmap on the ol.map
+      // map.removeInteraction(select); // deselect the polygon, better present the riskmap on the ol.map
      }
     
 });
