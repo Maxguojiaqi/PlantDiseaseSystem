@@ -29,7 +29,7 @@ print (type(inputList[3]));
 
 timeStamp = str(inputList[3])
 
-file1 = "../../../data/rainData"+ timeStamp +".tif"
+file1 = "../../../data/rainCalc"+ timeStamp +".tif"
 
 #Open dataset
 bandNum = 1

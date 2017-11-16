@@ -15,8 +15,8 @@ session_start();
 
 $timeStamp = $_SESSION['Tstamp'];
 
-
-function runGeoRest($timeStamp)
+FB::info($timeStamp+" from Rest.php");
+function runGeoRest($timeStamp,$dataName)
 {
   // FB::info("start working Rest");
 
@@ -25,24 +25,24 @@ function runGeoRest($timeStamp)
 
   // Creating URL and xmlString 
   $urlStore="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores?configure=all";
-  $urlLayer="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/Rain".$timeStamp."/coverages";
-  $urlStyle = "http://localhost:8080/geoserver/rest/layers/Canola:Rain".$timeStamp;
+  $urlLayer="http://localhost:8080/geoserver/rest/workspaces/Canola/coveragestores/".$dataName.$timeStamp."/coverages";
+  $urlStyle = "http://localhost:8080/geoserver/rest/layers/Canola:".$dataName.$timeStamp;
 
   $xmlStrStore = "<coverageStore>
-   <name>Rain".$timeStamp."</name>
+   <name>".$dataName.$timeStamp."</name>
    <workspace>Canola</workspace>
    <enabled>true</enabled>
    <type>GeoTIFF</type>
-   <url>/var/www/html/PlantDiseaseSys/data/rainData".$timeStamp.".tif</url>
+   <url>/var/www/html/PlantDiseaseSys/data/".$dataName.$timeStamp.".tif</url>
    </coverageStore>";
 
    $xmlLayer = "<coverage>
-    <name>Rain".$timeStamp."</name>
-    <title>Rain".$timeStamp."</title>
+    <name>".$dataName.$timeStamp."</name>
+    <title>".$dataName.$timeStamp."</title>
     <srs>EPSG:4326</srs>
     </coverage>";
 
-  $xmlStrStyle = "<layer><defaultStyle><name>rain</name></defaultStyle><enabled>true</enabled></layer>";
+  $xmlStrStyle = "<layer><defaultStyle><name>".$dataName."</name></defaultStyle><enabled>true</enabled></layer>";
 
   //########################################################################################################################
   // Creating a new Store on Geoserver, using generated Rain.tif
@@ -184,8 +184,10 @@ function runGeoRest($timeStamp)
   // FB::info("style added");
 }
 
+
+$dataName = "rainCalc";
 FB::info($timeStamp);
-runGeoRest($timeStamp);
+runGeoRest($timeStamp, $dataName);
 
 // echo json_encode(array($timeStamp));
 echo json_encode(array($timeStamp));

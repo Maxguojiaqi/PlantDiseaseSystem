@@ -28,7 +28,7 @@ function runPython($timeStamp)
 {
 
     $croppingHistory = "croppingHistory".$timeStamp.".tif";
-    $rainData = "rainData".$timeStamp.".tif";
+    $rainData = "rainCalc".$timeStamp.".tif";
     $Riskmap1 = "risk".$timeStamp.".tif";
     $Riskmap = "riskmap".$timeStamp.".tif";
     $CropMap = "CropDensity".$timeStamp.".tif";

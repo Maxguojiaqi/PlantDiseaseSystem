@@ -49,7 +49,8 @@ var myStyle = new ol.style.Style({
 
 var vector_source =  new ol.source.Vector
 ({
-  url: 'http://ulysses.gis.agr.gc.ca/geoserver/manitoba/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=manitoba:GeoBase_MUNI_MB_1_0_eng&maxFeatures=5000&outputFormat=application%2Fjson', 
+  // url: 'http://ulysses.gis.agr.gc.ca:8080/geoserver/manitoba/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=manitoba:GeoBase_MUNI_MB_1_0_eng&maxFeatures=5000&outputFormat=application%2Fjson',
+  url: 'http://localhost:8080/geoserver/PlantDisease/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=PlantDisease:AOI&maxFeatures=5000&outputFormat=application%2Fjson', 
   format: new ol.format.GeoJSON()
 });
 

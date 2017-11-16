@@ -1,6 +1,5 @@
 /******************************************************************* 
-This Code Generate Display Layer to Map function as well as export display map function 
-Last Modified: 2017-09-29
+This Code Generate Display Layer to Map function
 Name: Jiaqi Guo(Max)
 *******************************************************************/
 
@@ -43,18 +42,23 @@ $("#RainDisplay").click(function()
     
 });
 
-      
-document.getElementById('buttonExportMap').addEventListener('click', function() {
-  map.once('postcompose', function(event) {
-    var canvas = event.context.canvas;
-    if (navigator.msSaveBlob) {
-      navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
-    } else {
-      canvas.toBlob(function(blob) {
-        saveAs(blob, 'map.png');
-      });
-    }
-  });
-  map.renderSync();
-  // map.removeLayer(wms_map);
+$("#RiskDisplay").click(function()
+  {
+    // var RainType = document.getElementById("RainType").value;
+
+    // console.log(rain_map.getVisible());
+    // console.log(risk_map.getVisible());
+    // console.log(RainType);
+    // console.log(typeof(RainType));
+
+    rain_map.setVisible(false);
+    risk_map.setVisible(true);
+    // map.addLayer(risk_map);
+    // map.removeLayer(rain_map);
+    // rain_map.setVisible = false;
+    console.log(map.getTarget());
+    console.log(risk_map.getVisible())
+    // map.removeInteraction(select); // deselect the polygon, better present the riskmap on the ol.map
+     
+    
 });

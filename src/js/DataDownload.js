@@ -65,7 +65,7 @@ $("#AoiData").click(function()
       })
 
 
-    $.post("../lib/php/GeoserverRainREST.php",
+    $.post("../lib/php/GeoserverLayerREST.php",
       {
 
       }).done(function(data,status)
@@ -80,7 +80,7 @@ $("#AoiData").click(function()
         var rain_source = new ol.source.TileWMS
           ({
             url:'http://localhost:8080/geoserver/Canola/ows?',
-            params:{'LAYERS': 'Canola:Rain'+ timeStamp},
+            params:{'LAYERS': 'Canola:rainCalc'+ timeStamp},
             serverType: 'geoserver',
             crossOrigin:'anonymous'
           });
