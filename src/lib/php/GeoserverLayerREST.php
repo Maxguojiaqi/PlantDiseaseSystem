@@ -185,9 +185,18 @@ function runGeoRest($timeStamp,$dataName)
 }
 
 
-$dataName = "rainCalc";
+// $rain6h = "rain6h";
+// $rain2w = "rain2w";
+
 FB::info($timeStamp);
-runGeoRest($timeStamp, $dataName);
+runGeoRest($timeStamp, "rain6h");
+runGeoRest($timeStamp, "rain2w");
+runGeoRest($timeStamp, "AveSoil");
+runGeoRest($timeStamp, "satIndex");
+runGeoRest($timeStamp, "wetIndex");
+runGeoRest($timeStamp, "pMatrix");
+// runGeoRest($timeStamp, $rain6h);
+// runGeoRest($timeStamp, $rain6h);
 
 // echo json_encode(array($timeStamp));
 echo json_encode(array($timeStamp));

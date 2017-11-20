@@ -10,8 +10,25 @@ Last Modified: 2017-09-18
 
 var coords;
 var timeStamp;
-var rain_map = new ol.layer.Tile({ });
+var source;
 var select = new ol.interaction.Select();
+var rain6h_map = new ol.layer.Tile({ });
+var rain2w_map = new ol.layer.Tile({ });
+var aveSoil_map = new ol.layer.Tile({ });
+var satIndex_map = new ol.layer.Tile({ });
+var wetIndex_map = new ol.layer.Tile({ });
+var PM_map = new ol.layer.Tile({ });
+var temperature_map = new ol.layer.Tile({ });
+var cropping_map = new ol.layer.Tile({ });
+
+
+
+
+
+
+
+
+
 map.addInteraction(select);
 
 selectclick = select;
@@ -75,23 +92,67 @@ $("#AoiData").click(function()
         console.log(data[0]);
 
         timeStamp = data[0];
-        
 
-        var rain_source = new ol.source.TileWMS
+        
+        function setLayerSource (dataname)
+        {
+        var dataname = dataname;
+        source = new ol.source.TileWMS
           ({
             url:'http://localhost:8080/geoserver/Canola/ows?',
-            params:{'LAYERS': 'Canola:rainCalc'+ timeStamp},
+            params:{'LAYERS': 'Canola:' + dataname + timeStamp},
             serverType: 'geoserver',
             crossOrigin:'anonymous'
           });
+        }
 
-        console.log(rain_source);
+
         console.log("the timestamp:"+timeStamp);
 
-        rain_map.setSource(rain_source);
-        rain_map.setVisible(false);
+        setLayerSource("rain6h");
+        console.log(source);
+        rain6h_map.setSource(source);
+        rain6h_map.setVisible(false);
+        map.removeLayer(rain6h_map) // remove the old layer, can't add duplicate map layer.
+        map.addLayer(rain6h_map);
 
-        map.addLayer(rain_map);
+
+        setLayerSource("rain2w");
+        console.log(source);
+        rain2w_map.setSource(source);
+        rain2w_map.setVisible(false);
+        map.removeLayer(rain2w_map)
+        map.addLayer(rain2w_map);  
+
+
+        setLayerSource("AveSoil");
+        console.log(source);
+        aveSoil_map.setSource(source);
+        aveSoil_map.setVisible(false);
+        map.removeLayer(aveSoil_map)
+        map.addLayer(aveSoil_map);
+
+
+        setLayerSource("satIndex");
+        console.log(source);
+        satIndex_map.setSource(source);
+        satIndex_map.setVisible(false);
+        map.removeLayer(satIndex_map)
+        map.addLayer(satIndex_map);
+
+        setLayerSource("wetIndex");
+        console.log(source);
+        wetIndex_map.setSource(source);
+        wetIndex_map.setVisible(false);
+        map.removeLayer(wetIndex_map)
+        map.addLayer(wetIndex_map);
+
+        setLayerSource("pMatrix");
+        console.log(source);
+        PM_map.setSource(source);
+        PM_map.setVisible(false);
+        map.removeLayer(PM_map)
+        map.addLayer(PM_map);
   }) 
 
 

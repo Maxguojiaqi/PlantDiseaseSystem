@@ -21,8 +21,8 @@ var view = new ol.View
 // change projection to geoserver's projection
 
   projection: "EPSG:4326",
-  center: [-98.5284468774974,52.71391708013823],
-    zoom: 6
+  center: [-98.04789,49.53473],
+    zoom: 9
 });
 
 // Create scaleline control
