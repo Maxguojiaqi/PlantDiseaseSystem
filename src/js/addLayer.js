@@ -23,6 +23,9 @@ $("#RainDisplay").click(function()
         satIndex_map.setVisible(false);
         wetIndex_map.setVisible(false);
         PM_map.setVisible(false);
+        temperature_map.setVisible(false);
+        cropping_map.setVisible(false);
+        risk_map.setVisible(false);
         rain6h_map.setVisible(true);
         console.log(map.getTarget());
         console.log(rain6h_map.getVisible())
@@ -36,6 +39,9 @@ $("#RainDisplay").click(function()
       satIndex_map.setVisible(false);
       wetIndex_map.setVisible(false);
       PM_map.setVisible(false);
+      temperature_map.setVisible(false);
+      cropping_map.setVisible(false);
+      risk_map.setVisible(false);
       rain2w_map.setVisible(true);
       console.log(map.getTarget());
       console.log(risk_map.getVisible())
@@ -60,6 +66,9 @@ $("#A_SoilMoistureDisplay").click(function()
         satIndex_map.setVisible(false);
         wetIndex_map.setVisible(false);
         PM_map.setVisible(false);
+        temperature_map.setVisible(false);
+        cropping_map.setVisible(false);
+        risk_map.setVisible(false);
         aveSoil_map.setVisible(true);
 
       }
@@ -71,6 +80,9 @@ $("#A_SoilMoistureDisplay").click(function()
       aveSoil_map.setVisible(false);
       wetIndex_map.setVisible(false);
       PM_map.setVisible(false);
+      temperature_map.setVisible(false);
+      cropping_map.setVisible(false);
+      risk_map.setVisible(false);
       satIndex_map.setVisible(true);
 
       console.log(map.getTarget());
@@ -95,6 +107,9 @@ $("#B_SoilMoistureDisplay").click(function()
         satIndex_map.setVisible(false);
         PM_map.setVisible(false);
         aveSoil_map.setVisible(false);
+        temperature_map.setVisible(false);
+        cropping_map.setVisible(false);
+        risk_map.setVisible(false);
         wetIndex_map.setVisible(true);
 
       }
@@ -106,12 +121,56 @@ $("#B_SoilMoistureDisplay").click(function()
       aveSoil_map.setVisible(false);
       satIndex_map.setVisible(false);
       wetIndex_map.setVisible(false);
+      temperature_map.setVisible(false);
+      cropping_map.setVisible(false);
+      risk_map.setVisible(false);
       PM_map.setVisible(true);
       console.log(map.getTarget());
       console.log(risk_map.getVisible())
      }
     
 });
+
+$("#TemperatureDisplay").click(function()
+  {
+
+    rain6h_map.setVisible(false);
+    rain2w_map.setVisible(false);
+    aveSoil_map.setVisible(false);
+    satIndex_map.setVisible(false);
+    wetIndex_map.setVisible(false);
+    PM_map.setVisible(false);
+    risk_map.setVisible(false);
+    cropping_map.setVisible(false);
+    temperature_map.setVisible(true);
+
+    console.log(map.getTarget());
+    console.log(risk_map.getVisible())
+     
+    
+});
+
+$("#CroppingDisplay").click(function()
+  {
+
+    rain6h_map.setVisible(false);
+    rain2w_map.setVisible(false);
+    aveSoil_map.setVisible(false);
+    satIndex_map.setVisible(false);
+    wetIndex_map.setVisible(false);
+    PM_map.setVisible(false);
+    risk_map.setVisible(false);
+    temperature_map.setVisible(false);
+    cropping_map.setVisible(true);
+
+    console.log(map.getTarget());
+    console.log(risk_map.getVisible())
+     
+    
+});
+
+
+
 
 
 $("#RiskDisplay").click(function()
@@ -123,6 +182,8 @@ $("#RiskDisplay").click(function()
     satIndex_map.setVisible(false);
     wetIndex_map.setVisible(false);
     PM_map.setVisible(false);
+    temperature_map.setVisible(false);
+    cropping_map.setVisible(false);
     risk_map.setVisible(true);
 
     console.log(map.getTarget());

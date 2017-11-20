@@ -195,8 +195,8 @@ runGeoRest($timeStamp, "AveSoil");
 runGeoRest($timeStamp, "satIndex");
 runGeoRest($timeStamp, "wetIndex");
 runGeoRest($timeStamp, "pMatrix");
-// runGeoRest($timeStamp, $rain6h);
-// runGeoRest($timeStamp, $rain6h);
+runGeoRest($timeStamp, "temperature");
+runGeoRest($timeStamp, "croppingHistory");
 
 // echo json_encode(array($timeStamp));
 echo json_encode(array($timeStamp));

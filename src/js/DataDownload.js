@@ -23,12 +23,6 @@ var cropping_map = new ol.layer.Tile({ });
 
 
 
-
-
-
-
-
-
 map.addInteraction(select);
 
 selectclick = select;
@@ -153,6 +147,20 @@ $("#AoiData").click(function()
         PM_map.setVisible(false);
         map.removeLayer(PM_map)
         map.addLayer(PM_map);
+
+        setLayerSource("temperature");
+        console.log(source);
+        temperature_map.setSource(source);
+        temperature_map.setVisible(false);
+        map.removeLayer(temperature_map)
+        map.addLayer(temperature_map);
+
+        setLayerSource("croppingHistory");
+        console.log(source);
+        cropping_map.setSource(source);
+        cropping_map.setVisible(false);
+        map.removeLayer(cropping_map)
+        map.addLayer(cropping_map);
   }) 
 
 
