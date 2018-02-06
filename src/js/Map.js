@@ -47,12 +47,16 @@ var myStyle = new ol.style.Style({
     })
 });    
 
-var vector_source =  new ol.source.Vector
+
+
+
+var vector_source = new ol.source.Vector
 ({
-  // url: 'http://ulysses.gis.agr.gc.ca:8080/geoserver/manitoba/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=manitoba:GeoBase_MUNI_MB_1_0_eng&maxFeatures=5000&outputFormat=application%2Fjson',
-  url: 'http://localhost:8080/geoserver/PlantDisease/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=PlantDisease:AOI&maxFeatures=5000&outputFormat=application%2Fjson', 
+  url: 'http://localhost:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:Manitoba_Municipal_Boundaries&maxFeatures=5000&outputFormat=application%2Fjson',
   format: new ol.format.GeoJSON()
 });
+
+
 
 var vector_map =  new ol.layer.Vector
 ({
@@ -61,15 +65,33 @@ source: vector_source
 });    
 
 
+var wmsSource = new ol.source.TileWMS
+({
+  url:'http://localhost:8080/geoserver/RasterLayer/ows?',
+  params:{'LAYERS': 'RasterLayer:CroppingHistory'},
+  serverType: 'geoserver',
+  crossOrigin:'anonymous'
+});
+
+
+var wmsLayer = new ol.layer.Tile({
+source: wmsSource
+});
+
+
+
 var map = new ol.Map({
   controls: [scaleline],  //, attr
   interactions: ol.interaction.defaults({
     doubleClickZoom: false
 }),
-  layers: [OSM_layer, vector_map],
+  layers: [OSM_layer,wmsLayer,vector_map],
   target: 'map',
   view: view
 });
+
+
+
 
 test1 = new ol.control.MousePosition;
 map.addControl(test1);
