@@ -1,7 +1,6 @@
 /*******************************************************************
 This code generate the basemap using sing OpenLayers API
 Area of interest boundary vector data stored in Geoserver
-
 Created By: Jiaqi Guo(Max) 
 Last Modified: 2017-09-18
 *******************************************************************/
@@ -12,7 +11,10 @@ Last Modified: 2017-09-18
 // Basemap layer, OSM source
 //
 var OSM_layer = new ol.layer.Tile({
-    source: new ol.source.OSM()
+    // source: new ol.source.OSM()  
+      source: new ol.source.BingMaps({
+    key: 'Ao3gqEs-MVTd_WIvPO4XGqlFW6poGriaAu_hgkaln2H1d7ckV0ndV96HO5YdhAHP',
+    imagerySet: 'Aerial'})
 });
 
 
@@ -52,7 +54,7 @@ var myStyle = new ol.style.Style({
 
 var vector_source = new ol.source.Vector
 ({
-  url: 'http://localhost:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:Manitoba_Municipal_Boundaries&maxFeatures=5000&outputFormat=application%2Fjson',
+  url: 'http://34.201.23.195:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:Manitoba_Municipal_Boundaries&maxFeatures=5000&outputFormat=application%2Fjson',
   format: new ol.format.GeoJSON()
 });
 
@@ -67,8 +69,8 @@ source: vector_source
 
 var wmsSource = new ol.source.TileWMS
 ({
-  url:'http://localhost:8080/geoserver/RasterLayer/ows?',
-  params:{'LAYERS': 'RasterLayer:CroppingHistory'},
+  url:'http://34.201.23.195:8080/geoserver/Rainfall/ows?',
+  params:{'LAYERS': 'Rainfall:PR_Acc2w20160601'},
   serverType: 'geoserver',
   crossOrigin:'anonymous'
 });
@@ -85,7 +87,7 @@ var map = new ol.Map({
   interactions: ol.interaction.defaults({
     doubleClickZoom: false
 }),
-  layers: [OSM_layer,wmsLayer,vector_map],
+  layers: [OSM_layer, wmsLayer,vector_map],
   target: 'map',
   view: view
 });
@@ -97,8 +99,4 @@ test1 = new ol.control.MousePosition;
 map.addControl(test1);
 
 $(".page-intro").modal('show');
-
-
-
-
 

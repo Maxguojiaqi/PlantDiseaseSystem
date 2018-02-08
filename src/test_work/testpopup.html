@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- <meta http-equiv="X-Frame-Options" content="allow"> -->
     <title>WMS GetFeatureInfo (Tile Layer)</title>
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
@@ -122,24 +123,25 @@
         var viewResolution = /** @type {number} */ (view.getResolution());
         var url = wmsSource.getGetFeatureInfoUrl(
             evt.coordinate, viewResolution, 'EPSG:3857',
-            {'INFO_FORMAT': 'text/html'});
+            {'INFO_FORMAT': 'application/json'});
         if (url) {
-          content.innerHTML = 
-              '<iframe seamless src="' + url + '"></iframe>';
+          //content.innerHTML = url;
+              // '<iframe seamless src="' + url + '"></iframe>';
               overlay.setPosition(coordinate);
         };
 
-            // if (url) {                
-            //     var parser = new ol.format.GeoJSON();
-            //     $.ajax({
-            //         url: url,
-            //         dataType: 'jsonp',
-            //         jsonpCallback: 'parseResponse'
-            //     }).then(function(response) {
-            //         var result = parser.readFeatures(response);
-            //         overlay.innerHTML = result[0].T.GRAY_INDEX;        
-            //     });
-            // }
+        // var test = url.getElementsByClassName("featureInfo")[0];
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                content.innerHTML = this.responseText;
+           }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+
+        console.log(url);
 
       });
 

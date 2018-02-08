@@ -106,8 +106,8 @@ $("#AoiData").click(function()
         setLayerSource("rain6h");
         console.log(source);
         rain6h_map.setSource(source);
-         .setVisible(false);
-        map.removeLayer(rain6h_map) // remove the old layer, can't add duplicate map layer.
+        rain6h_map.setVisible(false);
+        map.removeLayer(rain6h_map); // remove the old layer, can't add duplicate map layer.
         map.addLayer(rain6h_map);
 
 
