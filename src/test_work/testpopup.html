@@ -96,10 +96,10 @@
 
 
       var wmsSource = new ol.source.TileWMS({
-  url:'http://localhost:8080/geoserver/RasterLayer/ows?',
-  params:{'LAYERS': 'RasterLayer:CroppingHistory'},
-  serverType: 'geoserver',
-  crossOrigin:'anonymous'
+		  url:'http://34.201.23.195:8080/geoserver/Rainfall/ows?',
+		  params:{'LAYERS': 'Rainfall:PR_Acc2w20160610'},
+		  serverType: 'geoserver',
+		  crossOrigin:'anonymous'
       });
 
       var wmsLayer = new ol.layer.Tile({

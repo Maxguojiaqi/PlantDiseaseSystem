@@ -8,6 +8,27 @@ Last Modified: 2017-09-18
 // Create Base Map and Layer using OpenLayers
 
 
+var container = document.getElementById('popup');
+var content = document.getElementById('popup-content');
+// var closer = document.getElementById('popup-closer');
+
+
+
+var overlay = new ol.Overlay({
+  element: container,
+  autoPan: true,
+  autoPanAnimation: {
+    duration: 250
+  }
+});
+
+//   closer.onclick = function() {
+//   overlay.setPosition(undefined);
+//   closer.blur();
+//   return false;
+// };
+
+
 // Basemap layer, OSM source
 //
 var OSM_layer = new ol.layer.Tile({
@@ -70,7 +91,7 @@ source: vector_source
 var wmsSource = new ol.source.TileWMS
 ({
   url:'http://34.201.23.195:8080/geoserver/Rainfall/ows?',
-  params:{'LAYERS': 'Rainfall:PR_Acc2w20160601'},
+  params:{'LAYERS': 'Rainfall:PR_Acc2w20160610'},
   serverType: 'geoserver',
   crossOrigin:'anonymous'
 });
@@ -89,8 +110,51 @@ var map = new ol.Map({
 }),
   layers: [OSM_layer, wmsLayer,vector_map],
   target: 'map',
+  overlays: [overlay],
   view: view
 });
+
+
+map.on('singleclick', function(evt) {
+  var coordinate = evt.coordinate;
+  var viewResolution = /** @type {number} */ (view.getResolution());
+  var url = wmsSource.getGetFeatureInfoUrl(
+      evt.coordinate, viewResolution, 'EPSG:3857',
+      {'INFO_FORMAT': 'application/json'});
+  if (url) {
+    //content.innerHTML = url;
+        // '<iframe seamless src="' + url + '"></iframe>';
+        overlay.setPosition(coordinate);
+  };
+
+  // var test = url.getElementsByClassName("featureInfo")[0];
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          content.innerHTML = this.responseText;
+     }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+
+  console.log(url);
+
+});
+
+map.on('pointermove', function(evt) {
+  if (evt.dragging) {
+    return;
+  }
+  var pixel = map.getEventPixel(evt.originalEvent);
+  var hit = map.forEachLayerAtPixel(pixel, function() {
+    return true;
+  });
+  map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+});
+
+
+
 
 
 
