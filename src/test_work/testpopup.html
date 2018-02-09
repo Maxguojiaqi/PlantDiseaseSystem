@@ -96,8 +96,8 @@
 
 
       var wmsSource = new ol.source.TileWMS({
-		  url:'http://34.201.23.195:8080/geoserver/Rainfall/ows?',
-		  params:{'LAYERS': 'Rainfall:PR_Acc2w20160610'},
+		  url:'http://34.201.23.195:8080/geoserver/RawTemperature/ows?',
+		  params:{'LAYERS': 'RawTemperature:downsample64'},
 		  serverType: 'geoserver',
 		  crossOrigin:'anonymous'
       });
@@ -108,7 +108,7 @@
 
       var view = new ol.View({
         center: [0, 0],
-        zoom: 1
+        zoom: 3
       });
 
       var map = new ol.Map({
@@ -123,7 +123,7 @@
         var viewResolution = /** @type {number} */ (view.getResolution());
         var url = wmsSource.getGetFeatureInfoUrl(
             evt.coordinate, viewResolution, 'EPSG:3857',
-            {'INFO_FORMAT': 'application/json'});
+            {'INFO_FORMAT': 'text/html'});
         if (url) {
           //content.innerHTML = url;
               // '<iframe seamless src="' + url + '"></iframe>';

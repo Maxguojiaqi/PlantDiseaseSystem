@@ -10,7 +10,7 @@ Last Modified: 2017-09-18
 
 var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
-// var closer = document.getElementById('popup-closer');
+var closer = document.getElementById('popup-closer');
 
 
 
@@ -22,11 +22,11 @@ var overlay = new ol.Overlay({
   }
 });
 
-//   closer.onclick = function() {
-//   overlay.setPosition(undefined);
-//   closer.blur();
-//   return false;
-// };
+  closer.onclick = function() {
+  overlay.setPosition(undefined);
+  closer.blur();
+  return false;
+};
 
 
 // Basemap layer, OSM source
@@ -89,17 +89,15 @@ visible: false
 });    
 
 
-var wmsSource = new ol.source.TileWMS
-({
-  url:'http://34.201.23.195:8080/geoserver/RawTemperature/ows?',
-  params:{'LAYERS': 'RawTemperature:downsample64'},
-  serverType: 'geoserver',
-  crossOrigin:'anonymous'
+var wmsSource = new ol.source.TileWMS({
+url:'http://34.201.23.195:8080/geoserver/RawTemperature/ows?',
+params:{'LAYERS': 'RawTemperature:downsample64'},
+serverType: 'geoserver',
+crossOrigin:'anonymous'
 });
 
-
 var wmsLayer = new ol.layer.Tile({
-source: wmsSource
+  source: wmsSource
 });
 
 wmsLayer.setOpacity(0.8);
@@ -117,30 +115,30 @@ var map = new ol.Map({
 });
 
 
-map.on('singleclick', function(evt) {
-  var coordinate = evt.coordinate;
-  var viewResolution = /** @type {number} */ (view.getResolution());
-  var url = wmsSource.getGetFeatureInfoUrl(
-      evt.coordinate, viewResolution, 'EPSG:3857',
-      {'INFO_FORMAT': 'application/json'});
-  if (url) {
-    //content.innerHTML = url;
-        // '<iframe seamless src="' + url + '"></iframe>';
-        overlay.setPosition(coordinate);
-  };
+      map.on('singleclick', function(evt) {
+        var coordinate = evt.coordinate;
+        var viewResolution = /** @type {number} */ (view.getResolution());
+        var url = wmsSource.getGetFeatureInfoUrl(
+            evt.coordinate, viewResolution, 'EPSG:3857',
+            {'INFO_FORMAT': 'text/html'});
+        if (url) {
+          //content.innerHTML = url;
+              // '<iframe seamless src="' + url + '"></iframe>';
+              overlay.setPosition(coordinate);
+        };
 
-  // var test = url.getElementsByClassName("featureInfo")[0];
+        // var test = url.getElementsByClassName("featureInfo")[0];
 
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          content.innerHTML = this.responseText;
-     }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                content.innerHTML = this.responseText;
+           }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
 
-  console.log(url);
+        console.log(url);
 
 });
 
