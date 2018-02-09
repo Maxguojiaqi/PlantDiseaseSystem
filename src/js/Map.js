@@ -92,7 +92,7 @@ visible: false
 var wmsSource = new ol.source.TileWMS
 ({
   url:'http://34.201.23.195:8080/geoserver/RawTemperature/ows?',
-  params:{'LAYERS': 'RawTemperature:TT_Avg3day20160601'},
+  params:{'LAYERS': 'RawTemperature:downsample64'},
   serverType: 'geoserver',
   crossOrigin:'anonymous'
 });
