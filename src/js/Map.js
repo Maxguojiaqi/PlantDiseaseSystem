@@ -75,7 +75,7 @@ var myStyle = new ol.style.Style({
 
 var vector_source = new ol.source.Vector
 ({
-  url: 'http://34.201.23.195:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:Manitoba_Municipal_Boundaries&maxFeatures=5000&outputFormat=application%2Fjson',
+  url: 'http://34.201.23.195:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:PAR_MB_TOWNSHIP&maxFeatures=5000&outputFormat=application%2Fjson',
   format: new ol.format.GeoJSON()
 });
 
@@ -83,15 +83,16 @@ var vector_source = new ol.source.Vector
 
 var vector_map =  new ol.layer.Vector
 ({
-source: vector_source 
+source: vector_source,
+visible: false
 
 });    
 
 
 var wmsSource = new ol.source.TileWMS
 ({
-  url:'http://34.201.23.195:8080/geoserver/Rainfall/ows?',
-  params:{'LAYERS': 'Rainfall:PR_Acc2w20160610'},
+  url:'http://34.201.23.195:8080/geoserver/RawTemperature/ows?',
+  params:{'LAYERS': 'RawTemperature:TT_Avg3day20160601'},
   serverType: 'geoserver',
   crossOrigin:'anonymous'
 });
@@ -101,6 +102,7 @@ var wmsLayer = new ol.layer.Tile({
 source: wmsSource
 });
 
+wmsLayer.setOpacity(0.8);
 
 
 var map = new ol.Map({
@@ -108,7 +110,7 @@ var map = new ol.Map({
   interactions: ol.interaction.defaults({
     doubleClickZoom: false
 }),
-  layers: [OSM_layer, wmsLayer,vector_map],
+  layers: [OSM_layer,vector_map,wmsLayer],
   target: 'map',
   overlays: [overlay],
   view: view
