@@ -6,62 +6,92 @@
 // **************************************************************
 
 
-require('../../lib/fb/fb.php');
+// require('../../lib/fb/fb.php');
 
 // Request data from JavaScript
 
-if (empty($_REQUEST["minX"]) || empty($_REQUEST["minY"]) || empty($_REQUEST["maxX"]) || empty($_REQUEST["maxY"]) || !is_numeric($_REQUEST["minX"]) || !is_numeric($_REQUEST["minY"]) || !is_numeric($_REQUEST["maxX"]) || !is_numeric($_REQUEST["maxY"]))
-{
-    // Throws error if inputs aren't entered or numeric. 
-    $errMsg = "*Error, All fields are required and must be WGS84 coordinates.";    
-}
+// if (empty($_REQUEST["minX"]) || empty($_REQUEST["minY"]) || empty($_REQUEST["maxX"]) || empty($_REQUEST["maxY"]) || !is_numeric($_REQUEST["minX"]) || !is_numeric($_REQUEST["minY"]) || !is_numeric($_REQUEST["maxX"]) || !is_numeric($_REQUEST["maxY"]))
+// {
+//     // Throws error if inputs aren't entered or numeric. 
+//     $errMsg = "*Error, All fields are required and must be WGS84 coordinates.";    
+// }
 
-else
-{
+// else
+// {
 	$minX = $_REQUEST['minX'];
 	$minY = $_REQUEST['minY'];
 	$maxX = $_REQUEST['maxX'];
 	$maxY = $_REQUEST['maxY'];   	     
-}     
+// }     
 
 
-session_start();
-$date = new DateTime();
-$timeStamp = (string)$date->format('U');
-$_SESSION['Tstamp'] = $timeStamp;
-
-FB::info("TimeStampNumber: ".$timeStamp);
-
-
-// adding TimeStamp to data name
-$croppingHistory = "croppingHistory".$timeStamp.".tif";
-$rainCalc = "rainCalc".$timeStamp.".tif";
-$aveSoil = "AveSoil".$timeStamp.".tif";
-$pMatrix = "pMatrix".$timeStamp.".tif";
-$rain6h = "rain6h".$timeStamp.".tif";
-$rain2w = "rain2w".$timeStamp.".tif";
-$satIndex = "satIndex".$timeStamp.".tif";
-$temperature = "temperature".$timeStamp.".tif";
-$wetIndex = "wetIndex".$timeStamp.".tif";
-
-$url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:crophistor_geo&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_rainCalc = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:rainCalc&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_aveSoil = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:AveSoil&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_pMatrix = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:pmatrix&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_rain6h = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:rain6h&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_rain2w = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:rain2w&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_satIndex = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:satIndex&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_temperature = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:temperature&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
-$url_wetIndex = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:wetindex&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+	// $minX = '-98.68136015599995';
+	// $minY = '49.35433829400003';
+	// $maxX = '-98.545076601';
+	// $maxY = '49.443506193000104'; 
 
 
 
+
+
+// session_start();
+// $date = new DateTime();
+// $timeStamp = (string)$date->format('U');
+// $_SESSION['Tstamp'] = $timeStamp;
+
+// FB::info("TimeStampNumber: ".$timeStamp);
+
+
+// // adding TimeStamp to data name
+// $croppingHistory = "croppingHistory".$timeStamp.".tif";
+// $rainCalc = "rainCalc".$timeStamp.".tif";
+// $aveSoil = "AveSoil".$timeStamp.".tif";
+// $pMatrix = "pMatrix".$timeStamp.".tif";
+// $rain6h = "rain6h".$timeStamp.".tif";
+// $rain2w = "rain2w".$timeStamp.".tif";
+// $satIndex = "satIndex".$timeStamp.".tif";
+// $temperature = "temperature".$timeStamp.".tif";
+// $wetIndex = "wetIndex".$timeStamp.".tif";
+
+
+// $url_cropping_history = 'http://ulysses.gis.agr.gc.ca:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=PlantDisease:crophistor_geo&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_rainCalc = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:rainCalc&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_aveSoil = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:AveSoil&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_pMatrix = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:pmatrix&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_rain6h = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:rain6h&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_rain2w = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:rain2w&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_satIndex = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:satIndex&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_temperature = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:temperature&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+// $url_wetIndex = 'http://localhost:8080/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&CoverageId=AOI:wetindex&&subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+
+
+
+
+$rainfall = "rainfall.tif";
+$temperature = "temperature.tif";
+$temperature = "temperature.tif";
+
+
+$url_rainfall = 'http://34.201.23.195:8080/geoserver/ows?
+					service=WCS&version=2.0.1&
+					request=GetCoverage&
+					CoverageId=Rainfall:PR_Acc2w20160610&&
+					subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
+
+
+
+
+$url_temp = 'http://34.201.23.195:8080/geoserver/ows?
+			service=WCS&version=2.0.1&
+			request=GetCoverage&
+			CoverageId=Average_Temperature:TT_Avg3day20160610&&
+			subset=Long('.$minX.','.$maxX.')&subset=Lat('.$minY.','.$maxY.')';
 
 // Testing to see if data pass in fine from FirePHP
-FB::info($minX);
-FB::info($minY);
-FB::info($maxX);
-FB::info($maxY);
+// FB::info($minX);
+// FB::info($minY);
+// FB::info($maxX);
+// FB::info($maxY);
 
 
 function downloadData ($serverUrl, $fileName)
@@ -83,19 +113,24 @@ file_put_contents($filesave, $ch_result);
 
 }
 
-downloadData($url_cropping_history,$croppingHistory);
-downloadData($url_rainCalc,$rainCalc);
-downloadData($url_aveSoil,$aveSoil);
-downloadData($url_pMatrix,$pMatrix);
-downloadData($url_rain6h,$rain6h);
-downloadData($url_rain2w,$rain2w);
-downloadData($url_satIndex,$satIndex);
-downloadData($url_temperature,$temperature);
-downloadData($url_wetIndex,$wetIndex);
+
+downloadData($url_rainfall, $rainfall);
+downloadData($url_temp, $temp);
+// downloadData($url_cropping_history,$croppingHistory);
+// downloadData($url_rainCalc,$rainCalc);
+// downloadData($url_aveSoil,$aveSoil);
+// downloadData($url_pMatrix,$pMatrix);
+// downloadData($url_rain6h,$rain6h);
+// downloadData($url_rain2w,$rain2w);
+// downloadData($url_satIndex,$satIndex);
+// downloadData($url_temperature,$temperature);
+// downloadData($url_wetIndex,$wetIndex);
 
 
-$download_path = "../../data/".$rainCalc;
-$cropping_path = "../../data/".$croppingHistory;
+// $download_path = "../../data/".$rainCalc;
+$download_path = "../../data/".$rainfall;
+$cropping_path = "../../data/".$temp;
+// $cropping_path = "../../data/".$croppingHistory;
 echo json_encode(array($download_path,$cropping_path));
 
 

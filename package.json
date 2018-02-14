@@ -1,0 +1,30 @@
+{
+  "name": "aafc-plantdisease",
+  "version": "1.0.0",
+  "description": "AAFC Plant Disease System ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maxguojiaqi/PlantDiseaseSystem.git"
+  },
+  "keywords": [
+    "Lim",
+    "Geomatics",
+    "Plant",
+    "Disease",
+    "System",
+    "AAFC"
+  ],
+  "author": "Lim Geomatics, Max Guo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maxguojiaqi/PlantDiseaseSystem/issues"
+  },
+  "homepage": "https://github.com/Maxguojiaqi/PlantDiseaseSystem#readme",
+  "devDependencies": {
+    "intern": "^4.1.5"
+  }
+}

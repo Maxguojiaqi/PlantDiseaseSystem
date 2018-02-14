@@ -75,7 +75,7 @@ var myStyle = new ol.style.Style({
 
 var vector_source = new ol.source.Vector
 ({
-  url: 'http://34.201.23.195:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:PAR_MB_TOWNSHIP&maxFeatures=5000&outputFormat=application%2Fjson',
+  url: 'http://34.201.23.195:8080/geoserver/Boundaries/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Boundaries:Manitoba_Municipal_Boundaries&maxFeatures=5000&outputFormat=application%2Fjson',
   format: new ol.format.GeoJSON()
 });
 
@@ -84,7 +84,7 @@ var vector_source = new ol.source.Vector
 var vector_map =  new ol.layer.Vector
 ({
 source: vector_source,
-visible: false
+// visible: false
 
 });    
 
@@ -97,10 +97,20 @@ crossOrigin:'anonymous'
 });
 
 var wmsLayer = new ol.layer.Tile({
-  source: wmsSource
+  source: wmsSource,
+  // extent: [ -100.2761859, 50.947917, -99.8354551, 51.4488523 ]
 });
 
 wmsLayer.setOpacity(0.8);
+
+
+// var extent = [ -100.2761859, 50.947917, -99.8354551, 51.4488523 ];
+console.log(wmsLayer.getExtent());
+
+// wmsLayer.getExtent()
+
+
+// wmsLayer.setExtent = extent;
 
 
 var map = new ol.Map({
@@ -115,7 +125,7 @@ var map = new ol.Map({
 });
 
 
-      map.on('singleclick', function(evt) {
+      map.on('dblclick', function(evt) {
         var coordinate = evt.coordinate;
         var viewResolution = /** @type {number} */ (view.getResolution());
         var url = wmsSource.getGetFeatureInfoUrl(

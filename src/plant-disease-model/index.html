@@ -1,4 +1,5 @@
 <!doctype html>
+<html lang="en">
 <html>
 
 <head>
@@ -10,17 +11,19 @@
     <title>Plant Disease System</title>
     <link rel="icon" href = "../lib/icons/canada.png"/>
 
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-    <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>   
-    <script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
+
+  <script src="../css/Semantic-UI-CSS-master/semantic.js" type="text/javascript"></script>   
+
 
     <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
     <link rel="stylesheet" href="../css/Semantic-UI-CSS-master/semantic.css" type="text/css">
     <link rel="stylesheet" href="../css/PlantDisease.css" type="text/css">
-    <link rel="stylesheet" href="../css/plant-disease.css" type="text/css">
 
 </head>
 
@@ -31,10 +34,9 @@
         <div class="sidemenu-top ui fixed large black vertical icon buttons">
 
             <button id="layer-display" class="open-panel ui button" data-content="Layer Display" data-variation="mini inverted" data-position="left center"><i class="list layout icon"></i></button>
-
-            <button id="layer-options" class="open-panel ui button" data-content="Disease Model Process" data-variation="mini inverted" data-position="left center"><i class="settings icon"></i></button>
-            <button id="upload-shapefile" class="open-panel ui button" data-content="Data Download" data-variation="mini inverted" data-position="left center"><i class="download icon"></i></button>
-
+            <button id="layer-options" class="open-panel ui button" data-content="Disease Model Process" data-variation="mini inverted" data-position="left center"><i class="object ungroup icon"></i></button>
+            <button id="data-export" class="open-panel ui button" data-content="Data Download" data-variation="mini inverted" data-position="left center"><i class="download icon"></i></button>
+            <button id="tool-information" class="open-panel ui button" data-content="Information" data-variation="mini inverted" data-position="left center"><i class="info circle icon"></i></button>
         </div>
 
         <div class="sidebar-panel ui container"> 
@@ -44,83 +46,99 @@
             <div id="layer-display-panel" class="layer-display-panel info-panel">
                 <div class="sidebar-panel-heading">
                     <h4 class="sidebar-panel-title">
-                        <span>Select Area of Interest and Display Layer</span>
+                        <span>Layer Control</span>
                     </h4>
                     <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
                 </div>
                 <div class="sidebar-panel-body">          
-                  <h3>  Select an Area of Interest </h3> 
+                  <h4 style="margin-bottom: 0px" >  Select an Area of Interest </h4> 
                   <!-- Area of Interest Selection-->
-                  <div class="ui segment">  
+
+                  <div class="ui one column grid"
+                  style="margin: 0;">
+                  <div class ="row">
+                  <div class="ui segment" style="width: 100%">  
+                    <h5>Target Date</h5>
+                    <div>
+                    
+                      Date: <input type="text" id="datepicker1" style="margin-left: 10px;width: 50%;"> 
+
+                        <div class="ui icon button" data-content=" Some information about the data picker, content TBD">
+                          <i class="help circle icon"></i>
+                        </div>
+                    </div> 
+                  </div>
+                </div>
+                  <h4 style="margin-top: 0; margin-bottom: 0;"> Ancillary Layers </h4>
+                  <div class = "row">
+                  <div class="ui segment" style="width: 100%">  
+                    <div>
+                      
+                      <div class="ui checkbox">
+                        <input name="example" type="checkbox">
+                        <label style="margin-right:20px;">Municipal Boundary</label>
+                      </div>
+                      
+                      <!-- <br> -->
+                      <div class="ui checkbox">
+                        <input name="example" type="checkbox">
+                        <label>Legal Land Survey</label>
+                      </div>
+                    </div> 
+                  </div>
+                  </div>
+
+<!--                   <div class="ui segment">  
                     <span class="title-main"class="ui header">Click on Map to Select</span>
                     <div>
                       <br>
                       <button id ="AoiData" class="ui button">Submit</button>
                     </div> 
-                  </div>
+                  </div> -->
 
-                 <h3>  Display Layer </h3> 
-                  <!-- Area of Interest Selection-->
-                  <div class="ui segment">  
-                    <span class="title-main"class="ui header">Display Rainfall Layer on Map</span>
+                 <h4 style="margin-top: 0; margin-bottom: 0;" > Target Layer </h4>
+                 <div class = "row">
+                  <div class="ui segment" style="width: 100%">  
+                    <h5>Display data Layer on Map</h5>
                     <div>
-                      <div class="ui selection dropdown">
+                      <div class="ui selection dropdown" style="width:80%">
                         <input id="RainType" type="hidden">
                         <i class="dropdown icon"></i>
-                        <div class="default text">Select Layer</div>
+                        <div class="default text">None</div>
                         <div class="menu">
-                          <div class="item" data-value="0">Accumulated Precipitation past 6 hours</div>
-                          <div class="item" data-value="1">Accumulated Precipitation past 2 weeks</div>
+                          <div class="item" data-value="0">Average Temperature</div>
+                          <div class="item" data-value="1">Accumulated Precipitation</div>
+                          <div class="item" data-value="2">Persistent Matrix</div>
+                          <div class="item" data-value="3">Cropping History</div>
+                          <div class="item" data-value="4">None</div> 
                         </div>
                       </div> 
-                      <button id ="RainDisplay" class="ui button">Display</button>
-                    </div> 
-                    <br>
-                    <span class="title-main"class="ui header">Display Average Soil Moisture Layer on Map</span>
-                    <div>
-                      <div class="ui selection dropdown">
-                        <input id="A_SoilMoistureType" type="hidden">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Select Layer</div>
-                        <div class="menu">
-                          <div class="item" data-value="0">Average soil moisture at 0-5 cm past 6 hours</div>
-                          <div class="item" data-value="1">Average saturation index past 6 hours*</div>
-                        </div>
-                      </div> 
-                      <button id ="A_SoilMoistureDisplay" class="ui button">Display</button>
-                    </div>
-                    <br>
-                    <span class="title-main"class="ui header">Display Accumulated Soil Moisture Layer on Map</span>
-                    <div>
-                      <div class="ui selection dropdown">
-                        <input id="B_SoilMoistureType" type="hidden">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Select Layer</div>
-                        <div class="menu">
-                          <div class="item" data-value="0">Accumulated wetness index in the past 2 weeks</div>
-                          <div class="item" data-value="1">Soil moisture presistence in the past 2 weeks*</div>
-                        </div>
-                      </div> 
-                      <button id ="B_SoilMoistureDisplay" class="ui button">Display</button>
-                    </div>
-                    <br>
-                    <div>
-                      <button id ="TemperatureDisplay" class="ui button">Display Average Temperature in Past 6 Hours</button>
-                    </div> 
-                    <br>
-                    <div>
-                      <button id ="CroppingDisplay" class="ui button">Display Cropping History Map</button>
-                    </div> 
+                      <br>
                   </div>
-                </div>                
-            </div>    
+                  <br>
+
+
+                  <h5 style="margin-top: 0; margin-bottom: 0;">Opacity</h5>
+                  <br>
+                  <input type="range" min="1" max="100" value="50" style="width:60%">
+                        
+
+
+                </div>
+              </div> 
+            </div>
+
+        </div>
+
+      </div>                
+       
             
 
             <!-- Layer selection -->
             <div id="layer-options-panel" class="info-panel">
                 <div class="sidebar-panel-heading">
                     <h4 class="sidebar-panel-title">
-                        <span>Plant Disease Process</span>
+                        <span>Risk Model Control</span>
                     </h4>
                     <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
                 </div>
@@ -129,95 +147,206 @@
                   <h3>  Choose Risk Analysis Model and Generate Resultes </h3>  
 
                     <!-- Create Input fields for the Model required information-->
-
+                  
+                  <div class = "ui segment">
+                    <div class="ui styled accordion">
+                    <div class="title">
+                      <i class="dropdown icon"></i>
+                      Target Data
+                      <i class="checkmark box icon" style="color: green; margin-left: 5px"></i>
+                    </div>
+                    <div class="content">
+                    
                     <div class="ui segment"> 
-                      <span class="title-main"class="ui header">Select Required Information Before Generate Result</span> 
-                      <br>
-                      <br>
+                    <div>
+                    
+                      Date: <input type="text" id="datepicker2" style="margin-left: 10px;width: 50%;"> 
+
+                        <div class="ui icon button" data-content=" Some information about the data picker, content TBD">
+                          <i class="help circle icon"></i>
+                        </div>
+                    </div>
+                  </div>
+                    </div>
+                    <div class="title">
+                      <i class="dropdown icon"></i>
+                      Area of Interest
+                      <i class="square outline icon" style="color: red; margin-left: 5px"></i>
+                    </div>
+                    <div class="content">
+                      <span class="ui label">None</span>
+                       <br>
                       <div class="ui selection dropdown">
+                        <div class="default text">None</div>
+                        <input id="DiseaseHistory" type="hidden">
+                        <i class="dropdown icon"></i>                       
+                        <div class="menu">
+                          <div class="item" data-value="0">Municipal Boundaries</div>
+                          <div class="item" data-value="1">Legal Land Survey</div>
+                          <div class="item" data-value="3">None</div> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="title">
+                      <i class="dropdown icon"></i>
+                      Model Parameters
+                      <i class="square outline icon" style="color: red; margin-left: 5px"></i>
+                    </div>
+                    <div class="content">
+                    
+                      <div class="ui segment">
+                      <span class="ui label">History of Disease in Field</span> 
+                      <div class="ui selection dropdown">
+                        <div class="default text">None</div>
                         <input id="DiseaseHistory" type="hidden">
                         <i class="dropdown icon"></i>
-                        <div class="default text">History of Disease in Field</div>
+                   
                         <div class="menu">
                           <div class="item" data-value="0">Low(1-10%)</div>
                           <div class="item" data-value="1">Medium(11-30%)</div>
                           <div class="item" data-value="2">High(31-100%)</div>
+                          <div class="item" data-value="3">None</div> 
                         </div>
                       </div>
-                      <br>
-                      <br>
+                     
+                      
+                      <span class="ui label">Crop Density</span>
                       <div class="ui selection dropdown">
+                        <div class="default text">None</div>
                         <input id="Cropdst" type="hidden">
                         <i class="dropdown icon"></i>
-                        <div class="default text">Crop Density</div>
                         <div class="menu">
                           <div class="item" data-value="0">Low</div>
                           <div class="item" data-value="1">Medium</div>
                           <div class="item" data-value="2">High</div>
+                          <div class="item" data-value="3">None</div> 
                         </div>
                       </div>
-                      <br>
-                      <br>
+                     
+                     
+                      <span class="ui label">Regional Risk of Apothecial development</span>
                       <div class="ui selection dropdown">
+                        <div class="default text">None</div>
                         <input id="RegionR" type="hidden">
                         <i class="dropdown icon"></i>
-                        <div class="default text">Regional Risk of Apothecial development</div>
                         <div class="menu">
-                          <div class="item" data-value="0">None</div>
                           <div class="item" data-value="1">Low-numbers</div>
                           <div class="item" data-value="2">High-numbers</div>
+                          <div class="item" data-value="3">None</div> 
                         </div>
                       </div>
-                      <br>
-                      <br>
+                    
+                      
+                      <span class="ui label">Weather Forecast</span>
                       <div class="ui selection dropdown">
+                        <div class="default text">None</div>
                         <input id="WeatherForecast" type="hidden">
                         <i class="dropdown icon"></i>
-                        <div class="default text">Weather Forecast</div>
                         <div class="menu">
                           <div class="item" data-value="0">High-pressure</div>
                           <div class="item" data-value="1">Variable</div>
                           <div class="item" data-value="2">Low-pressure</div>
+                          <div class="item" data-value="3">None</div> 
+                        </div>
+                      </div>
+
+                      
+                      <span class="ui label">Model to Use</span>
+                      <div class="ui selection dropdown">
+                        <div class="default text">None</div>
+                        <input id="WeatherForecast" type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                          <div class="item" data-value="0">Canola Council of Canada Model</div>
+                          <div class="item" data-value="1">AAFC Adopted Canola Council Model</div>
+                          <div class="item" data-value="3">None</div>
                         </div>
                       </div> 
-                      <div>
-                        <br>
-                        <button id ="ProcessData" class="ui button">Generate Result Using Orignal Canola Council Model</button>
-                        <br>
-                        <br>
-                        <button id ="ProcessData" class="ui button">Generate Result Using AAFC Adapted Canola Council Model</button>
-                      </div> 
                     </div>
+                  </div>
+                    <div class="title">
+                      <i class="dropdown icon"></i>
+                      Generate Risk Model
+                      <i class="square outline icon" style="color: red; margin-left: 5px"></i>
+                    </div>
+                    <div class="content">
+                    
+                        <button id ="AoiData" class="ui button" style="margin-right: 30px; margin-left: 10px">Update Model</button>
 
-                                        <div class="ui segment"> 
-                      <span class="title-main"class="ui header">Select Required Information Before Generate Result</span> 
-                      <br>
-                      <div>
+                        <div class="mini ui icon button" data-content="Zoom to the Area of Interest">
+                          <i class="zoom icon"></i>
+                        </div>
+                        <div class="mini ui icon button" data-content="Clear the current Risk Map">
+                          <i class="close icon"></i>
+                        </div>
                         <br>
-                        <button id ="RiskDisplay" class="ui button">Display Risk Result on Map</button>
                         <br>
-                      </div> 
-                    </div>
-                    </div>
-                    </div>
+                      <div class="ui active centered inline loader"></div>
 
-            <!-- Shapefile Upload -->
-            <div id="upload-shapefile-panel" class="info-panel">
+                      </div>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            
+            <div id="data-export-panel" class="info-panel">
                 <div class="sidebar-panel-heading">
                     <h4 class="sidebar-panel-title">
-                        <span>Data Download</span>
+                        <span>Export Control</span>
                     </h4>
                     <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
                 </div>
                 <div class="sidebar-panel-body">
             <div style="margin-top:10px;">               
 
-             <h3> Download Datasets </h3>  
+            <h4>Export Map</h4>
 
             <!-- Create buttons associates to the file locations in the server-->
 
-            <div class="ui segment" style="margin-bottom:10px;">   
-              <a style="visibility: hidden" 
+            <div class="ui segment" style="margin-bottom:10px;">  
+
+            <h> Please note that the map will export the current extent with all displayed layers.
+                Please zoom to the appropriate extent and turn on your desired layers before exporting. 
+                </h> 
+
+            <br>
+            <div class="ui segment">
+
+                  <h5 style="margin-top: 5px; margin-bottom: 5px">Page Size</h5>
+
+                      <div class="ui selection dropdown">
+                        <div class="default text">None</div>
+                        <input id="DiseaseHistory" type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                          <div class="item" data-value="0">A0 (slow)</div>
+                          <div class="item" data-value="1">A1</div>
+                          <div class="item" data-value="2">A2</div>
+                          <div class="item" data-value="3">A3</div>
+                          <div class="item" data-value="4">A4</div>
+                          <div class="item" data-value="5">A5 (fast)</div>
+                          <div class="item" data-value="6">None</div>                  
+                        </div>
+                      </div>
+
+               <h5 style="margin-top: 5px; margin-bottom: 5px">Resolution</h5>
+                <div class="ui selection dropdown">
+                  <div class="default text">None</div>
+                  <input id="WeatherForecast" type="hidden">
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="0">72 dpi</div>
+                    <div class="item" data-value="1">150 dpi</div>
+                    <div class="item" data-value="2">300 dpi(slow)</div>
+                    <div class="item" data-value="3">None</div> 
+                  </div>
+                </div>
+                <br>
+              <button id ="AoiData" class="ui button" style="margin-top: 10px;">Export</button>
+          </div>
+        </div>
+<!--               <a style="visibility: hidden" 
                  class="ui button" 
                  id="buttonDownload1" 
                  href="../../data/rain-data.tif">
@@ -253,14 +382,37 @@
                  class="ui button" 
                  id="buttonExportMap">
                 Export Risk Map
-              </a>
-            </div>
-          </div>
+              </a> -->
+                      </div>
+                  </div>
 
                 </div>
-            </div>
-        </div>        
-    </div>
+
+
+            
+            <div id="tool-information-panel" class="info-panel">
+                <div class="sidebar-panel-heading">
+                    <h4 class="sidebar-panel-title">
+                        <span>About the Web App</span>
+                    </h4>
+                    <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
+                </div>
+                <div class="sidebar-panel-body">
+             
+
+              <!-- Create buttons associates to the file locations in the server-->
+
+              <div class="ui segment" style="margin-bottom:10px;">  
+
+              <h> Some information of the tool goes in here... </h> 
+              </div>
+            
+          </div>
+        </div>
+
+
+      </div>
+    </div>        
 
     <div class="map pusher">
         
@@ -296,37 +448,7 @@
          
             </div>
         </div>
-        
-        <div class="count-many ui basic modal">
-            <div class="ui icon header">                
-            </div>
-            <div class="content">
-                <p>Selecting this many layers to subset can result in long processing times, particularly when cutting large areas. Are you sure you want to proceed?</p>
-            </div>
-            <div class="actions">
-                <div class="ui red basic cancel inverted button">
-                    <i class="remove icon"></i>
-                    No
-                </div>
-                <div class="ui green ok inverted button">
-                    <i class="checkmark icon"></i>
-                    Yes
-                </div>                
-            </div>
-        </div>   
-        
-        <div class="count-zero ui basic modal">
-            <div class="ui icon header">
-                <i class="warning sign icon"></i> You Must Select Some Layers To Proceed
-            </div>
-            <div class="content">                
-            </div>
-            <div class="actions">
-                <div class="ui green ok inverted button">                    
-                    Roger That
-                </div>                
-            </div>
-        </div>       
+          
         
         <div class="data-loader ui inverted dimmer">
             <div class="ui large text loader">Preparing files, this can take a few moments</div>
@@ -339,9 +461,25 @@
         <div id="popup-content"></div>
     </div>
 
+
+
+
+
     <div id="info">&nbsp;</div>
 
     </div>
+
+
+  <script>
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+
+    $( function() {
+    $( "#datepicker2" ).datepicker();
+  } );
+
+  </script>
 
 <script src="../js/Map.js" type="text/javascript"></script>    
 <script src="../js/semanticBasics.js" type="text/javascript"></script>
