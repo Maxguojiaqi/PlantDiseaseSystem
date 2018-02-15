@@ -75,13 +75,13 @@
                     <div>
                       
                       <div class="ui checkbox">
-                        <input name="example" type="checkbox">
+                        <input id="municipal" type="checkbox">
                         <label style="margin-right:20px;">Municipal Boundary</label>
                       </div>
                       
                       <!-- <br> -->
                       <div class="ui checkbox">
-                        <input name="example" type="checkbox">
+                        <input id="township"  type="checkbox">
                         <label>Legal Land Survey</label>
                       </div>
                     </div> 
@@ -117,11 +117,10 @@
                   </div>
                   <br>
 
-
                   <h5 style="margin-top: 0; margin-bottom: 0;">Opacity</h5>
-                  <br>
-                  <input type="range" min="1" max="100" value="50" style="width:60%">
-                        
+               
+                  <input id="myRange" type="range" min="1" max="100" value="100" style="width:60%">
+                  <p>Opacity: <span id="opacity"></span>%</p>
 
 
                 </div>
@@ -148,16 +147,14 @@
 
                     <!-- Create Input fields for the Model required information-->
                   
-                  <div class = "ui segment">
                     <div class="ui styled accordion">
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Target Data
-                      <i class="checkmark box icon" style="color: green; margin-left: 5px"></i>
+                      <i class="checkmark icon" style="color: green; float: right;"></i>
                     </div>
                     <div class="content">
-                    
-                    <div class="ui segment"> 
+
                     <div>
                     
                       Date: <input type="text" id="datepicker2" style="margin-left: 10px;width: 50%;"> 
@@ -166,12 +163,11 @@
                           <i class="help circle icon"></i>
                         </div>
                     </div>
-                  </div>
                     </div>
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Area of Interest
-                      <i class="square outline icon" style="color: red; margin-left: 5px"></i>
+                      <i class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
                       <span class="ui label">None</span>
@@ -190,11 +186,10 @@
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Model Parameters
-                      <i class="square outline icon" style="color: red; margin-left: 5px"></i>
+                      <i class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
                     
-                      <div class="ui segment">
                       <span class="ui label">History of Disease in Field</span> 
                       <div class="ui selection dropdown">
                         <div class="default text">None</div>
@@ -262,12 +257,11 @@
                           <div class="item" data-value="3">None</div>
                         </div>
                       </div> 
-                    </div>
                   </div>
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Generate Risk Model
-                      <i class="square outline icon" style="color: red; margin-left: 5px"></i>
+                      <i class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
                     
@@ -285,7 +279,6 @@
 
                       </div>                      
                     </div>
-                  </div>
                 </div>
               </div>
 
@@ -304,15 +297,11 @@
 
             <!-- Create buttons associates to the file locations in the server-->
 
-            <div class="ui segment" style="margin-bottom:10px;">  
-
             <h> Please note that the map will export the current extent with all displayed layers.
                 Please zoom to the appropriate extent and turn on your desired layers before exporting. 
                 </h> 
 
             <br>
-            <div class="ui segment">
-
                   <h5 style="margin-top: 5px; margin-bottom: 5px">Page Size</h5>
 
                       <div class="ui selection dropdown">
@@ -344,8 +333,7 @@
                 </div>
                 <br>
               <button id ="AoiData" class="ui button" style="margin-top: 10px;">Export</button>
-          </div>
-        </div>
+         
 <!--               <a style="visibility: hidden" 
                  class="ui button" 
                  id="buttonDownload1" 
@@ -470,7 +458,7 @@
     </div>
 
 
-  <script>
+<!--   <script>
   $( function() {
     $( "#datepicker1" ).datepicker();
   } );
@@ -479,14 +467,26 @@
     $( "#datepicker2" ).datepicker();
   } );
 
-  </script>
 
-<script src="../js/Map.js" type="text/javascript"></script>    
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+
+
+  </script> -->
+
+<script src="../js/MapUI.js" type="text/javascript"></script>    
 <script src="../js/semanticBasics.js" type="text/javascript"></script>
-<script src="../js/DataDownload.js" type="text/javascript"></script>
-<script src="../js/DataProcess.js" type="text/javascript"></script>
-<script src="../js/addLayer.js" type="text/javascript"></script>
-<script src="../js/exportMap.js" type="text/javascript"></script>
+<script src="../js/LayerControl.js" type="text/javascript"></script>
+<!-- <script src="../js/DataDownload.js" type="text/javascript"></script> -->
+<!-- <script src="../js/DataProcess.js" type="text/javascript"></script> -->
+<!-- <script src="../js/addLayer.js" type="text/javascript"></script> -->
+<!-- <script src="../js/exportMap.js" type="text/javascript"></script> -->
    
 </body>
 

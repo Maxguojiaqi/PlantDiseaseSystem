@@ -52,7 +52,7 @@ selectclick.on('select', function(e)
 });
 
 
-wmsLayer.setExtent = coords;
+// wmsLayer.setExtent = coords;
 
 
 // Download data from data server to process server
