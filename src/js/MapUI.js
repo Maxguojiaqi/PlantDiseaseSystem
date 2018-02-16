@@ -72,7 +72,6 @@ var manitoba_municipal_map =  new ol.layer.Vector
 });    
 
 
-
 // create the Vector source for manitoba municipall boundary data
 
 var manitoba_township_source = new ol.source.Vector
@@ -89,26 +88,41 @@ var manitoba_township_map =  new ol.layer.Vector
 });    
 
 // create tilewms source for temperature data
-var wmsSource = new ol.source.TileWMS
+var temperatureSource = new ol.source.TileWMS
 ({
   url:'http://34.201.23.195:8080/geoserver/RawTemperature/ows?',
-  params:{'LAYERS': 'RawTemperature:downsample64'},
+  params:{'LAYERS': 'RawTemperature:Temperature20160601'},
   serverType: 'geoserver',
   crossOrigin:'anonymous'
 });
 
 
-var Bextent = [ -100.2761859, 50.947917, -99.8354551, 51.4488523 ];
+// create wmslayer from temperature data 
+var temperatureLayer = new ol.layer.Tile
+({
+  source: temperatureSource
+});
 
-console.log(Bextent);
+// create tilewms source for temperature data
+var rainSource = new ol.source.TileWMS
+({
+  url:'http://34.201.23.195:8080/geoserver/RawRain/ows?',
+  params:{'LAYERS': 'RawRain:rain20160601'},
+  serverType: 'geoserver',
+  crossOrigin:'anonymous'
+});
 
-
+console.log(rainSource);
 
 // create wmslayer from temperature data 
-var wmsLayer = new ol.layer.Tile
+var rainLayer = new ol.layer.Tile
 ({
-  source: wmsSource
+  source: rainSource
 });
+
+
+
+
 
 // create map interface 
 
@@ -182,8 +196,6 @@ selectclick.on('select', function(e)
   coords = e.selected[0].f.target.l;
   console.log(coords);
   console.log(typeof(coords[0]));
-  wmsLayer.setExtent(coords);
-  map.addLayer(wmsLayer)
   }
 });
 

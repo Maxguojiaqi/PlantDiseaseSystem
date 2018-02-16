@@ -51,28 +51,15 @@
                     <span class="sidebar-panel-icon"><i class="remove icon"></i></span>
                 </div>
                 <div class="sidebar-panel-body">          
-                  <h4 style="margin-bottom: 0px" >  Select an Area of Interest </h4> 
+                  <h4 style="margin-bottom: 0px" >  Ancillary Layers </h4> 
                   <!-- Area of Interest Selection-->
 
                   <div class="ui one column grid"
                   style="margin: 0;">
                   <div class ="row">
                   <div class="ui segment" style="width: 100%">  
-                    <h5>Target Date</h5>
-                    <div>
-                    
-                      Date: <input type="text" id="datepicker1" style="margin-left: 10px;width: 50%;"> 
 
-                        <div class="ui icon button" data-content=" Some information about the data picker, content TBD">
-                          <i class="help circle icon"></i>
-                        </div>
-                    </div> 
-                  </div>
-                </div>
-                  <h4 style="margin-top: 0; margin-bottom: 0;"> Ancillary Layers </h4>
-                  <div class = "row">
-                  <div class="ui segment" style="width: 100%">  
-                    <div>
+                  	<div>
                       
                       <div class="ui checkbox">
                         <input id="municipal" type="checkbox">
@@ -85,6 +72,29 @@
                         <label>Legal Land Survey</label>
                       </div>
                     </div> 
+<!--                     <h5>Target Date</h5>
+                    <div>
+                    
+                      Date: <input type="text" id="datepicker1" value="10" style="margin-left: 10px;width: 50%;"> 
+
+                        <div class="ui icon button" data-content=" Some information about the data picker, content TBD">
+                          <i class="help circle icon"></i>
+                        </div>
+                    </div>  -->
+                  </div>
+                </div>
+                  <h4 style="margin-top: 0; margin-bottom: 0;"> Target Date </h4>
+                  <div class = "row">
+                  <div class="ui segment" style="width: 100%">  
+                    <div>
+                    
+                      Date: <input type="text" id="datepicker1" style="margin-left: 10px;width: 50%;"> 
+
+                        <div class="ui icon button" data-content=" Some information about the data picker, content TBD">
+                          <i class="help circle icon"></i>
+                        </div>
+                    </div>
+
                   </div>
                   </div>
 
@@ -99,10 +109,9 @@
                  <h4 style="margin-top: 0; margin-bottom: 0;" > Target Layer </h4>
                  <div class = "row">
                   <div class="ui segment" style="width: 100%">  
-                    <h5>Display data Layer on Map</h5>
                     <div>
                       <div class="ui selection dropdown" style="width:80%">
-                        <input id="RainType" type="hidden">
+                        <input id="layerdropdown" type="hidden">
                         <i class="dropdown icon"></i>
                         <div class="default text">None</div>
                         <div class="menu">
@@ -170,13 +179,11 @@
                       <i class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
-                      <span class="ui label">None</span>
-                       <br>
                       <div class="ui selection dropdown">
                         <div class="default text">None</div>
                         <input id="DiseaseHistory" type="hidden">
                         <i class="dropdown icon"></i>                       
-                        <div class="menu">
+                        <div class="menu" >
                           <div class="item" data-value="0">Municipal Boundaries</div>
                           <div class="item" data-value="1">Legal Land Survey</div>
                           <div class="item" data-value="3">None</div> 
@@ -189,9 +196,10 @@
                       <i class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
-                    
+                    <div>
+
                       <span class="ui label">History of Disease in Field</span> 
-                      <div class="ui selection dropdown">
+                      <div class="ui selection dropdown" style="display: block; margin: 5px">
                         <div class="default text">None</div>
                         <input id="DiseaseHistory" type="hidden">
                         <i class="dropdown icon"></i>
@@ -204,9 +212,12 @@
                         </div>
                       </div>
                      
-                      
+                     </div>
+
+                     <div>
+
                       <span class="ui label">Crop Density</span>
-                      <div class="ui selection dropdown">
+                      <div class="ui selection dropdown" style="display: block; margin: 5px">
                         <div class="default text">None</div>
                         <input id="Cropdst" type="hidden">
                         <i class="dropdown icon"></i>
@@ -218,9 +229,12 @@
                         </div>
                       </div>
                      
-                     
+                     </div>
+
+                     <div>
+
                       <span class="ui label">Regional Risk of Apothecial development</span>
-                      <div class="ui selection dropdown">
+                      <div class="ui selection dropdown" style="display: block; margin: 5px">
                         <div class="default text">None</div>
                         <input id="RegionR" type="hidden">
                         <i class="dropdown icon"></i>
@@ -231,9 +245,12 @@
                         </div>
                       </div>
                     
+                    </div>
                       
+                      <div>
+
                       <span class="ui label">Weather Forecast</span>
-                      <div class="ui selection dropdown">
+                      <div class="ui selection dropdown" style="display: block; margin: 5px">
                         <div class="default text">None</div>
                         <input id="WeatherForecast" type="hidden">
                         <i class="dropdown icon"></i>
@@ -245,9 +262,11 @@
                         </div>
                       </div>
 
+                      </div>
                       
+                      <div>
                       <span class="ui label">Model to Use</span>
-                      <div class="ui selection dropdown">
+                      <div class="ui selection dropdown" style="display: block; ">
                         <div class="default text">None</div>
                         <input id="WeatherForecast" type="hidden">
                         <i class="dropdown icon"></i>
@@ -257,6 +276,7 @@
                           <div class="item" data-value="3">None</div>
                         </div>
                       </div> 
+                  </div>
                   </div>
                     <div class="title">
                       <i class="dropdown icon"></i>
