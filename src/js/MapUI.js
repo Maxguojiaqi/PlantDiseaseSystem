@@ -37,6 +37,7 @@ return false;
 //
 var OSM_layer = new ol.layer.Tile
 ({
+  // source: new ol.source.OSM()
     source: new ol.source.BingMaps({
     key: 'Ao3gqEs-MVTd_WIvPO4XGqlFW6poGriaAu_hgkaln2H1d7ckV0ndV96HO5YdhAHP',
     imagerySet: 'Aerial'})
@@ -87,6 +88,10 @@ var manitoba_township_map =  new ol.layer.Vector
   source: manitoba_township_source,
 });    
 
+
+
+
+
 // create tilewms source for temperature data
 var temperatureSource = new ol.source.TileWMS
 ({
@@ -103,7 +108,7 @@ var temperatureLayer = new ol.layer.Tile
   source: temperatureSource
 });
 
-// create tilewms source for temperature data
+// create tilewms source for rain data
 var rainSource = new ol.source.TileWMS
 ({
   url:'http://34.201.23.195:8080/geoserver/RawRain/ows?',
@@ -112,16 +117,28 @@ var rainSource = new ol.source.TileWMS
   crossOrigin:'anonymous'
 });
 
-console.log(rainSource);
 
-// create wmslayer from temperature data 
+// create wmslayer from rain data 
 var rainLayer = new ol.layer.Tile
 ({
   source: rainSource
 });
 
+// create tilewms source for PM data
+var pmSource = new ol.source.TileWMS
+({
+  url:'http://34.201.23.195:8080/geoserver/RawPM/ows?',
+  params:{'LAYERS': 'RawPM:PM2016060106'},
+  serverType: 'geoserver',
+  crossOrigin:'anonymous'
+});
 
 
+// create wmslayer from PM data 
+var pmLayer = new ol.layer.Tile
+({
+  source: pmSource
+});
 
 
 // create map interface 

@@ -6,12 +6,38 @@
 
 var date;
 
+
+
 $( function() {
 $( "#datepicker1" ).datepicker();
 } );
 
+
+$( function() {
+$( "#datepicker2" ).datepicker();
+} );
+
+$(document).ready(function() {
+	$("#datepicker1").datepicker('setDate',"06/01/2016");
+	$("#datepicker1").datepicker('option',"minDate","06/01/2016");
+	$("#datepicker1").datepicker('option',"maxDate","06/15/2016");
+	$("#datepicker2").datepicker('setDate',"06/01/2016");
+	$("#datepicker2").datepicker('option',"minDate","06/01/2016");
+	$("#datepicker2").datepicker('option',"maxDate","06/15/2016");
+});
+
+
+
+
+
+
+
+
+
+
 $("#datepicker1").on("change", function() 
 {
+
 	date = document.getElementById("datepicker1").value;
 	var serverDate = date.substring(6,10) + date.substring(0,2) + date.substring(3,5);
 	console.log(serverDate);
@@ -41,9 +67,7 @@ $("#datepicker1").on("change", function()
 });
 
 
-$( function() {
-$( "#datepicker2" ).datepicker();
-} );
+
 
 
 // Implement Slider functionality
@@ -57,6 +81,7 @@ slider.oninput = function()
 	var Opacity = this.value / 100;
 	temperatureLayer.setOpacity(Opacity);
 	rainLayer.setOpacity(Opacity);
+	pmLayer.setOpacity(Opacity);
 	output.innerHTML = this.value;
 }
 
@@ -108,11 +133,22 @@ $("#layerdropdown").on("change", function()
    	{
 		map.addLayer(temperatureLayer);
 		map.removeLayer(rainLayer);
+		map.removeLayer(pmLayer);
    	}
 
    	else if (layerType==1)
    	{
 		map.addLayer(rainLayer);
+		console.log(rainLayer);
+		map.removeLayer(temperatureLayer);
+		map.removeLayer(pmLayer);
+   	}
+
+   	else if (layerType==2)
+   	{
+   		map.addLayer(pmLayer);
+   		console.log(pmLayer);
+		map.removeLayer(rainLayer);
 		map.removeLayer(temperatureLayer);
    	}
 
@@ -120,6 +156,7 @@ $("#layerdropdown").on("change", function()
    	{
    		map.removeLayer(temperatureLayer);
    		map.removeLayer(rainLayer);
+   		map.removeLayer(pmLayer);
    	}
    	
 });
