@@ -30,11 +30,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
 $("#datepicker1").on("change", function() 
 {
 
@@ -134,6 +129,9 @@ $("#layerdropdown").on("change", function()
 		map.addLayer(temperatureLayer);
 		map.removeLayer(rainLayer);
 		map.removeLayer(pmLayer);
+		map.removeLayer(CropHisLayer);
+		document.getElementById("layerLegend").src="http://34.201.23.195:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=RawTemperature:Temperature20160601";
+   		document.getElementById("legendTitle").innerHTML = "Average Temperature in Past 3 Days";
    	}
 
    	else if (layerType==1)
@@ -142,6 +140,9 @@ $("#layerdropdown").on("change", function()
 		console.log(rainLayer);
 		map.removeLayer(temperatureLayer);
 		map.removeLayer(pmLayer);
+		map.removeLayer(CropHisLayer);
+		document.getElementById("layerLegend").src="http://34.201.23.195:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=RawRain:rain20160601";
+		document.getElementById("legendTitle").innerHTML = "Accumulated Precipitation in Past 2 Weeks";
    	}
 
    	else if (layerType==2)
@@ -150,13 +151,27 @@ $("#layerdropdown").on("change", function()
    		console.log(pmLayer);
 		map.removeLayer(rainLayer);
 		map.removeLayer(temperatureLayer);
+		map.removeLayer(CropHisLayer);
+		document.getElementById("layerLegend").src="http://34.201.23.195:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=RawPM:PM2016060106";
+		document.getElementById("legendTitle").innerHTML = "Persistent Matrix ";
    	}
 
-   	else 
+   	else if (layerType==3)
+   	{
+   		map.addLayer(CropHisLayer);
+   		map.removeLayer(temperatureLayer);
+   		map.removeLayer(rainLayer);
+   		map.removeLayer(pmLayer);
+   		document.getElementById("layerLegend").src="http://34.201.23.195:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=CroppingHistory:CropHist2016";
+		document.getElementById("legendTitle").innerHTML = "Cropping History Since Last Time Canola Planted ";
+   	}
+
+   	else
    	{
    		map.removeLayer(temperatureLayer);
    		map.removeLayer(rainLayer);
    		map.removeLayer(pmLayer);
+   		map.removeLayer(CropHisLayer);
    	}
    	
 });

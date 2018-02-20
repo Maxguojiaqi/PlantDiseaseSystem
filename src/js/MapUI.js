@@ -49,8 +49,8 @@ var OSM_layer = new ol.layer.Tile
 var view = new ol.View
 ({
   projection: "EPSG:4326",
-  center: [-98.04789,49.53473],
-  zoom: 9
+  center: [-97.5 , 50.5],
+  zoom: 7
 });
 
 // Create scaleline control
@@ -141,6 +141,26 @@ var pmLayer = new ol.layer.Tile
 });
 
 
+// create tilewms source for PM data
+var CropHisSource = new ol.source.TileWMS
+({
+  url:'http://34.201.23.195:8080/geoserver/CroppingHistory/ows?',
+  params:{'LAYERS': 'CroppingHistory:CropHist2016'},
+  serverType: 'geoserver',
+  crossOrigin:'anonymous'
+});
+
+
+// create wmslayer from PM data 
+var CropHisLayer = new ol.layer.Tile
+({
+  source: CropHisSource
+});
+
+
+
+
+
 // create map interface 
 
 var map = new ol.Map
@@ -163,7 +183,7 @@ map.on('dblclick', function(evt)
 {
   var coordinate = evt.coordinate;
   var viewResolution = /** @type {number} */ (view.getResolution());
-  var url = wmsSource.getGetFeatureInfoUrl(
+  var url = temperatureSource.getGetFeatureInfoUrl(
       evt.coordinate, viewResolution, 'EPSG:3857',
       {'INFO_FORMAT': 'text/html'});
   if (url) {
