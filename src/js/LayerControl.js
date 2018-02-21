@@ -1,13 +1,21 @@
+/*******************************************************************
+Implement the LayerControl Panel.
+Functionalities: 
+AOI Ancillary Layers Picker, 
+Target Date Picker, 
+Target Layer Picker, 
+Adjust Opacity and Legend Display
+
+Last Modified: Jiaqi Guo(Max) 
+Date: 2018-02-21
+*******************************************************************/
 
 
-// $( "#datepicker1" ).on( "click", datepicker());
-
-// initiate the two date picker interface
-
+// Create date variable that used in datepicker1 and datepicker2 
 var date;
 
 
-
+// Initiate datepicker1 and datepicker2 
 $( function() {
 $( "#datepicker1" ).datepicker();
 } );
@@ -17,6 +25,8 @@ $( function() {
 $( "#datepicker2" ).datepicker();
 } );
 
+
+// when finish loading, set the default data and range for datepickers
 $(document).ready(function() {
 	$("#datepicker1").datepicker('setDate',"06/01/2016");
 	$("#datepicker1").datepicker('option',"minDate","06/01/2016");
@@ -27,9 +37,8 @@ $(document).ready(function() {
 });
 
 
-
-
-
+// Date Picker
+// Based on the user selected date for datepicker1, change the Geoserver Endpoint
 $("#datepicker1").on("change", function() 
 {
 
@@ -59,13 +68,13 @@ $("#datepicker1").on("change", function()
 	temperatureLayer.setSource(temperatureSource);
 
 
+	// set datepicker2's date to be same as datepicker1
+	$("#datepicker2").datepicker('setDate', date);
 });
 
 
 
-
-
-// Implement Slider functionality
+// Implement Opacity Slider functionality
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("opacity");
@@ -81,13 +90,19 @@ slider.oninput = function()
 }
 
 
+
+// Set the AOI Vector layer to when checked, only one boundary allowed 
 $( "#municipal" ).on( "click", function() 
 {
 
   if(document.getElementById("municipal").checked == true)
   {
-  	map.addInteraction(select);
+  	document.getElementById("township").checked = false;
+  	// map.addInteraction(select);
   	map.addLayer(manitoba_municipal_map);
+  	document.getElementById("aoiDropdown").innerHTML = 'Municipal Boundaries';
+  	map.removeLayer(manitoba_township_map);
+  	map.addInteraction(select);
   }
 
   else
@@ -95,6 +110,9 @@ $( "#municipal" ).on( "click", function()
   	
   	map.removeInteraction(select);
   	map.removeLayer(manitoba_municipal_map);
+	document.getElementById("aoiDropdown").innerHTML = 'None';
+  	document.getElementById("aoiFeature").style.color = "red";
+	document.getElementById("aoiFeature").innerHTML = "(no feature selected)";
   }
 
 });
@@ -104,19 +122,28 @@ $( "#township" ).on( "click", function()
 
   if(document.getElementById("township").checked == true)
   {
+  	document.getElementById("municipal").checked = false;
   	map.addInteraction(select);
   	map.addLayer(manitoba_township_map);
-  	console.log(document.getElementById("datepicker1").value);
+  	document.getElementById("aoiDropdown").innerHTML = 'Legal Land Survey';
+  	map.removeLayer(manitoba_municipal_map);
+  	// map.addInteraction(select);
   }
 
   else
   {
   	map.removeInteraction(select);
   	map.removeLayer(manitoba_township_map);
+  	document.getElementById("aoiDropdown").innerHTML = 'None';
+  	document.getElementById("aoiFeature").style.color = "red";
+    document.getElementById("aoiFeature").innerHTML = "(no feature selected)";
   }
 
 });
 
+
+// Layer Picker
+// Add target Layer and Layer's legend to the panel
 
 $("#layerdropdown").on("change", function() 
 {

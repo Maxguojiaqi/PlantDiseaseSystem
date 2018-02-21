@@ -151,7 +151,7 @@
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Target Data
-                      <i class="checkmark icon" style="color: green; float: right;"></i>
+                      <i id="step1" class="checkmark icon" style="color: green; float: right;"></i>
                     </div>
                     <div class="content">
                     <div class="ui left icon input">
@@ -168,12 +168,14 @@
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Area of Interest
-                      <i class="remove icon" style="color: red; float: right;"></i>
+                      <i id="step2" class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
+                   	<div>
+                      <span>Layer Selection</span> 
                       <div class="ui selection dropdown" style="display: block; margin: 5px">
-                        <div class="default text">None</div>
-                        <input id="DiseaseHistory" type="hidden">
+                        <div class="default text" id="aoiDropdown" >None</div>
+                        <input id="AOI" type="hidden">
                         <i class="dropdown icon"></i>                       
                         <div class="menu" >
                           <div class="item" data-value="0">Municipal Boundaries</div>
@@ -181,11 +183,23 @@
                           <div class="item" data-value="3">None</div> 
                         </div>
                       </div>
+					
+					
+						<h5 id= "aoiFeature" style="color: red; display: inline-flex; margin: 0px;"> (no feature selected)</h5> 
+                        <div class="mini ui icon button" data-content="Zoom to the Area of Interest">
+                          <i class="zoom icon"></i>
+                        </div>
+                        <div class="mini ui icon button" data-content="Clear the current Risk Map">
+                          <i class="close icon"></i>
+                        </div>
+                    
+                    </div>
+
                     </div>
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Model Parameters
-                      <i class="remove icon" style="color: red; float: right;"></i>
+                      <i id="step3" class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
                     <div>
@@ -273,7 +287,7 @@
                     <div class="title">
                       <i class="dropdown icon"></i>
                       Generate Risk Model
-                      <i class="remove icon" style="color: red; float: right;"></i>
+                      <i id="step1" class="remove icon" style="color: red; float: right;"></i>
                     </div>
                     <div class="content">
                     
@@ -282,7 +296,7 @@
                         <div class="mini ui icon button" data-content="Zoom to the Area of Interest">
                           <i class="zoom icon"></i>
                         </div>
-                        <div class="mini ui icon button" data-content="Clear the current Risk Map">
+                        <div class="mini ui icon button" data-content="Clear the selected feature">
                           <i class="close icon"></i>
                         </div>
                         <br>
@@ -471,6 +485,7 @@
 <script src="../js/MapUI.js" type="text/javascript"></script>    
 <script src="../js/semanticBasics.js" type="text/javascript"></script>
 <script src="../js/LayerControl.js" type="text/javascript"></script>
+<script src="../js/RiskModelControl.js" type="text/javascript"></script>
 <!-- <script src="../js/DataDownload.js" type="text/javascript"></script> -->
 <!-- <script src="../js/DataProcess.js" type="text/javascript"></script> -->
 <!-- <script src="../js/addLayer.js" type="text/javascript"></script> -->

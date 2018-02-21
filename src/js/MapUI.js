@@ -1,8 +1,9 @@
 /*******************************************************************
-This code generate the basemap using sing OpenLayers API
-Area of interest boundary vector data stored in Geoserver
-Created By: Jiaqi Guo(Max) 
-Last Modified: 2017-09-18
+Generate the basemap using OpenLayers API 
+Area of interest boundary vector data and raster layer data stored in Geoserver
+
+Last Modified: Jiaqi Guo(Max) 
+Date: 2018-02-21
 *******************************************************************/
 
 
@@ -13,6 +14,7 @@ var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
 var coords;
+var aoiInfo;
 var select = new ol.interaction.Select();
 
 
@@ -108,6 +110,7 @@ var temperatureLayer = new ol.layer.Tile
   source: temperatureSource
 });
 
+
 // create tilewms source for rain data
 var rainSource = new ol.source.TileWMS
 ({
@@ -176,7 +179,7 @@ var map = new ol.Map
     view: view
 });
 
-
+console.log(map);
 
 // when double click, openup a popup with cell info in it
 map.on('dblclick', function(evt) 
@@ -221,18 +224,25 @@ map.on('pointermove', function(evt) {
 
 
 
-// adding the interraction method single click to map to acquire the extent of the AOI
+// adding the interaction method single click to map to acquire the extent of the AOI
 // map.addInteraction(select);
-selectclick = select;
+var selectclick = new ol.interaction.Select();
 selectclick.on('select', function(e)
 { 
-  console.log(e);
   if (e!== null)
   {
-  console.log(e),
+  console.log(e)
+  console.log(e.selected[0].S.COMMONAME1);
+  console.log(e.selected[0].f.target.l);
+  console.log(typeof(e.selected[0].f.target.l[0]));
+
   coords = e.selected[0].f.target.l;
-  console.log(coords);
-  console.log(typeof(coords[0]));
+  aoiInfo = e.selected[0].S.COMMONAME1;
+
+
+  document.getElementById("aoiFeature").style.color = "LimeGreen";
+  document.getElementById("aoiFeature").innerHTML = "Feature: " + aoiInfo;
+
   }
 });
 
