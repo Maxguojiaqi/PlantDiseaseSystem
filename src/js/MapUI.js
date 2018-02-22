@@ -15,6 +15,7 @@ var content = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
 var coords;
 var aoiInfo;
+var currentLocation;
 var select = new ol.interaction.Select();
 
 
@@ -226,7 +227,7 @@ map.on('pointermove', function(evt) {
 
 // adding the interaction method single click to map to acquire the extent of the AOI
 // map.addInteraction(select);
-var selectclick = new ol.interaction.Select();
+var selectclick = select;
 selectclick.on('select', function(e)
 { 
   if (e!== null)
@@ -238,6 +239,12 @@ selectclick.on('select', function(e)
 
   coords = e.selected[0].f.target.l;
   aoiInfo = e.selected[0].S.COMMONAME1;
+
+  console.log((coords[0] + coords[2])/2);
+  console.log(typeof((coords[1]+coords[3])/2)));
+  // currentLocation = ol.proj.fromLonLat([coords[0],coords[1]]);
+
+  currentLocation = ol.proj.fromLonLat([(coords[0] + coords[2])/2, (coords[1]+coords[3])/2);
 
 
   document.getElementById("aoiFeature").style.color = "LimeGreen";

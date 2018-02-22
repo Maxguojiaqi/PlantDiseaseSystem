@@ -75,3 +75,16 @@ $("#AOI").on("change", function()
 
    	}
  });
+
+
+
+$("#zoomToSelection").on("click", function() 
+{
+
+  view.animate({
+
+    center:[(coords[0] + coords[2])/2, (coords[1]+coords[3])/2],
+    zoom: 10
+  });
+
+});
